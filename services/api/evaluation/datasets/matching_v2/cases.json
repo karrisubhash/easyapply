@@ -1,0 +1,849 @@
+{
+ "version": "matching_v2",
+ "description": "Deterministic matching cases. Each one states, per requirement, the verdict a careful person would reach from the profile alone — not the verdict the current rules happen to produce. Where those differ, the rules are what should change. Coverage here is of SHAPES of judgment (alias, near-miss, duration, field-of-study, credential level, sparsity), not of volume: a hundred perfect matches would score well and teach nothing.\n\nForked from matching_v1 when the rules gained graded evidence. Exactly one expectation changed: a technology demonstrated in a paid role's description now MATCHES a requirement that does not demand production use, where matching_v1 called it UNCERTAIN because the skills list did not repeat it. That change came from the real-data benchmark, where it was the single largest class of disagreement with human judgment. matching_v1/cases.json is kept beside this file so the older rules stay interpretable.",
+ "cases": [
+  {
+   "id": "perfect-skill-match",
+   "shape": "perfect skill match",
+   "note": "The baseline. Every required skill is listed outright, so every verdict is MATCHED on structured evidence. If this regresses, something is badly wrong.",
+   "as_of": "2026-09-19",
+   "profile": {
+    "skills": [
+     {
+      "name": "Python"
+     },
+     {
+      "name": "Django"
+     },
+     {
+      "name": "PostgreSQL"
+     }
+    ]
+   },
+   "job": {
+    "required_skills": [
+     "Python",
+     "Django",
+     "PostgreSQL"
+    ]
+   },
+   "expected": [
+    {
+     "category": "skill",
+     "label": "Python",
+     "status": "matched"
+    },
+    {
+     "category": "skill",
+     "label": "Django",
+     "status": "matched"
+    },
+    {
+     "category": "skill",
+     "label": "PostgreSQL",
+     "status": "matched"
+    }
+   ]
+  },
+  {
+   "id": "missing-required-skill",
+   "shape": "missing required skill",
+   "note": "Rust appears nowhere in the profile — not as a skill, not as a project technology, not in any description. MISSING, and the required axis has to say so.",
+   "as_of": "2026-09-19",
+   "profile": {
+    "skills": [
+     {
+      "name": "Python"
+     },
+     {
+      "name": "Django"
+     }
+    ]
+   },
+   "job": {
+    "required_skills": [
+     "Python",
+     "Django",
+     "Rust"
+    ]
+   },
+   "expected": [
+    {
+     "category": "skill",
+     "label": "Python",
+     "status": "matched"
+    },
+    {
+     "category": "skill",
+     "label": "Django",
+     "status": "matched"
+    },
+    {
+     "category": "skill",
+     "label": "Rust",
+     "status": "missing"
+    }
+   ]
+  },
+  {
+   "id": "missing-preferred-skill",
+   "shape": "missing preferred skill",
+   "note": "§8's example. Kubernetes is absent, and that is a MISSING on the PREFERRED axis — the required axis must be untouched. The verdict is the same word; the fact it reports is not.",
+   "as_of": "2026-09-19",
+   "profile": {
+    "skills": [
+     {
+      "name": "Python"
+     },
+     {
+      "name": "Django"
+     }
+    ]
+   },
+   "job": {
+    "required_skills": [
+     "Python",
+     "Django"
+    ],
+    "preferred_skills": [
+     "Kubernetes"
+    ]
+   },
+   "expected": [
+    {
+     "category": "skill",
+     "label": "Python",
+     "status": "matched"
+    },
+    {
+     "category": "skill",
+     "label": "Django",
+     "status": "matched"
+    },
+    {
+     "category": "skill",
+     "label": "Kubernetes",
+     "status": "missing"
+    }
+   ]
+  },
+  {
+   "id": "alias-matches",
+   "shape": "required skill matched through a supported alias",
+   "note": "Every pair here has a justified entry in normalization.ALIASES: the profile and the posting are naming the same product with different words.",
+   "as_of": "2026-09-19",
+   "profile": {
+    "skills": [
+     {
+      "name": "Postgres"
+     },
+     {
+      "name": "K8s"
+     },
+     {
+      "name": "Golang"
+     },
+     {
+      "name": "Amazon Web Services"
+     },
+     {
+      "name": "NodeJS"
+     }
+    ]
+   },
+   "job": {
+    "required_skills": [
+     "PostgreSQL",
+     "Kubernetes",
+     "Go",
+     "AWS",
+     "Node.js"
+    ]
+   },
+   "expected": [
+    {
+     "category": "skill",
+     "label": "PostgreSQL",
+     "status": "matched"
+    },
+    {
+     "category": "skill",
+     "label": "Kubernetes",
+     "status": "matched"
+    },
+    {
+     "category": "skill",
+     "label": "Go",
+     "status": "matched"
+    },
+    {
+     "category": "skill",
+     "label": "AWS",
+     "status": "matched"
+    },
+    {
+     "category": "skill",
+     "label": "Node.js",
+     "status": "matched"
+    }
+   ]
+  },
+  {
+   "id": "similar-but-not-equivalent",
+   "shape": "similar-looking but NOT equivalent technologies",
+   "note": "§7's forbidden equivalences, and the most important case in this dataset. A similarity-based matcher scores well here by being wrong: React Native is not React, Django is not Python, MySQL is not PostgreSQL, JavaScript is not Java. Every one is MISSING, and a MATCHED here is a false match — the failure a reader cannot see.",
+   "as_of": "2026-09-19",
+   "profile": {
+    "skills": [
+     {
+      "name": "React"
+     },
+     {
+      "name": "Django"
+     },
+     {
+      "name": "PostgreSQL"
+     },
+     {
+      "name": "JavaScript"
+     }
+    ]
+   },
+   "job": {
+    "required_skills": [
+     "React Native",
+     "Python",
+     "MySQL",
+     "Java"
+    ]
+   },
+   "expected": [
+    {
+     "category": "skill",
+     "label": "React Native",
+     "status": "missing"
+    },
+    {
+     "category": "skill",
+     "label": "Python",
+     "status": "missing"
+    },
+    {
+     "category": "skill",
+     "label": "MySQL",
+     "status": "missing"
+    },
+    {
+     "category": "skill",
+     "label": "Java",
+     "status": "missing"
+    }
+   ]
+  },
+  {
+   "id": "experience-clearly-sufficient",
+   "shape": "experience clearly sufficient",
+   "note": "§9's first example. Two independent routes to the same answer: the profile states six years of Python outright, and dated employment naming Python covers 2019-2024. Either settles a 3-year bar.",
+   "as_of": "2026-09-19",
+   "profile": {
+    "skills": [
+     {
+      "name": "Python",
+      "years": 6
+     }
+    ],
+    "experiences": [
+     {
+      "company": "Acme",
+      "job_title": "Python Developer",
+      "start": "2019-01-01",
+      "end": "2024-01-01",
+      "description": "Backend services in Python"
+     }
+    ]
+   },
+   "job": {
+    "required_experience": [
+     [
+      "3+ years of Python",
+      3
+     ]
+    ]
+   },
+   "expected": [
+    {
+     "category": "experience",
+     "label": "3+ years of Python",
+     "status": "matched"
+    }
+   ]
+  },
+  {
+   "id": "experience-insufficient",
+   "shape": "experience clearly insufficient",
+   "note": "The profile answers the question and the answer is too low: two years against a five-year bar. MISSING, not UNCERTAIN — there is no doubt here, and reporting doubt would be its own kind of wrong.",
+   "as_of": "2026-09-19",
+   "profile": {
+    "skills": [
+     {
+      "name": "Python",
+      "years": 2
+     }
+    ],
+    "experiences": [
+     {
+      "company": "Acme",
+      "job_title": "Python Developer",
+      "start": "2024-01-01",
+      "end": "2026-01-01",
+      "description": "Backend services in Python"
+     }
+    ]
+   },
+   "job": {
+    "required_experience": [
+     [
+      "5+ years of Python",
+      5
+     ]
+    ]
+   },
+   "expected": [
+    {
+     "category": "experience",
+     "label": "5+ years of Python",
+     "status": "missing"
+    }
+   ]
+  },
+  {
+   "id": "experience-uncertain",
+   "shape": "experience uncertain — insufficient evidence, not absent evidence",
+   "note": "§9's second example, and the distinction the whole category turns on. The profile claims Python and says nothing about duration: no years on the skill, and no dated employment that can be attributed to it. Neither MATCHED nor MISSING is honest. The Django requirement is the project-work variant: five years of side-project dates are not five years of professional experience.",
+   "as_of": "2026-09-19",
+   "profile": {
+    "skills": [
+     {
+      "name": "Python"
+     }
+    ],
+    "projects": [
+     {
+      "name": "EasyApply",
+      "technologies": [
+       "Django"
+      ],
+      "start": "2020-01-01",
+      "end": "2025-01-01"
+     }
+    ]
+   },
+   "job": {
+    "required_experience": [
+     [
+      "5+ years of Python",
+      5
+     ],
+     [
+      "3+ years of Django",
+      3
+     ]
+    ]
+   },
+   "expected": [
+    {
+     "category": "experience",
+     "label": "5+ years of Python",
+     "status": "uncertain"
+    },
+    {
+     "category": "experience",
+     "label": "3+ years of Django",
+     "status": "uncertain"
+    }
+   ]
+  },
+  {
+   "id": "experience-overlapping-and-total",
+   "shape": "overlapping employment periods and a total-employment requirement",
+   "note": "Two concurrent roles from 2020 to 2023 are three years, not six; summing would wrongly clear a five-year bar. The second requirement names no subject at all, so it asks about employment as such — and the same merged span answers it.",
+   "as_of": "2026-09-19",
+   "profile": {
+    "skills": [
+     {
+      "name": "Python"
+     }
+    ],
+    "experiences": [
+     {
+      "company": "Acme",
+      "job_title": "Python Developer",
+      "start": "2020-01-01",
+      "end": "2023-01-01",
+      "description": "Python services"
+     },
+     {
+      "company": "Side Co",
+      "job_title": "Python Contractor",
+      "start": "2020-01-01",
+      "end": "2023-01-01",
+      "description": "Python consulting"
+     }
+    ]
+   },
+   "job": {
+    "required_experience": [
+     [
+      "5+ years of Python",
+      5
+     ],
+     [
+      "2+ years of professional experience",
+      2
+     ]
+    ]
+   },
+   "expected": [
+    {
+     "category": "experience",
+     "label": "5+ years of Python",
+     "status": "missing"
+    },
+    {
+     "category": "experience",
+     "label": "2+ years of professional experience",
+     "status": "matched"
+    }
+   ]
+  },
+  {
+   "id": "education-exact",
+   "shape": "education exact",
+   "note": "Level and subject both stated and both met. Also covers the level-only requirement, which a bachelor's in any subject answers.",
+   "as_of": "2026-09-19",
+   "profile": {
+    "education": [
+     {
+      "institution": "State University",
+      "degree": "BSc Computer Science",
+      "field_of_study": "Computer Science"
+     }
+    ]
+   },
+   "job": {
+    "education": [
+     [
+      "Bachelor's degree in Computer Science",
+      "bachelor",
+      null,
+      true
+     ],
+     [
+      "Bachelor's degree required",
+      "bachelor",
+      null,
+      true
+     ]
+    ]
+   },
+   "expected": [
+    {
+     "category": "education",
+     "label": "Bachelor's degree in Computer Science",
+     "status": "matched"
+    },
+    {
+     "category": "education",
+     "label": "Bachelor's degree required",
+     "status": "matched"
+    }
+   ]
+  },
+  {
+   "id": "education-mismatch",
+   "shape": "education mismatch — right level, unrelated field",
+   "note": "§10's example, stated exactly as the milestone states it. A B.Tech in Mechanical Engineering IS a bachelor's degree; that does not make it a bachelor's in Computer Science. Whether mechanical engineering counts as a 'related field' is a judgment the profile schema holds no information to make, so UNCERTAIN. The master's requirement is the other axis: the level is genuinely not reached, which is MISSING.",
+   "as_of": "2026-09-19",
+   "profile": {
+    "education": [
+     {
+      "institution": "State University",
+      "degree": "B.Tech Mechanical Engineering",
+      "field_of_study": "Mechanical Engineering"
+     }
+    ]
+   },
+   "job": {
+    "education": [
+     [
+      "Bachelor's degree in Computer Science or related field",
+      "bachelor",
+      null,
+      true
+     ],
+     [
+      "Master's degree in Computer Science",
+      "master",
+      null,
+      false
+     ]
+    ]
+   },
+   "expected": [
+    {
+     "category": "education",
+     "label": "Bachelor's degree in Computer Science or related field",
+     "status": "uncertain"
+    },
+    {
+     "category": "education",
+     "label": "Master's degree in Computer Science",
+     "status": "missing"
+    }
+   ]
+  },
+  {
+   "id": "certification-match",
+   "shape": "certification exact and supported variant",
+   "note": "§11's example. The held credential is a MORE specific form of the one required — the extra words name the level of the same credential — so it answers it. The exact match is the control.",
+   "as_of": "2026-09-19",
+   "profile": {
+    "certifications": [
+     {
+      "name": "AWS Certified Developer – Associate",
+      "issuer": "Amazon Web Services"
+     },
+     {
+      "name": "Certified Kubernetes Administrator",
+      "issuer": "CNCF"
+     }
+    ]
+   },
+   "job": {
+    "certifications": [
+     [
+      "AWS Certified Developer",
+      true
+     ],
+     [
+      "Certified Kubernetes Administrator",
+      true
+     ]
+    ]
+   },
+   "expected": [
+    {
+     "category": "certification",
+     "label": "AWS Certified Developer",
+     "status": "matched"
+    },
+    {
+     "category": "certification",
+     "label": "Certified Kubernetes Administrator",
+     "status": "matched"
+    }
+   ]
+  },
+  {
+   "id": "certification-mismatch",
+   "shape": "certification mismatch — same vendor, different credential",
+   "note": "§11's warning. Sharing the words 'AWS Certified' is not sharing a credential: a Solutions Architect is not a Developer. The expired case is separate — the profile genuinely holds the credential, and whether a lapsed one satisfies the posting is not a question the profile can answer.",
+   "as_of": "2026-09-19",
+   "profile": {
+    "certifications": [
+     {
+      "name": "AWS Certified Solutions Architect",
+      "issuer": "Amazon Web Services"
+     },
+     {
+      "name": "Certified Scrum Master",
+      "expires": "2024-06-01"
+     }
+    ]
+   },
+   "job": {
+    "certifications": [
+     [
+      "AWS Certified Developer",
+      true
+     ],
+     [
+      "Certified Scrum Master",
+      false
+     ]
+    ]
+   },
+   "expected": [
+    {
+     "category": "certification",
+     "label": "AWS Certified Developer",
+     "status": "missing"
+    },
+    {
+     "category": "certification",
+     "label": "Certified Scrum Master",
+     "status": "uncertain"
+    }
+   ]
+  },
+  {
+   "id": "sparse-profile",
+   "shape": "sparse profile against a full posting",
+   "note": "Almost nothing to match against. Every verdict must still be reached and explained rather than skipped: a requirement dropped for want of data shrinks the denominator and flatters the score. The free-text qualification is UNCERTAIN because matching_v1 has no field that could answer it, which is a different thing from MISSING.",
+   "as_of": "2026-09-19",
+   "profile": {
+    "skills": [
+     {
+      "name": "Python"
+     }
+    ]
+   },
+   "job": {
+    "required_skills": [
+     "Python",
+     "Kubernetes"
+    ],
+    "preferred_skills": [
+     "Terraform"
+    ],
+    "required_experience": [
+     [
+      "5+ years of professional experience",
+      5
+     ]
+    ],
+    "education": [
+     [
+      "Bachelor's degree in Computer Science",
+      "bachelor",
+      null,
+      true
+     ]
+    ],
+    "certifications": [
+     [
+      "AWS Certified Developer",
+      true
+     ]
+    ],
+    "qualifications": [
+     [
+      "Must be authorized to work in the US",
+      true
+     ]
+    ]
+   },
+   "expected": [
+    {
+     "category": "skill",
+     "label": "Python",
+     "status": "matched"
+    },
+    {
+     "category": "skill",
+     "label": "Kubernetes",
+     "status": "missing"
+    },
+    {
+     "category": "skill",
+     "label": "Terraform",
+     "status": "missing"
+    },
+    {
+     "category": "experience",
+     "label": "5+ years of professional experience",
+     "status": "missing"
+    },
+    {
+     "category": "education",
+     "label": "Bachelor's degree in Computer Science",
+     "status": "missing"
+    },
+    {
+     "category": "certification",
+     "label": "AWS Certified Developer",
+     "status": "missing"
+    },
+    {
+     "category": "qualification",
+     "label": "Must be authorized to work in the US",
+     "status": "uncertain"
+    }
+   ]
+  },
+  {
+   "id": "rich-profile-multiple-requirements",
+   "shape": "rich profile, many requirements, every verdict represented",
+   "note": "The integration case: a realistic profile against a realistic posting, producing all three verdicts across all six categories. Django is the one to watch — it appears only in an experience DESCRIPTION and not in the skills list. Under graded evidence that is work demonstrated in a paid role, which MATCHES a requirement asking only for the skill; it would still not satisfy one asking for production experience.",
+   "as_of": "2026-09-19",
+   "profile": {
+    "skills": [
+     {
+      "name": "Python",
+      "years": 7
+     },
+     {
+      "name": "Postgres"
+     },
+     {
+      "name": "JavaScript"
+     }
+    ],
+    "experiences": [
+     {
+      "company": "Acme Corp",
+      "job_title": "Senior Backend Developer",
+      "start": "2018-06-01",
+      "end": "2025-01-01",
+      "description": "Django REST API development, Celery workers, Python services at scale"
+     },
+     {
+      "company": "Startup Inc",
+      "job_title": "Backend Engineer",
+      "start": "2016-01-01",
+      "end": "2018-05-01",
+      "description": "Python and Flask"
+     }
+    ],
+    "education": [
+     {
+      "institution": "State University",
+      "degree": "BSc Computer Science",
+      "field_of_study": "Computer Science"
+     }
+    ],
+    "certifications": [
+     {
+      "name": "AWS Certified Developer – Associate",
+      "issuer": "Amazon Web Services"
+     }
+    ],
+    "projects": [
+     {
+      "name": "EasyApply",
+      "technologies": [
+       "Redis",
+       "Docker"
+      ],
+      "description": "Job application tooling"
+     }
+    ]
+   },
+   "job": {
+    "required_skills": [
+     "Python",
+     "PostgreSQL",
+     "Django"
+    ],
+    "preferred_skills": [
+     "Kubernetes",
+     "Redis"
+    ],
+    "technologies": [
+     [
+      "Docker",
+      true
+     ],
+     [
+      "Terraform",
+      false
+     ]
+    ],
+    "required_experience": [
+     [
+      "5+ years of professional experience",
+      5
+     ]
+    ],
+    "preferred_experience": [
+     [
+      "3+ years of Python",
+      3
+     ]
+    ],
+    "education": [
+     [
+      "Bachelor's degree in Computer Science",
+      "bachelor",
+      null,
+      true
+     ]
+    ],
+    "certifications": [
+     [
+      "AWS Certified Developer",
+      true
+     ]
+    ],
+    "qualifications": [
+     [
+      "Must be willing to travel occasionally",
+      false
+     ]
+    ]
+   },
+   "expected": [
+    {
+     "category": "skill",
+     "label": "Python",
+     "status": "matched"
+    },
+    {
+     "category": "skill",
+     "label": "PostgreSQL",
+     "status": "matched"
+    },
+    {
+     "category": "skill",
+     "label": "Django",
+     "status": "matched"
+    },
+    {
+     "category": "skill",
+     "label": "Kubernetes",
+     "status": "missing"
+    },
+    {
+     "category": "skill",
+     "label": "Redis",
+     "status": "matched"
+    },
+    {
+     "category": "technology",
+     "label": "Docker",
+     "status": "matched"
+    },
+    {
+     "category": "technology",
+     "label": "Terraform",
+     "status": "missing"
+    },
+    {
+     "category": "experience",
+     "label": "5+ years of professional experience",
+     "status": "matched"
+    },
+    {
+     "category": "experience",
+     "label": "3+ years of Python",
+     "status": "matched"
+    },
+    {
+     "category": "education",
+     "label": "Bachelor's degree in Computer Science",
+     "status": "matched"
+    },
+    {
+     "category": "certification",
+     "label": "AWS Certified Developer",
+     "status": "matched"
+    },
+    {
+     "category": "qualification",
+     "label": "Must be willing to travel occasionally",
+     "status": "uncertain"
+    }
+   ]
+  }
+ ]
+}

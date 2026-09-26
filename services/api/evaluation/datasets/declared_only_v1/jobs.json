@@ -1,0 +1,70 @@
+{
+  "jobs": [
+    {
+      "id": "j_platform",
+      "label": "Platform Engineer — states one bar explicitly and leaves the rest bare",
+      "job_title": "Platform Engineer",
+      "company_kind": "scale-up, 200 people",
+      "location": "London, United Kingdom (hybrid, two days a week in the office)",
+      "description": "We are hiring a Platform Engineer to look after the clusters and the pipelines our product teams deploy onto.\n\nWhat we are looking for:\n- Kubernetes\n- Terraform in production, not just in a home lab\n- Docker\n- 5+ years of professional infrastructure experience\n\nNice to have: AWS\nAlso useful: 3+ years of Kubernetes experience\n\nYou must have the right to work in the UK.",
+      "requirements": [
+        {"id": "rq_pf_k8s", "category": "skill", "label": "Kubernetes", "is_required": true, "aspect": "uncorroborated_claim", "source_quote": "Kubernetes"},
+        {"id": "rq_pf_tf", "category": "skill", "label": "Terraform", "is_required": true, "aspect": "uncorroborated_claim", "source_quote": "Terraform in production, not just in a home lab"},
+        {"id": "rq_pf_aws", "category": "skill", "label": "AWS", "is_required": false, "aspect": "uncorroborated_claim", "source_quote": "Nice to have: AWS"},
+        {"id": "rq_pf_docker", "category": "technology", "label": "Docker", "is_required": true, "aspect": "technology", "source_quote": "Docker"},
+        {"id": "rq_pf_infra5", "category": "experience", "label": "5+ years of professional infrastructure experience", "is_required": true, "aspect": "experience_duration", "minimum_years": 5, "source_quote": "5+ years of professional infrastructure experience"},
+        {"id": "rq_pf_k8s3", "category": "experience", "label": "3+ years of Kubernetes experience", "is_required": false, "aspect": "experience_duration", "minimum_years": 3, "source_quote": "3+ years of Kubernetes experience"},
+        {"id": "rq_pf_auth", "category": "qualification", "label": "Right to work in the United Kingdom", "is_required": true, "aspect": "free_text", "source_quote": "You must have the right to work in the UK"}
+      ]
+    },
+    {
+      "id": "j_backend",
+      "label": "Backend Engineer — two bare nice-to-haves and two duration bars",
+      "job_title": "Backend Engineer",
+      "company_kind": "logistics software vendor, 500 people",
+      "location": "Leeds, United Kingdom",
+      "description": "Our dispatch platform team is growing. You will work on the services that plan and track several million deliveries a year.\n\nRequirements:\n- Python\n- Strong PostgreSQL skills\n- Django\n- 4+ years of professional Python development\n- 5+ years of professional software engineering experience\n\nNice to have: Redis\nHelpful: GraphQL",
+      "requirements": [
+        {"id": "rq_be_py", "category": "skill", "label": "Python", "is_required": true, "aspect": "exact_skill", "source_quote": "Python"},
+        {"id": "rq_be_pg", "category": "skill", "label": "PostgreSQL", "is_required": true, "aspect": "exact_skill", "source_quote": "Strong PostgreSQL skills"},
+        {"id": "rq_be_redis", "category": "skill", "label": "Redis", "is_required": false, "aspect": "uncorroborated_claim", "source_quote": "Nice to have: Redis"},
+        {"id": "rq_be_gql", "category": "skill", "label": "GraphQL", "is_required": false, "aspect": "uncorroborated_claim", "source_quote": "Helpful: GraphQL"},
+        {"id": "rq_be_django", "category": "technology", "label": "Django", "is_required": true, "aspect": "technology", "source_quote": "Django"},
+        {"id": "rq_be_py4", "category": "experience", "label": "4+ years of professional Python development", "is_required": true, "aspect": "experience_duration", "minimum_years": 4, "source_quote": "4+ years of professional Python development"},
+        {"id": "rq_be_swe5", "category": "experience", "label": "5+ years of professional software engineering experience", "is_required": true, "aspect": "experience_duration", "minimum_years": 5, "source_quote": "5+ years of professional software engineering experience"}
+      ]
+    },
+    {
+      "id": "j_grad",
+      "label": "Graduate Software Engineer — every optional ask phrased as exposure",
+      "job_title": "Graduate Software Engineer",
+      "company_kind": "public-sector digital agency",
+      "location": "Sheffield, United Kingdom",
+      "description": "A two-year graduate programme on our citizen services team.\n\nWe ask for:\n- Python\n- Internship or placement experience\n- Bachelor's degree in Computer Science or a related field\n\nHelpful: Kubernetes\nAny Terraform exposure is welcome.\nDocker is used across the team.",
+      "requirements": [
+        {"id": "rq_gr_py", "category": "skill", "label": "Python", "is_required": true, "aspect": "exact_skill", "source_quote": "Python"},
+        {"id": "rq_gr_k8s", "category": "skill", "label": "Kubernetes", "is_required": false, "aspect": "uncorroborated_claim", "source_quote": "Helpful: Kubernetes"},
+        {"id": "rq_gr_tf", "category": "skill", "label": "Terraform", "is_required": false, "aspect": "uncorroborated_claim", "source_quote": "Any Terraform exposure is welcome"},
+        {"id": "rq_gr_docker", "category": "technology", "label": "Docker", "is_required": false, "aspect": "technology", "source_quote": "Docker is used across the team"},
+        {"id": "rq_gr_intern", "category": "experience", "label": "Internship or placement experience", "is_required": true, "aspect": "experience_ambiguous", "source_quote": "Internship or placement experience"},
+        {"id": "rq_gr_degree", "category": "education", "label": "Bachelor's degree in Computer Science or a related field", "is_required": true, "aspect": "related_field", "degree_level": "bachelor", "source_quote": "Bachelor's degree in Computer Science or a related field"}
+      ]
+    },
+    {
+      "id": "j_data",
+      "label": "Senior Data Engineer — duration bars stated without the word professional",
+      "job_title": "Senior Data Engineer",
+      "company_kind": "retail analytics firm",
+      "location": "Edinburgh, United Kingdom",
+      "description": "You will own the pipelines behind our demand forecasting product.\n\nWhat the role needs:\n- Scala\n- 5+ years of Scala\n- 3+ years of Kubernetes\n- Production Spark experience\n- Airflow\n\nNice to have: Snowflake",
+      "requirements": [
+        {"id": "rq_da_scala", "category": "skill", "label": "Scala", "is_required": true, "aspect": "uncorroborated_claim", "source_quote": "Scala"},
+        {"id": "rq_da_scala5", "category": "experience", "label": "5+ years of Scala", "is_required": true, "aspect": "experience_duration", "minimum_years": 5, "source_quote": "5+ years of Scala"},
+        {"id": "rq_da_k8s3", "category": "experience", "label": "3+ years of Kubernetes", "is_required": true, "aspect": "experience_duration", "minimum_years": 3, "source_quote": "3+ years of Kubernetes"},
+        {"id": "rq_da_snow", "category": "skill", "label": "Snowflake", "is_required": false, "aspect": "uncorroborated_claim", "source_quote": "Nice to have: Snowflake"},
+        {"id": "rq_da_spark", "category": "skill", "label": "Spark", "is_required": true, "aspect": "exact_skill", "source_quote": "Production Spark experience"},
+        {"id": "rq_da_airflow", "category": "technology", "label": "Airflow", "is_required": true, "aspect": "technology", "source_quote": "Airflow"}
+      ]
+    }
+  ]
+}

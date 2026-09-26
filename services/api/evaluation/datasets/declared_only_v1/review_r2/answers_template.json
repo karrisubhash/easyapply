@@ -1,0 +1,436 @@
+{
+  "_instructions": "Fill in one object per row. Read RUBRIC.md first. Leave nothing blank except `notes`.",
+  "reviewer": {
+    "name": "",
+    "role": "",
+    "rated_on": "",
+    "minutes_spent": "",
+    "read_rubric": "",
+    "prior_exposure_to_this_dataset": ""
+  },
+  "ratings": [
+    {
+      "row_id": "R01",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R02",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R03",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R04",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R05",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R06",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R07",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R08",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R09",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R10",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R11",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R12",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R13",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R14",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R15",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R16",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R17",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R18",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R19",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R20",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R21",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R22",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R23",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R24",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R25",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R26",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R27",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R28",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R29",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R30",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R31",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R32",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R33",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R34",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R35",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R36",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R37",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R38",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R39",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R40",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R41",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R42",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R43",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R44",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R45",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R46",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    },
+    {
+      "row_id": "R47",
+      "verdict": "",
+      "profile_evidence_shape": "",
+      "requirement_demand": "",
+      "confidence": "",
+      "rationale": "",
+      "notes": ""
+    }
+  ]
+}

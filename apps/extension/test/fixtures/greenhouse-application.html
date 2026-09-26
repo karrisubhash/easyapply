@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<!--
+  A Greenhouse-hosted job posting WITH its application form, reduced to its
+  structure.
+
+  The posting is test/fixtures/greenhouse-job.html's. The form's markup - the
+  field wrappers, labels with their required-star spans, aria attributes,
+  autocomplete tokens, the phone fieldset with its country picker, the
+  react-select comboboxes Greenhouse renders for every choice question (their
+  options are not in the page until one is opened), the visually hidden file
+  inputs inside role="group" upload blocks, the multi-line question, the custom
+  question_<id> fields, the Voluntary Self-Identification (EEOC) section and the
+  submit button - is copied from live job-boards.greenhouse.io application
+  forms (GitLab and Discord postings) as they were served on 2026-09-26. The
+  inline <style> blocks react-select emits are left out. The words are
+  invented, or generic Greenhouse questions reworded: no real company's form is
+  committed here. Built by a script, not by hand, so every field repeats the
+  live structure exactly.
+-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta property="og:type" content="article" />
+    <link rel="canonical" href="http://job-boards.greenhouse.io/acmerobotics/jobs/4012345002" />
+    <title>Job Application for Senior Backend Engineer at Acme Robotics</title>
+    <meta property="og:title" content="Senior Backend Engineer" />
+    <meta property="og:description" content="Remote, Berlin" />
+    <meta property="og:url" content="https://job-boards.greenhouse.io/acmerobotics/jobs/4012345002" />
+  </head>
+  <body>
+    <div id="react-portal-mount-point"></div>
+    <main class="main font-secondary job-post">
+      <div class="job-post-container">
+        <div class="image-container">
+          <a href="https://boards.greenhouse.io/acmerobotics" target="_blank" rel="noreferrer" class="logo"
+            ><img src="https://example.invalid/logo.png" alt="Acme Robotics Logo" class=""
+          /></a>
+        </div>
+        <div>
+          <div class="job__tags"></div>
+          <div class="job__header">
+            <div class="job__title">
+              <h1 class="section-header section-header--large font-primary">Senior   Backend
+                Engineer</h1>
+              <div class="job__location">
+                <svg class="svg-icon" fill="none" height="20" width="20" viewBox="0 0 24 24">
+                  <title>Location</title>
+                  <path class="icon--primary-color" d="M6.46958 3.811C7.93571 2.34217"></path>
+                </svg>
+                <div>Remote, Berlin</div>
+              </div>
+            </div>
+            <button type="button" class="btn btn--pill" aria-label="Apply">Apply</button>
+          </div>
+          <div class="job__description body">
+            <div>
+              <p>Acme Robotics builds warehouse robots.&nbsp;We are <a href="https://example.invalid/about">a small team</a> with <strong>big</strong> <em>ambitions</em>.</p>
+              <p>This paragraph<br />has a line break.</p>
+            </div>
+            <div>
+              <h2><strong>What you'll do</strong></h2>
+              <ul>
+                <li>Design and operate Python services on PostgreSQL.</li>
+                <li><p>Own the job-scheduling API end to end.</p></li>
+                <li>Mentor engineers
+                  <ul>
+                    <li>through code review</li>
+                    <li>through pairing</li>
+                  </ul>
+                </li>
+              </ul>
+              <h2><strong>What you'll bring</strong></h2>
+              <ul>
+                <li><strong>Experience -&nbsp;</strong>5+ years of backend development.</li>
+                <li>Strong knowledge of SQL and FastAPI.</li>
+              </ul>
+              <p><strong>Nice to have</strong></p>
+              <ol>
+                <li>Kubernetes</li>
+                <li>Terraform</li>
+              </ol>
+              <script>window.__tracking = "must not appear in the text";</script>
+              <style>.x { color: red }</style>
+              <p hidden>Hidden text must not appear.</p>
+            </div>
+            <div class="job__pay-ranges">
+              <div class="pay-range">
+                <div class="description"><div class="body"><span><p><strong>Pay Transparency</strong></p></span></div></div>
+                <p class="body body--medium">Annual Base Salary Range:</p>
+                <p class="body"><bdi>$150,000</bdi> - <bdi>$180,000</bdi> <bdi>USD</bdi></p>
+              </div>
+            </div>
+            <div>
+              <p>Acme Robotics is an equal opportunity employer.</p>
+            </div>
+          </div>
+          <div class="job-alert job-alert--margin"></div>
+          <div class="divider"></div>
+          <div class="application--container">
+            <div class="application--header">
+              <h2 class="section-header font-primary">Apply for this job</h2>
+            </div>
+            <form id="application-form" class="application--form">
+              <div class="application--questions">
+                <div class="field-wrapper">
+                  <div class="text-input-wrapper">
+                    <div class="input-wrapper">
+                      <label id="first_name-label" for="first_name" class="label label">First Name<span aria-hidden="true">*</span></label>
+                      <input id="first_name" class="input input__single-line" aria-label="First Name" aria-describedby="first_name-description first_name-error first_name-help" aria-invalid="false" aria-errormessage="first_name-error" aria-required="true" type="text" maxlength="255" autocomplete="given-name" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="field-wrapper">
+                  <div class="text-input-wrapper">
+                    <div class="input-wrapper">
+                      <label id="last_name-label" for="last_name" class="label label">Last Name<span aria-hidden="true">*</span></label>
+                      <input id="last_name" class="input input__single-line" aria-label="Last Name" aria-describedby="last_name-description last_name-error last_name-help" aria-invalid="false" aria-errormessage="last_name-error" aria-required="true" type="text" maxlength="255" autocomplete="family-name" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="field-wrapper">
+                  <div class="text-input-wrapper">
+                    <div class="input-wrapper">
+                      <label id="preferred_name-label" for="preferred_name" class="label label">Preferred First Name</label>
+                      <input id="preferred_name" class="input input__single-line" aria-label="Preferred First Name" aria-describedby="preferred_name-description preferred_name-error preferred_name-help" aria-invalid="false" aria-errormessage="preferred_name-error" aria-required="false" type="text" maxlength="255" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="field-wrapper">
+                  <div class="text-input-wrapper">
+                    <div class="input-wrapper">
+                      <label id="email-label" for="email" class="label label">Email<span aria-hidden="true">*</span></label>
+                      <input id="email" class="input input__single-line" aria-label="Email" aria-describedby="email-description email-error email-help" aria-invalid="false" aria-errormessage="email-error" aria-required="true" type="text" maxlength="255" autocomplete="email" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <fieldset class="phone-input">
+                    <legend class="visually-hidden">Phone</legend>
+                    <div class="phone-input__country">
+                      <div class="select-wrapper">
+                        <div class="select">
+                          <div class="select__container">
+                            <label id="country-label" for="country" class="label select__label">Country</label>
+                            <div class="select-shell remix-css-b62m3t-container">
+                              <span id="react-select-country-live-region" class="remix-css-7pg0cj-a11yText"></span>
+                              <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" role="log" class="remix-css-7pg0cj-a11yText"></span>
+                              <div class="select__control remix-css-13cymwt-control">
+                                <div class="select__value-container remix-css-hlgwow">
+                                  <div class="select__placeholder remix-css-1jqq78o-placeholder" id="react-select-country-placeholder">Select...</div>
+                                  <div class="select__input-container remix-css-19bb58m" data-value="">
+                                    <input class="select__input" autocapitalize="none" autocomplete="off" autocorrect="off" id="country" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" aria-expanded="false" aria-haspopup="true" aria-labelledby="country-label" aria-required="false" role="combobox" aria-describedby="react-select-country-placeholder" value="" />
+                                  </div>
+                                </div>
+                                <div class="select__indicators remix-css-1wy0on6">
+                                  <button type="button" class="icon-button icon-button--sm" aria-label="Toggle flyout" tabindex="-1"></button>
+                                </div>
+                              </div>
+                            </div>
+                            <input tabindex="-1" autocomplete="off" class="remix-css-1a0ro4n-requiredInput" value="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="phone-input__phone">
+                      <div class="field-wrapper">
+                        <div class="text-input-wrapper">
+                          <div class="input-wrapper">
+                            <label id="phone-label" for="phone" class="label label">Phone</label>
+                            <input id="phone" class="input input__single-line" aria-label="Phone" aria-describedby="phone-description phone-error phone-help" aria-invalid="false" aria-errormessage="phone-error" aria-required="false" type="tel" maxlength="255" autocomplete="tel" value="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="field-wrapper">
+                  <div class="select">
+                    <div class="select__container">
+                      <label id="candidate-location-label" for="candidate-location" class="label select__label">Location (City)<span aria-hidden="true">*</span></label>
+                      <div class="select-shell remix-css-b62m3t-container">
+                        <span id="react-select-candidate-location-live-region" class="remix-css-7pg0cj-a11yText"></span>
+                        <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" role="log" class="remix-css-7pg0cj-a11yText"></span>
+                        <div class="select__control remix-css-13cymwt-control">
+                          <div class="select__value-container remix-css-hlgwow">
+                            <div class="select__placeholder remix-css-1jqq78o-placeholder" id="react-select-candidate-location-placeholder">Select...</div>
+                            <div class="select__input-container remix-css-19bb58m" data-value="">
+                              <input class="select__input" autocapitalize="none" autocomplete="off" autocorrect="off" id="candidate-location" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" aria-expanded="false" aria-haspopup="true" aria-labelledby="candidate-location-label" aria-required="true" role="combobox" aria-describedby="react-select-candidate-location-placeholder" value="" />
+                            </div>
+                          </div>
+                          <div class="select__indicators remix-css-1wy0on6">
+                            <button type="button" class="icon-button icon-button--sm" aria-label="Toggle flyout" tabindex="-1"></button>
+                          </div>
+                        </div>
+                      </div>
+                      <input tabindex="-1" autocomplete="off" class="remix-css-1a0ro4n-requiredInput" value="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <div class="field-wrapper">
+                  <div role="group" aria-labelledby="upload-label-resume" aria-required="true" class="file-upload">
+                    <div id="upload-label-resume" class="label upload-label">Resume/CV<span class="required">*</span></div>
+                    <div class="file-upload__wrapper">
+                      <div class="button-container">
+                        <div class="secondary-button">
+                          <div>
+                            <button type="button" class="btn btn--pill">Attach</button>
+                            <label class="visually-hidden" for="resume">Attach</label>
+                            <input id="resume" class="visually-hidden" type="file" accept=".pdf,.doc,.docx,.txt,.rtf" />
+                          </div>
+                        </div>
+                        <div class="secondary-button">
+                          <div>
+                            <button type="button" class="btn btn--pill" data-testid="resume-text">Enter manually</button>
+                            <label class="visually-hidden" for="resume_text">Enter manually</label>
+                          </div>
+                        </div>
+                        <p id="accepted-filetypes" class="file-upload__filetypes">Accepted file types: pdf, doc, docx, txt, rtf</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="field-wrapper">
+                  <div role="group" aria-labelledby="upload-label-cover_letter" aria-required="false" class="file-upload">
+                    <div id="upload-label-cover_letter" class="label upload-label">Cover Letter</div>
+                    <div class="file-upload__wrapper">
+                      <div class="button-container">
+                        <div class="secondary-button">
+                          <div>
+                            <button type="button" class="btn btn--pill">Attach</button>
+                            <label class="visually-hidden" for="cover_letter">Attach</label>
+                            <input id="cover_letter" class="visually-hidden" type="file" accept=".pdf,.doc,.docx,.txt,.rtf" />
+                          </div>
+                        </div>
+                        <div class="secondary-button">
+                          <div>
+                            <button type="button" class="btn btn--pill" data-testid="cover_letter-text">Enter manually</button>
+                            <label class="visually-hidden" for="cover_letter_text">Enter manually</label>
+                          </div>
+                        </div>
+                        <p id="accepted-filetypes" class="file-upload__filetypes">Accepted file types: pdf, doc, docx, txt, rtf</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <div class="application--questions">
+                <hr />
+                <div class="field-wrapper">
+                  <div class="text-input-wrapper">
+                    <div class="input-wrapper">
+                      <label id="question_61000001-label" for="question_61000001" class="label label">LinkedIn Profile</label>
+                      <input id="question_61000001" class="input input__single-line" aria-label="LinkedIn Profile" aria-describedby="question_61000001-description question_61000001-error question_61000001-help" aria-invalid="false" aria-errormessage="question_61000001-error" aria-required="false" type="text" maxlength="255" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="field-wrapper">
+                  <div class="text-input-wrapper">
+                    <div class="input-wrapper">
+                      <label id="question_61000002-label" for="question_61000002" class="label label">Website</label>
+                      <input id="question_61000002" class="input input__single-line" aria-label="Website" aria-describedby="question_61000002-description question_61000002-error question_61000002-help" aria-invalid="false" aria-errormessage="question_61000002-error" aria-required="false" type="text" maxlength="255" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="field-wrapper">
+                  <div class="text-input-wrapper">
+                    <div class="input-wrapper">
+                      <label id="question_61000003-label" for="question_61000003" class="label label">GitHub URL</label>
+                      <input id="question_61000003" class="input input__single-line" aria-label="GitHub URL" aria-describedby="question_61000003-description question_61000003-error question_61000003-help" aria-invalid="false" aria-errormessage="question_61000003-error" aria-required="false" type="text" maxlength="255" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="field-wrapper">
+                  <div class="text-input-wrapper">
+                    <div class="input-wrapper">
+                      <label id="question_61000004-label" for="question_61000004" class="label label">What&#x27;s the name you&#x27;d prefer us to use throughout the interview process?</label>
+                      <input id="question_61000004" class="input input__single-line" aria-label="What&#x27;s the name you&#x27;d prefer us to use throughout the interview process?" aria-describedby="question_61000004-description question_61000004-error question_61000004-help" aria-invalid="false" aria-errormessage="question_61000004-error" aria-required="false" type="text" maxlength="255" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="field-wrapper field-wrapper--multiline">
+                  <div class="text-input-wrapper">
+                    <div class="input-wrapper input-wrapper__multi-line">
+                      <label id="question_61000005-label" for="question_61000005" class="label label">Why do you want to work at Acme Robotics?<span aria-hidden="true">*</span></label>
+                      <textarea id="question_61000005" class="input input__multi-line" aria-label="Why do you want to work at Acme Robotics?" aria-describedby="question_61000005-description question_61000005-error question_61000005-help" aria-invalid="false" aria-errormessage="question_61000005-error" aria-required="true" rows="4"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="field-wrapper">
+                  <div class="select">
+                    <div class="select__container">
+                      <label id="question_61000006-label" for="question_61000006" class="label select__label">Are you legally authorized to work in the country where this role is based?<span aria-hidden="true">*</span></label>
+                      <div class="select-shell remix-css-b62m3t-container">
+                        <span id="react-select-question_61000006-live-region" class="remix-css-7pg0cj-a11yText"></span>
+                        <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" role="log" class="remix-css-7pg0cj-a11yText"></span>
+                        <div class="select__control remix-css-13cymwt-control">
+                          <div class="select__value-container remix-css-hlgwow">
+                            <div class="select__placeholder remix-css-1jqq78o-placeholder" id="react-select-question_61000006-placeholder">Select...</div>
+                            <div class="select__input-container remix-css-19bb58m" data-value="">
+                              <input class="select__input" autocapitalize="none" autocomplete="off" autocorrect="off" id="question_61000006" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" aria-expanded="false" aria-haspopup="true" aria-labelledby="question_61000006-label" aria-required="true" role="combobox" aria-describedby="react-select-question_61000006-placeholder" value="" />
+                            </div>
+                          </div>
+                          <div class="select__indicators remix-css-1wy0on6">
+                            <button type="button" class="icon-button icon-button--sm" aria-label="Toggle flyout" tabindex="-1"></button>
+                          </div>
+                        </div>
+                      </div>
+                      <input tabindex="-1" autocomplete="off" class="remix-css-1a0ro4n-requiredInput" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="field-wrapper">
+                  <div class="select">
+                    <div class="select__container">
+                      <label id="question_61000007-label" for="question_61000007" class="label select__label">Will you now or in the future require sponsorship for a visa to remain in your current location?<span aria-hidden="true">*</span></label>
+                      <div class="select-shell remix-css-b62m3t-container">
+                        <span id="react-select-question_61000007-live-region" class="remix-css-7pg0cj-a11yText"></span>
+                        <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" role="log" class="remix-css-7pg0cj-a11yText"></span>
+                        <div class="select__control remix-css-13cymwt-control">
+                          <div class="select__value-container remix-css-hlgwow">
+                            <div class="select__placeholder remix-css-1jqq78o-placeholder" id="react-select-question_61000007-placeholder">Select...</div>
+                            <div class="select__input-container remix-css-19bb58m" data-value="">
+                              <input class="select__input" autocapitalize="none" autocomplete="off" autocorrect="off" id="question_61000007" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" aria-expanded="false" aria-haspopup="true" aria-labelledby="question_61000007-label" aria-required="true" role="combobox" aria-describedby="react-select-question_61000007-placeholder" value="" />
+                            </div>
+                          </div>
+                          <div class="select__indicators remix-css-1wy0on6">
+                            <button type="button" class="icon-button icon-button--sm" aria-label="Toggle flyout" tabindex="-1"></button>
+                          </div>
+                        </div>
+                      </div>
+                      <input tabindex="-1" autocomplete="off" class="remix-css-1a0ro4n-requiredInput" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="field-wrapper">
+                  <div class="select">
+                    <div class="select__container">
+                      <label id="question_61000008-label" for="question_61000008" class="label select__label">Are you currently located in Berlin?<span aria-hidden="true">*</span></label>
+                      <div class="select-shell remix-css-b62m3t-container">
+                        <span id="react-select-question_61000008-live-region" class="remix-css-7pg0cj-a11yText"></span>
+                        <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" role="log" class="remix-css-7pg0cj-a11yText"></span>
+                        <div class="select__control remix-css-13cymwt-control">
+                          <div class="select__value-container remix-css-hlgwow">
+                            <div class="select__placeholder remix-css-1jqq78o-placeholder" id="react-select-question_61000008-placeholder">Select...</div>
+                            <div class="select__input-container remix-css-19bb58m" data-value="">
+                              <input class="select__input" autocapitalize="none" autocomplete="off" autocorrect="off" id="question_61000008" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" aria-expanded="false" aria-haspopup="true" aria-labelledby="question_61000008-label" aria-required="true" role="combobox" aria-describedby="react-select-question_61000008-placeholder" value="" />
+                            </div>
+                          </div>
+                          <div class="select__indicators remix-css-1wy0on6">
+                            <button type="button" class="icon-button icon-button--sm" aria-label="Toggle flyout" tabindex="-1"></button>
+                          </div>
+                        </div>
+                      </div>
+                      <input tabindex="-1" autocomplete="off" class="remix-css-1a0ro4n-requiredInput" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="field-wrapper">
+                  <div class="select">
+                    <div class="select__container">
+                      <label id="question_61000009-label" for="question_61000009" class="label select__label">Are you willing to relocate for this position?</label>
+                      <div class="select-shell remix-css-b62m3t-container">
+                        <span id="react-select-question_61000009-live-region" class="remix-css-7pg0cj-a11yText"></span>
+                        <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" role="log" class="remix-css-7pg0cj-a11yText"></span>
+                        <div class="select__control remix-css-13cymwt-control">
+                          <div class="select__value-container remix-css-hlgwow">
+                            <div class="select__placeholder remix-css-1jqq78o-placeholder" id="react-select-question_61000009-placeholder">Select...</div>
+                            <div class="select__input-container remix-css-19bb58m" data-value="">
+                              <input class="select__input" autocapitalize="none" autocomplete="off" autocorrect="off" id="question_61000009" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" aria-expanded="false" aria-haspopup="true" aria-labelledby="question_61000009-label" aria-required="false" role="combobox" aria-describedby="react-select-question_61000009-placeholder" value="" />
+                            </div>
+                          </div>
+                          <div class="select__indicators remix-css-1wy0on6">
+                            <button type="button" class="icon-button icon-button--sm" aria-label="Toggle flyout" tabindex="-1"></button>
+                          </div>
+                        </div>
+                      </div>
+                      <input tabindex="-1" autocomplete="off" class="remix-css-1a0ro4n-requiredInput" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="field-wrapper">
+                  <div class="text-input-wrapper">
+                    <div class="input-wrapper">
+                      <label id="question_61000010-label" for="question_61000010" class="label label">What are your salary expectations for this role?</label>
+                      <input id="question_61000010" class="input input__single-line" aria-label="What are your salary expectations for this role?" aria-describedby="question_61000010-description question_61000010-error question_61000010-help" aria-invalid="false" aria-errormessage="question_61000010-error" aria-required="false" type="text" maxlength="255" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="field-wrapper">
+                  <div class="text-input-wrapper">
+                    <div class="input-wrapper">
+                      <label id="question_61000011-label" for="question_61000011" class="label label">How many years of professional experience do you have with Python?<span aria-hidden="true">*</span></label>
+                      <input id="question_61000011" class="input input__single-line" aria-label="How many years of professional experience do you have with Python?" aria-describedby="question_61000011-description question_61000011-error question_61000011-help" aria-invalid="false" aria-errormessage="question_61000011-error" aria-required="true" type="text" maxlength="255" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="field-wrapper">
+                  <div class="text-input-wrapper">
+                    <div class="input-wrapper">
+                      <label id="question_61000012-label" for="question_61000012" class="label label">What is your notice period?</label>
+                      <input id="question_61000012" class="input input__single-line" aria-label="What is your notice period?" aria-describedby="question_61000012-description question_61000012-error question_61000012-help" aria-invalid="false" aria-errormessage="question_61000012-error" aria-required="false" type="text" maxlength="255" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="field-wrapper">
+                  <div class="text-input-wrapper">
+                    <div class="input-wrapper">
+                      <label id="question_61000013-label" for="question_61000013" class="label label">It is important to us to create an accessible and inclusive interview experience. Please let us know if there are any adjustments we can make.</label>
+                      <input id="question_61000013" class="input input__single-line" aria-label="It is important to us to create an accessible and inclusive interview experience. Please let us know if there are any adjustments we can make." aria-describedby="question_61000013-description question_61000013-error question_61000013-help" aria-invalid="false" aria-errormessage="question_61000013-error" aria-required="false" type="text" maxlength="255" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="field-wrapper">
+                  <div class="select">
+                    <div class="select__container">
+                      <label id="question_61000014-label" for="question_61000014" class="label select__label">Have you previously worked at or consulted for Acme Robotics?<span aria-hidden="true">*</span></label>
+                      <div class="select-shell remix-css-b62m3t-container">
+                        <span id="react-select-question_61000014-live-region" class="remix-css-7pg0cj-a11yText"></span>
+                        <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" role="log" class="remix-css-7pg0cj-a11yText"></span>
+                        <div class="select__control remix-css-13cymwt-control">
+                          <div class="select__value-container remix-css-hlgwow">
+                            <div class="select__placeholder remix-css-1jqq78o-placeholder" id="react-select-question_61000014-placeholder">Select...</div>
+                            <div class="select__input-container remix-css-19bb58m" data-value="">
+                              <input class="select__input" autocapitalize="none" autocomplete="off" autocorrect="off" id="question_61000014" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" aria-expanded="false" aria-haspopup="true" aria-labelledby="question_61000014-label" aria-required="true" role="combobox" aria-describedby="react-select-question_61000014-placeholder" value="" />
+                            </div>
+                          </div>
+                          <div class="select__indicators remix-css-1wy0on6">
+                            <button type="button" class="icon-button icon-button--sm" aria-label="Toggle flyout" tabindex="-1"></button>
+                          </div>
+                        </div>
+                      </div>
+                      <input tabindex="-1" autocomplete="off" class="remix-css-1a0ro4n-requiredInput" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="field-wrapper">
+                  <div class="text-input-wrapper">
+                    <div class="input-wrapper">
+                      <label id="question_61000015-label" for="question_61000015" class="label label">How did you hear about this job?</label>
+                      <input id="question_61000015" class="input input__single-line" aria-label="How did you hear about this job?" aria-describedby="question_61000015-description question_61000015-error question_61000015-help" aria-invalid="false" aria-errormessage="question_61000015-error" aria-required="false" type="text" maxlength="255" value="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="eeoc__container body">
+                <div class="divider" role="separator"></div>
+                <div>
+                  <h2 class="section-header font-primary">Voluntary Self-Identification</h2>
+                  <p>For government reporting purposes, we ask candidates to respond to the below self-identification survey. Completion of the form is entirely voluntary.</p>
+                </div>
+                <div class="eeoc__question__wrapper">
+                  <div class="select">
+                    <div class="select__container">
+                      <label id="gender-label" for="gender" class="label select__label">Gender</label>
+                      <div class="select-shell remix-css-b62m3t-container">
+                        <span id="react-select-gender-live-region" class="remix-css-7pg0cj-a11yText"></span>
+                        <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" role="log" class="remix-css-7pg0cj-a11yText"></span>
+                        <div class="select__control remix-css-13cymwt-control">
+                          <div class="select__value-container remix-css-hlgwow">
+                            <div class="select__placeholder remix-css-1jqq78o-placeholder" id="react-select-gender-placeholder">Select...</div>
+                            <div class="select__input-container remix-css-19bb58m" data-value="">
+                              <input class="select__input" autocapitalize="none" autocomplete="off" autocorrect="off" id="gender" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" aria-expanded="false" aria-haspopup="true" aria-labelledby="gender-label" aria-required="false" role="combobox" aria-describedby="react-select-gender-placeholder" value="" />
+                            </div>
+                          </div>
+                          <div class="select__indicators remix-css-1wy0on6">
+                            <button type="button" class="icon-button icon-button--sm" aria-label="Toggle flyout" tabindex="-1"></button>
+                          </div>
+                        </div>
+                      </div>
+                      <input tabindex="-1" autocomplete="off" class="remix-css-1a0ro4n-requiredInput" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="eeoc__question__wrapper">
+                  <div class="select">
+                    <div class="select__container">
+                      <label id="hispanic_ethnicity-label" for="hispanic_ethnicity" class="label select__label">Are you Hispanic/Latino?</label>
+                      <div class="select-shell remix-css-b62m3t-container">
+                        <span id="react-select-hispanic_ethnicity-live-region" class="remix-css-7pg0cj-a11yText"></span>
+                        <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" role="log" class="remix-css-7pg0cj-a11yText"></span>
+                        <div class="select__control remix-css-13cymwt-control">
+                          <div class="select__value-container remix-css-hlgwow">
+                            <div class="select__placeholder remix-css-1jqq78o-placeholder" id="react-select-hispanic_ethnicity-placeholder">Select...</div>
+                            <div class="select__input-container remix-css-19bb58m" data-value="">
+                              <input class="select__input" autocapitalize="none" autocomplete="off" autocorrect="off" id="hispanic_ethnicity" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" aria-expanded="false" aria-haspopup="true" aria-labelledby="hispanic_ethnicity-label" aria-required="false" role="combobox" aria-describedby="react-select-hispanic_ethnicity-placeholder" value="" />
+                            </div>
+                          </div>
+                          <div class="select__indicators remix-css-1wy0on6">
+                            <button type="button" class="icon-button icon-button--sm" aria-label="Toggle flyout" tabindex="-1"></button>
+                          </div>
+                        </div>
+                      </div>
+                      <input tabindex="-1" autocomplete="off" class="remix-css-1a0ro4n-requiredInput" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="eeoc__question__wrapper">
+                  <div class="select">
+                    <div class="select__container">
+                      <label id="veteran_status-label" for="veteran_status" class="label select__label">Veteran Status</label>
+                      <div class="select-shell remix-css-b62m3t-container">
+                        <span id="react-select-veteran_status-live-region" class="remix-css-7pg0cj-a11yText"></span>
+                        <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" role="log" class="remix-css-7pg0cj-a11yText"></span>
+                        <div class="select__control remix-css-13cymwt-control">
+                          <div class="select__value-container remix-css-hlgwow">
+                            <div class="select__placeholder remix-css-1jqq78o-placeholder" id="react-select-veteran_status-placeholder">Select...</div>
+                            <div class="select__input-container remix-css-19bb58m" data-value="">
+                              <input class="select__input" autocapitalize="none" autocomplete="off" autocorrect="off" id="veteran_status" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" aria-expanded="false" aria-haspopup="true" aria-labelledby="veteran_status-label" aria-required="false" role="combobox" aria-describedby="react-select-veteran_status-placeholder" value="" />
+                            </div>
+                          </div>
+                          <div class="select__indicators remix-css-1wy0on6">
+                            <button type="button" class="icon-button icon-button--sm" aria-label="Toggle flyout" tabindex="-1"></button>
+                          </div>
+                        </div>
+                      </div>
+                      <input tabindex="-1" autocomplete="off" class="remix-css-1a0ro4n-requiredInput" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="eeoc__question__wrapper">
+                  <div class="select">
+                    <div class="select__container">
+                      <label id="disability_status-label" for="disability_status" class="label select__label">Disability Status</label>
+                      <div class="select-shell remix-css-b62m3t-container">
+                        <span id="react-select-disability_status-live-region" class="remix-css-7pg0cj-a11yText"></span>
+                        <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" role="log" class="remix-css-7pg0cj-a11yText"></span>
+                        <div class="select__control remix-css-13cymwt-control">
+                          <div class="select__value-container remix-css-hlgwow">
+                            <div class="select__placeholder remix-css-1jqq78o-placeholder" id="react-select-disability_status-placeholder">Select...</div>
+                            <div class="select__input-container remix-css-19bb58m" data-value="">
+                              <input class="select__input" autocapitalize="none" autocomplete="off" autocorrect="off" id="disability_status" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" aria-expanded="false" aria-haspopup="true" aria-labelledby="disability_status-label" aria-required="false" role="combobox" aria-describedby="react-select-disability_status-placeholder" value="" />
+                            </div>
+                          </div>
+                          <div class="select__indicators remix-css-1wy0on6">
+                            <button type="button" class="icon-button icon-button--sm" aria-label="Toggle flyout" tabindex="-1"></button>
+                          </div>
+                        </div>
+                      </div>
+                      <input tabindex="-1" autocomplete="off" class="remix-css-1a0ro4n-requiredInput" value="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="application--submit">
+                <button type="submit" class="btn btn--pill">Submit application</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      window.__remixContext = { "state": { "loaderData": { "jobPost": { "title": "Senior Backend Engineer" } } } };
+    </script>
+  </body>
+</html>

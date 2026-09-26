@@ -1,0 +1,22 @@
+# EasyApply — local development services.
+#
+# Placeholder. Nothing is defined yet on purpose: milestone 0 is a single
+# in-process FastAPI app with no external dependencies.
+#
+# PostgreSQL gets uncommented in the next milestone, once we have decided
+# what the schema is and why it is relational in the first place.
+#
+# services:
+#   postgres:
+#     image: postgres:16
+#     environment:
+#       POSTGRES_USER: easyapply
+#       POSTGRES_PASSWORD: easyapply
+#       POSTGRES_DB: easyapply
+#     ports:
+#       - "5432:5432"
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data
+#
+# volumes:
+#   postgres_data:

@@ -1,0 +1,1969 @@
+{
+  "dataset_version": "matching_real_v1",
+  "review": {
+    "created": "2026-09-19",
+    "reviewers": [
+      "easyapply-engineering (single reviewer)"
+    ],
+    "methodology": "Each case was judged by reading the profile fixture and the job description as documents, deciding what a careful hiring reviewer would conclude, and writing the rationale BEFORE any matcher was run. The reviewer rules are set out in README.md and were fixed before the first verdict was written. Judgments where a second careful reader could reasonably differ are flagged `contested` with the disagreement recorded, and are reported separately from the rest.",
+    "independence_statement": "No verdict in this file was produced, suggested, adjusted or confirmed by matching_v1 or by any other matcher. The rationales cite only the profile and the posting. Where matching_v1 disagrees with a verdict here, the disagreement is the measurement; it is not evidence that this file is wrong, and this file must not be edited to agree with any algorithm. Correcting a verdict is permitted only on the grounds that a reviewer misread the profile or the posting, and requires the rationale to change accordingly."
+  },
+  "cases": [
+    {
+      "id": "c01_backend_mid_x_backend_senior",
+      "profile_id": "p_backend_mid",
+      "job_id": "j_backend_senior",
+      "as_of": "2026-09-19",
+      "note": "The baseline pairing: a well-documented profile against a posting it largely fits. A matcher that struggles here is broken rather than merely limited.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_py",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_python"
+            ]
+          },
+          "rationale": "Python is listed with seven years, and both roles describe Python work. Nothing about this needs interpretation."
+        },
+        {
+          "requirement_id": "r_django",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_django"
+            ]
+          },
+          "rationale": "Django is listed with six years and the current role describes building Django REST services."
+        },
+        {
+          "requirement_id": "r_pg",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_postgres"
+            ]
+          },
+          "rationale": "The skills list says 'Postgres' and the current role says 'Designed PostgreSQL schemas'. These are the same product written two ways."
+        },
+        {
+          "requirement_id": "r_k8s",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Kubernetes appears nowhere: not in the skills, not in either role, not in the project. The deployment described is AWS ECS, which is a different thing."
+        },
+        {
+          "requirement_id": "r_docker",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_docker"
+            ]
+          },
+          "rationale": "Docker is listed, and both roles describe using it — one for deployment, one for local development."
+        },
+        {
+          "requirement_id": "r_redis",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Redis is not mentioned anywhere in the profile. Celery is named, which often implies a broker, but the profile does not say which one."
+        },
+        {
+          "requirement_id": "r_exp5",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_harborline",
+              "e_brightfold"
+            ]
+          },
+          "rationale": "Continuous professional software employment from June 2019 to the present is about seven years and three months, comfortably over the five asked for."
+        },
+        {
+          "requirement_id": "r_django3",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_harborline"
+            ]
+          },
+          "rationale": "The Harborline role has run since March 2021 — five and a half years — and its description is explicitly about building and maintaining Django services in production."
+        },
+        {
+          "requirement_id": "r_degree",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "education",
+            "refs": [
+              "ed_northgate"
+            ]
+          },
+          "rationale": "A BSc in Computer Science is exactly the degree named. 'Or a related field' does not need to be reached."
+        },
+        {
+          "requirement_id": "r_awsdev",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "The profile records no certifications at all."
+        },
+        {
+          "requirement_id": "r_eu",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "The profile holds no field that states work authorisation. Seven years of employment in Berlin makes it very likely, but likely is not stated, and a person must confirm it."
+        },
+        {
+          "requirement_id": "r_berlin",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_harborline"
+            ]
+          },
+          "rationale": "The current, ongoing role is located in Berlin. The posting asks for Berlin or within two hours of CET; Berlin is CET."
+        }
+      ]
+    },
+    {
+      "id": "c02_backend_mid_x_django_contract",
+      "profile_id": "p_backend_mid",
+      "job_id": "j_django_contract",
+      "as_of": "2026-09-19",
+      "note": "A strong fit with one deliberate near-synonym trap: the posting needs MySQL specifically, and this profile is a PostgreSQL profile.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_dc_django",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_django"
+            ]
+          },
+          "rationale": "Listed with six years and corroborated by the current role's description."
+        },
+        {
+          "requirement_id": "r_dc_pg",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_postgres"
+            ]
+          },
+          "rationale": "'Postgres' in the skills list and 'PostgreSQL schemas' in the role description are the same product."
+        },
+        {
+          "requirement_id": "r_dc_mysql",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "MySQL is not mentioned anywhere. Knowing PostgreSQL is not knowing MySQL: the posting asks for it because there is a specific legacy database to migrate, and that work needs MySQL specifically."
+        },
+        {
+          "requirement_id": "r_dc_django4",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_harborline"
+            ]
+          },
+          "rationale": "Five and a half years of paid Django work at Harborline, against a four-year bar. The Routewise side project is not needed to reach it."
+        },
+        {
+          "requirement_id": "r_dc_exp5",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_harborline",
+              "e_brightfold"
+            ]
+          },
+          "rationale": "Seven years and three months of continuous professional software employment."
+        },
+        {
+          "requirement_id": "r_dc_degree",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "education",
+            "refs": [
+              "ed_northgate"
+            ]
+          },
+          "rationale": "A BSc in Computer Science against 'Engineering or a related field'. Computer science is universally treated as related to engineering for a software role.",
+          "contested": true,
+          "contested_note": "A strict reader could hold that computer science is a distinct discipline from engineering and call this uncertain. The reviewer judged that no hiring manager writing this line would intend to exclude a CS degree."
+        },
+        {
+          "requirement_id": "r_dc_avail",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Availability for a specific engagement is not something a profile records. The current role is open-ended, which if anything points the other way, but the profile cannot answer this."
+        }
+      ]
+    },
+    {
+      "id": "c03_backend_mid_x_fullstack_startup",
+      "profile_id": "p_backend_mid",
+      "job_id": "j_fullstack_startup",
+      "as_of": "2026-09-19",
+      "note": "A backend specialist against a full-stack posting. Tests JavaScript-versus-Java, and a seniority requirement against a profile that shows none.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_fs_py",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_python"
+            ]
+          },
+          "rationale": "Listed with seven years and corroborated throughout."
+        },
+        {
+          "requirement_id": "r_fs_js",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "JavaScript is not in the skills list and appears in no role description. This is a backend profile with no front-end evidence of any kind."
+        },
+        {
+          "requirement_id": "r_fs_java",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Java appears nowhere in the profile."
+        },
+        {
+          "requirement_id": "r_fs_docker",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_docker"
+            ]
+          },
+          "rationale": "Listed and corroborated by both role descriptions."
+        },
+        {
+          "requirement_id": "r_fs_senior",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Both titles are individual-contributor titles — 'Backend Engineer' and 'Software Engineer' — and neither description mentions leading, mentoring, owning a team or holding a senior title. Seven years of experience is not the same as a senior role, and the profile claims no such role."
+        },
+        {
+          "requirement_id": "r_fs_startup",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Neither employer is described as a start-up and nothing in the profile speaks to start-up conditions."
+        },
+        {
+          "requirement_id": "r_fs_degree",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "education",
+            "refs": [
+              "ed_northgate"
+            ]
+          },
+          "rationale": "A BSc satisfies a bare bachelor's requirement; the posting names no subject."
+        }
+      ]
+    },
+    {
+      "id": "c04_career_changer_x_django_contract",
+      "profile_id": "p_career_changer",
+      "job_id": "j_django_contract",
+      "as_of": "2026-09-19",
+      "note": "The central experience-attribution case. Six years of Django in a public open-source project, two and a half years of it paid. The posting asks for professional years, twice.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_dc_django",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_cc_django"
+            ]
+          },
+          "rationale": "Django is listed, the current freelance role is built on it, and the OpenLedger project is a substantial public Django codebase. Whether they have ENOUGH years is a separate requirement; that they have the skill is not in doubt."
+        },
+        {
+          "requirement_id": "r_dc_pg",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_freelance",
+              "pj_openledger"
+            ]
+          },
+          "rationale": "Not in the skills list, but the freelance role description names PostgreSQL and the OpenLedger project lists it as a technology. Two independent places in the profile assert it.",
+          "aspect": "prose_evidence"
+        },
+        {
+          "requirement_id": "r_dc_mysql",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "MySQL appears nowhere in the profile."
+        },
+        {
+          "requirement_id": "r_dc_django4",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_freelance"
+            ]
+          },
+          "rationale": "Paid Django work began in February 2024, which is two years and seven months — short of the four the posting asks for. OpenLedger has run since 2020 but is unpaid personal work, and the requirement says 'professional'.",
+          "contested": true,
+          "contested_note": "A reviewer weighing the six-year OpenLedger project as equivalent to professional work would call this uncertain rather than a definite no. The reviewer held to the posting's own word 'professional', while recording that the project is strong evidence a hiring manager would want to see."
+        },
+        {
+          "requirement_id": "r_dc_exp5",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_freelance"
+            ]
+          },
+          "rationale": "Professional SOFTWARE experience is the freelance role only: two years and seven months against a five-year bar. The six years at Vantor were mechanical design engineering — Python scripting for CAD reports is real but does not make the role a software job."
+        },
+        {
+          "requirement_id": "r_dc_degree",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "education",
+            "refs": [
+              "ed_rhinefield"
+            ]
+          },
+          "rationale": "A B.Tech in Mechanical Engineering against 'a bachelor's degree in Engineering or a related field'. Mechanical engineering is engineering; the subject is named in the degree itself."
+        },
+        {
+          "requirement_id": "r_dc_avail",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "The profile records no availability. Freelance status makes a six-month engagement plausible, but the profile does not say."
+        }
+      ]
+    },
+    {
+      "id": "c05_career_changer_x_backend_senior",
+      "profile_id": "p_career_changer",
+      "job_id": "j_backend_senior",
+      "as_of": "2026-09-19",
+      "note": "The §10 education case in its natural setting: a bachelor's in mechanical engineering against 'Computer Science or a related field'. Also a second reading of the project-versus-employment question.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_py",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_cc_python"
+            ]
+          },
+          "rationale": "Listed as a skill, used for CAD automation at Vantor and throughout the freelance work and OpenLedger."
+        },
+        {
+          "requirement_id": "r_django",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_cc_django"
+            ]
+          },
+          "rationale": "Listed, used in the current paid role, and the basis of a long-running public project."
+        },
+        {
+          "requirement_id": "r_pg",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_freelance",
+              "pj_openledger"
+            ]
+          },
+          "rationale": "Named in the freelance role description and listed as an OpenLedger technology.",
+          "aspect": "prose_evidence"
+        },
+        {
+          "requirement_id": "r_k8s",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Kubernetes appears nowhere in this profile."
+        },
+        {
+          "requirement_id": "r_docker",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "project",
+            "refs": [
+              "pj_openledger"
+            ]
+          },
+          "rationale": "Docker is listed as an OpenLedger technology. The posting asks to be 'comfortable with Docker', and maintaining a Dockerised project for six years meets that bar even though the evidence is not from paid work."
+        },
+        {
+          "requirement_id": "r_redis",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Redis is not mentioned anywhere."
+        },
+        {
+          "requirement_id": "r_exp5",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_freelance"
+            ]
+          },
+          "rationale": "Professional software engineering employment is two years and seven months, against five asked for. The Vantor years were mechanical engineering."
+        },
+        {
+          "requirement_id": "r_django3",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_freelance"
+            ]
+          },
+          "rationale": "Paid Django work is two years and seven months against a three-year bar. Narrowly short, and OpenLedger does not close the gap because the requirement says 'production services' in a professional context.",
+          "contested": true,
+          "contested_note": "The gap here is five months, and OpenLedger is a production system with real users. A reviewer weighting it differently would say uncertain."
+        },
+        {
+          "requirement_id": "r_degree",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "education",
+            "refs": [
+              "ed_rhinefield"
+            ]
+          },
+          "rationale": "A B.Tech in Mechanical Engineering is a bachelor's degree, so the level is met. Whether mechanical engineering is a field 'related' to computer science for this role is a judgment the employer has to make — some would accept an engineering degree of any kind, others mean computing specifically. The profile cannot settle it."
+        },
+        {
+          "requirement_id": "r_awsdev",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "No certifications are recorded."
+        },
+        {
+          "requirement_id": "r_eu",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Not stated. Nine years of employment in Munich makes it very likely but the profile holds no field that says so."
+        },
+        {
+          "requirement_id": "r_berlin",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_freelance"
+            ]
+          },
+          "rationale": "The current ongoing role is in Munich, Germany, which is in CET and therefore inside the stated window of 'Berlin, or within two hours of CET'."
+        }
+      ]
+    },
+    {
+      "id": "c06_contractor_x_platform_k8s",
+      "profile_id": "p_contractor_overlap",
+      "job_id": "j_platform_k8s",
+      "as_of": "2026-09-19",
+      "note": "Overlapping engagements against a six-year bar, three aliases, a live certification, an expired one, and a domain requirement the profile genuinely answers.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_pk_k8s",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_k8s"
+            ]
+          },
+          "rationale": "'K8s' in the skills list is Kubernetes, and two role descriptions place it in production — a regulated bank's platform and a clinical scheduling system. The posting's 'not just in a course' bar is clearly cleared."
+        },
+        {
+          "requirement_id": "r_pk_tf",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_terraform"
+            ]
+          },
+          "rationale": "Listed, and the Meridian description says Terraform-managed AWS accounts."
+        },
+        {
+          "requirement_id": "r_pk_go",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_golang"
+            ]
+          },
+          "rationale": "'Golang' is Go. Two role descriptions describe writing Go services."
+        },
+        {
+          "requirement_id": "r_pk_aws",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_aws"
+            ]
+          },
+          "rationale": "Listed, and the Meridian description describes managing AWS accounts with Terraform."
+        },
+        {
+          "requirement_id": "r_pk_cka",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "certification",
+            "refs": [
+              "c_cka"
+            ]
+          },
+          "rationale": "Holds the Certified Kubernetes Administrator, valid until May 2027 — after the date this is being judged on."
+        },
+        {
+          "requirement_id": "r_pk_awssa",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "certification",
+            "refs": [
+              "c_aws_sa"
+            ]
+          },
+          "rationale": "Holds the AWS Certified Solutions Architect – Associate, which is the credential asked for at a named level. But it expired in March 2024, two and a half years before this judgment. Whether a lapsed certification satisfies the posting is the employer's call."
+        },
+        {
+          "requirement_id": "r_pk_exp6",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_meridian",
+              "e_northstar",
+              "e_lumen"
+            ]
+          },
+          "rationale": "Meridian and Northstar overlap between March 2020 and June 2021, so the three engagements cover January 2018 to December 2022 and February 2023 to now — about eight and a half years, not the ten that summing them would give. All three are infrastructure roles. Eight and a half clears six either way."
+        },
+        {
+          "requirement_id": "r_pk_domain",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_meridian"
+            ]
+          },
+          "rationale": "Three and a half years on the platform of a regulated retail bank, explicitly within PCI-DSS scope and working to BaFin audit requirements. This is precisely what 'regulated financial services' means."
+        },
+        {
+          "requirement_id": "r_pk_loc",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_lumen"
+            ]
+          },
+          "rationale": "The current ongoing role is in Frankfurt, which is what the posting asks for."
+        }
+      ]
+    },
+    {
+      "id": "c07_contractor_x_sre_health",
+      "profile_id": "p_contractor_overlap",
+      "job_id": "j_sre_health",
+      "as_of": "2026-09-19",
+      "note": "A strong fit, included so the benchmark is not composed only of difficult pairings. The domain requirement here is satisfied by two different roles.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_sre_k8s",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_k8s"
+            ]
+          },
+          "rationale": "'K8s' is Kubernetes, corroborated by two production roles."
+        },
+        {
+          "requirement_id": "r_sre_go",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_golang"
+            ]
+          },
+          "rationale": "'Golang' is Go, corroborated by the Northstar and Lumen descriptions."
+        },
+        {
+          "requirement_id": "r_sre_prom",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Prometheus is not mentioned anywhere. An SRE with Kubernetes experience very likely knows it, but the profile does not say so, and the reviewer is judging the document."
+        },
+        {
+          "requirement_id": "r_sre_exp5",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_meridian",
+              "e_northstar",
+              "e_lumen"
+            ]
+          },
+          "rationale": "About eight and a half years of merged professional employment against a five-year bar."
+        },
+        {
+          "requirement_id": "r_sre_domain",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_lumen",
+              "e_meridian"
+            ]
+          },
+          "rationale": "The current role is at a health technology company handling patient data, which is healthcare directly; the Meridian engagement is a separate regulated domain. The requirement is satisfied twice over."
+        },
+        {
+          "requirement_id": "r_sre_cka",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "certification",
+            "refs": [
+              "c_cka"
+            ]
+          },
+          "rationale": "Held and valid until 2027."
+        },
+        {
+          "requirement_id": "r_sre_oncall",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Willingness to join an on-call rotation is not something a profile records. An SRE title makes prior on-call near-certain, but that is an inference about the person, not a statement in the document."
+        }
+      ]
+    },
+    {
+      "id": "c08_frontend_prose_x_frontend_react",
+      "profile_id": "p_frontend_prose",
+      "job_id": "j_frontend_react",
+      "as_of": "2026-09-19",
+      "note": "The central prose-evidence case. React, TypeScript and Jest are the candidate's daily work and none of them is in the skills list. Also carries the counter-example: a technology named only as evaluated and abandoned.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_react",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_pixelforge"
+            ]
+          },
+          "rationale": "'Built and shipped the customer dashboard in React' in a six-year, current, full-time role, together with owning the component library. React is not in the skills list, but a reviewer reads the whole document and this is about as strong as evidence gets.",
+          "aspect": "prose_evidence"
+        },
+        {
+          "requirement_id": "r_ts",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_pixelforge"
+            ]
+          },
+          "rationale": "'in React with TypeScript' in the current role description. Specific, and about shipped work.",
+          "aspect": "prose_evidence"
+        },
+        {
+          "requirement_id": "r_js",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_fe_js"
+            ]
+          },
+          "rationale": "Listed as a skill and corroborated by both roles."
+        },
+        {
+          "requirement_id": "r_rn",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_arcadia"
+            ]
+          },
+          "rationale": "React Native appears once, as something evaluated for a project that was cancelled before any code shipped. That is not experience with React Native, but it is not nothing either — they have looked at it. A person should decide."
+        },
+        {
+          "requirement_id": "r_jest",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_pixelforge"
+            ]
+          },
+          "rationale": "'Wrote the Jest unit suite' — a direct statement of having done the thing asked for.",
+          "aspect": "prose_evidence"
+        },
+        {
+          "requirement_id": "r_fe_exp",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_pixelforge",
+              "e_arcadia"
+            ]
+          },
+          "rationale": "Continuous front-end employment from April 2018 to the present is about eight and a half years, against a four-year bar. Both roles are explicitly front-end."
+        },
+        {
+          "requirement_id": "r_fe_degree",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "education",
+            "refs": [
+              "ed_avenida"
+            ]
+          },
+          "rationale": "A Diploma in Web Development is not a bachelor's degree. The level asked for is simply not reached — this is a definite no rather than a judgment call, even though the requirement is only preferred."
+        },
+        {
+          "requirement_id": "r_pt",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Not stated. Eight years of employment in Lisbon makes it very likely; the profile has no field that says so."
+        }
+      ]
+    },
+    {
+      "id": "c09_frontend_prose_x_fullstack_startup",
+      "profile_id": "p_frontend_prose",
+      "job_id": "j_fullstack_startup",
+      "as_of": "2026-09-19",
+      "note": "The Java-versus-JavaScript trap against a profile that has one and not the other, plus a seniority requirement where the profile shows ownership but not a title.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_fs_py",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Python appears nowhere in this profile."
+        },
+        {
+          "requirement_id": "r_fs_js",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_fe_js"
+            ]
+          },
+          "rationale": "Listed as a skill and central to both roles."
+        },
+        {
+          "requirement_id": "r_fs_java",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "The profile has JavaScript, which is a different language from Java. The posting wants Java because there is a Spring billing service to maintain, and nothing in this profile speaks to that."
+        },
+        {
+          "requirement_id": "r_fs_docker",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Docker is not mentioned anywhere in the profile."
+        },
+        {
+          "requirement_id": "r_fs_senior",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_pixelforge"
+            ]
+          },
+          "rationale": "The titles are 'Frontend Engineer' and 'Junior Web Developer' — neither is senior or lead. But 'Owned the component library and migrated it' describes real technical ownership, and six years in a current role is the experience level a small company might well call senior. Not settled either way by the document.",
+          "contested": true,
+          "contested_note": "A reviewer reading titles strictly would call this missing: no senior or lead role is claimed anywhere. The reviewer allowed the ownership language to make it a genuine question."
+        },
+        {
+          "requirement_id": "r_fs_startup",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "'Pixelforge Studio' and 'Arcadia Tours' are described as a studio and a tour operator. Nothing indicates start-up conditions."
+        },
+        {
+          "requirement_id": "r_fs_degree",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "education",
+            "refs": [
+              "ed_avenida"
+            ]
+          },
+          "rationale": "A diploma is not a bachelor's degree, and the posting requires one."
+        }
+      ]
+    },
+    {
+      "id": "c10_data_senior_x_ml_senior",
+      "profile_id": "p_data_senior",
+      "job_id": "j_ml_senior",
+      "as_of": "2026-09-19",
+      "note": "Seniority, domain and an abstractly-worded degree field, all against a profile that genuinely satisfies them — and all stated in prose rather than in structured fields.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_ml_py",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_ds_python"
+            ]
+          },
+          "rationale": "Listed with eleven years and named in both role descriptions."
+        },
+        {
+          "requirement_id": "r_ml_torch",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_ds_pytorch"
+            ]
+          },
+          "rationale": "Listed with five years and named in the current role."
+        },
+        {
+          "requirement_id": "r_ml_sql",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_ds_sql"
+            ]
+          },
+          "rationale": "Listed as a skill. The posting asks for SQL without qualifying the depth, and an eleven-year ML engineer working on feature stores listing SQL is a claim a reviewer accepts at face value."
+        },
+        {
+          "requirement_id": "r_ml_tf",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "TensorFlow appears nowhere. PyTorch is a different framework; someone fluent in one usually picks the other up quickly, but the posting asked for TensorFlow and the profile does not claim it."
+        },
+        {
+          "requirement_id": "r_ml_exp8",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_quantel",
+              "e_orbital"
+            ]
+          },
+          "rationale": "Continuous professional employment from March 2015 to the present, about eleven and a half years, against an eight-year bar."
+        },
+        {
+          "requirement_id": "r_ml_lead",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_quantel"
+            ]
+          },
+          "rationale": "'Lead four engineers' in the current role, held since 2019, under the title Senior Machine Learning Engineer. The requirement asks for experience leading and mentoring a team and the profile states it directly."
+        },
+        {
+          "requirement_id": "r_ml_domain",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_quantel"
+            ]
+          },
+          "rationale": "Seven and a half years building credit-risk models for a regulated consumer lender, owning FCA model-risk documentation. This is regulated financial services stated as plainly as a profile can state it."
+        },
+        {
+          "requirement_id": "r_ml_phd",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "education",
+            "refs": [
+              "ed_phd"
+            ]
+          },
+          "rationale": "A PhD in Statistics against 'a PhD in a quantitative field'. Statistics is the archetypal quantitative field; the MSc in Mathematics reinforces it."
+        },
+        {
+          "requirement_id": "r_ml_cert",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "certification",
+            "refs": [
+              "c_aws_ml"
+            ]
+          },
+          "rationale": "Holds 'AWS Certified Machine Learning – Specialty', which is the credential asked for with its level appended, valid until 2027."
+        },
+        {
+          "requirement_id": "r_ml_uk",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Not stated. Eleven years of London employment makes it very likely; the profile has no field for it."
+        }
+      ]
+    },
+    {
+      "id": "c11_data_senior_x_backend_senior",
+      "profile_id": "p_data_senior",
+      "job_id": "j_backend_senior",
+      "as_of": "2026-09-19",
+      "note": "A strong but mismatched candidate: deeply experienced, and in the wrong specialism. Tests that broad seniority does not leak into specific technology verdicts, and that a doctorate in an adjacent subject is a judgment call rather than an automatic yes.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_py",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_ds_python"
+            ]
+          },
+          "rationale": "Listed with eleven years and used throughout both roles."
+        },
+        {
+          "requirement_id": "r_django",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Django appears nowhere. Knowing Python does not imply knowing Django — the profile's Python is modelling work, not web services."
+        },
+        {
+          "requirement_id": "r_pg",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "PostgreSQL is not mentioned. The profile lists SQL, which is a language rather than this particular database, and the posting asks for schema design and query plans in PostgreSQL specifically."
+        },
+        {
+          "requirement_id": "r_k8s",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Kubernetes appears nowhere."
+        },
+        {
+          "requirement_id": "r_docker",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Docker appears nowhere in the profile."
+        },
+        {
+          "requirement_id": "r_redis",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Redis appears nowhere."
+        },
+        {
+          "requirement_id": "r_exp5",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_quantel",
+              "e_orbital"
+            ]
+          },
+          "rationale": "Eleven and a half years of continuous professional employment, both roles engineering titles building production models. Comfortably over five years of professional software engineering."
+        },
+        {
+          "requirement_id": "r_django3",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "No Django anywhere, so no Django years."
+        },
+        {
+          "requirement_id": "r_degree",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "education",
+            "refs": [
+              "ed_phd",
+              "ed_msc"
+            ]
+          },
+          "rationale": "A PhD in Statistics and an MSc in Mathematics both exceed bachelor's level, so the level is more than met. Whether statistics or mathematics counts as 'related' to computer science for a backend engineering post is exactly the judgment the phrase leaves open — many employers would say obviously yes, some mean a computing degree.",
+          "contested": true,
+          "contested_note": "A reviewer could reasonably call this matched: for a senior engineering role almost nobody would reject a statistics doctorate on subject grounds. The reviewer held it uncertain because the posting names computer science and the profile records no computing qualification."
+        },
+        {
+          "requirement_id": "r_awsdev",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "The profile holds an AWS Machine Learning Specialty certification, which is a different credential from AWS Certified Developer. Sharing a vendor is not sharing a certification."
+        },
+        {
+          "requirement_id": "r_eu",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Not stated, and the employment history is in the United Kingdom, which is outside the EU. The profile cannot answer this and the circumstantial evidence points away rather than towards."
+        },
+        {
+          "requirement_id": "r_berlin",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_quantel"
+            ]
+          },
+          "rationale": "The current role is in London, which is one hour from CET and so inside the stated time window — but the posting also asks for Berlin attendance on hybrid days, which London is not. The two halves of the requirement give different answers.",
+          "contested": true,
+          "contested_note": "A literal reading of 'within two hours of CET' makes this matched. The reviewer treated the hybrid-days clause as part of the requirement."
+        }
+      ]
+    },
+    {
+      "id": "c12_junior_stuffed_x_grad_backend",
+      "profile_id": "p_junior_stuffed",
+      "job_id": "j_grad_backend",
+      "as_of": "2026-09-19",
+      "note": "The graduate posting this candidate is actually right for. Tests that a low bar ('any React exposure') is judged against the bar that was set, not against a senior one.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_g_py",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_j_python"
+            ]
+          },
+          "rationale": "Listed, used in the internship for reporting scripts, and the capstone project is a Python Flask application. Three independent corroborations."
+        },
+        {
+          "requirement_id": "r_g_react",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_j_react",
+              "e_tallow"
+            ]
+          },
+          "rationale": "The bar here is 'any React exposure'. React is listed and the internship describes fixing bugs in a React admin page. That is exposure, which is what was asked for."
+        },
+        {
+          "requirement_id": "r_g_k8s",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_j_kubernetes"
+            ]
+          },
+          "rationale": "Kubernetes is in the skills list and nothing else in the profile touches it — not the internship, not the capstone, not any project. For a graduate with one six-month internship this reads as a list of things encountered rather than used. The claim exists; the corroboration does not.",
+          "aspect": "uncorroborated_claim"
+        },
+        {
+          "requirement_id": "r_g_degree",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "education",
+            "refs": [
+              "ed_ardmore"
+            ]
+          },
+          "rationale": "A BSc in Computer Science is exactly the degree and subject named."
+        },
+        {
+          "requirement_id": "r_g_intern",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_tallow"
+            ]
+          },
+          "rationale": "A six-month software engineering internship is precisely what the requirement asks for."
+        },
+        {
+          "requirement_id": "r_g_ie",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Not stated. The internship was in Dublin, which is suggestive, but the profile has no field for work authorisation."
+        }
+      ]
+    },
+    {
+      "id": "c13_junior_stuffed_x_backend_senior",
+      "profile_id": "p_junior_stuffed",
+      "job_id": "j_backend_senior",
+      "as_of": "2026-09-19",
+      "note": "A graduate against a senior posting. The requirement bars are high, so the uncorroborated skills-list entries that passed as 'exposure' in c12 do not pass here — the same profile item, judged against a different bar, is a different answer.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_py",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_j_python"
+            ]
+          },
+          "rationale": "Listed and corroborated by both the internship and the capstone project. The posting asks for 'strong Python' and this is thin, but the skill itself is genuinely evidenced."
+        },
+        {
+          "requirement_id": "r_django",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Django appears nowhere. The capstone used Flask, which is a different framework."
+        },
+        {
+          "requirement_id": "r_pg",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "PostgreSQL is not mentioned anywhere in the profile."
+        },
+        {
+          "requirement_id": "r_k8s",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_j_kubernetes"
+            ]
+          },
+          "rationale": "Listed in the skills section with nothing anywhere else in the profile touching it. A claim without corroboration, in a profile whose entire professional history is a six-month internship.",
+          "aspect": "uncorroborated_claim"
+        },
+        {
+          "requirement_id": "r_docker",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Docker is not in the skills list or anywhere else."
+        },
+        {
+          "requirement_id": "r_redis",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Redis appears nowhere."
+        },
+        {
+          "requirement_id": "r_exp5",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_tallow"
+            ]
+          },
+          "rationale": "Seven months of internship against a five-year bar. The duration can be computed and is plainly short."
+        },
+        {
+          "requirement_id": "r_django3",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "No Django anywhere, so no Django years."
+        },
+        {
+          "requirement_id": "r_degree",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "education",
+            "refs": [
+              "ed_ardmore"
+            ]
+          },
+          "rationale": "A BSc in Computer Science is exactly the degree named."
+        },
+        {
+          "requirement_id": "r_awsdev",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "AWS is listed as a skill but no certification is recorded. Listing a technology is not holding a certification in it."
+        },
+        {
+          "requirement_id": "r_eu",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Not stated. The internship was in Dublin, inside the EU, which is suggestive but not a statement."
+        },
+        {
+          "requirement_id": "r_berlin",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_tallow"
+            ]
+          },
+          "rationale": "The only location the profile records is Dublin, which is one hour from CET and so inside the time window, but is not Berlin and says nothing about willingness to relocate for hybrid days.",
+          "contested": true,
+          "contested_note": "A literal reading of the timezone clause alone makes this matched."
+        }
+      ]
+    },
+    {
+      "id": "c14_junior_stuffed_x_platform_k8s",
+      "profile_id": "p_junior_stuffed",
+      "job_id": "j_platform_k8s",
+      "as_of": "2026-09-19",
+      "note": "The skill-stuffing case at its sharpest. Four of this posting's requirements name technologies that are in the skills list and nowhere else, and the posting itself says 'in production, not just in a course'.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_pk_k8s",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_j_kubernetes"
+            ]
+          },
+          "rationale": "Kubernetes is listed. The posting explicitly asks for it 'in production, not just in a course', and the profile shows a six-month internship writing reporting scripts and fixing a React page. The claim is made; nothing in the profile supports it at the level asked for.",
+          "aspect": "uncorroborated_claim"
+        },
+        {
+          "requirement_id": "r_pk_tf",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_j_terraform"
+            ]
+          },
+          "rationale": "Terraform is in the skills list and nothing else in the profile mentions infrastructure of any kind.",
+          "aspect": "uncorroborated_claim"
+        },
+        {
+          "requirement_id": "r_pk_go",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Go appears nowhere. The profile lists Java, which is a different language."
+        },
+        {
+          "requirement_id": "r_pk_aws",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_j_aws"
+            ]
+          },
+          "rationale": "AWS is listed with no corroboration anywhere in the profile. For a preferred requirement this is a weaker concern than the required ones above, but the evidential situation is the same.",
+          "aspect": "uncorroborated_claim"
+        },
+        {
+          "requirement_id": "r_pk_cka",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "No certifications are recorded."
+        },
+        {
+          "requirement_id": "r_pk_awssa",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "No certifications are recorded."
+        },
+        {
+          "requirement_id": "r_pk_exp6",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_tallow"
+            ]
+          },
+          "rationale": "Seven months of internship, none of it infrastructure, against a six-year bar."
+        },
+        {
+          "requirement_id": "r_pk_domain",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Nothing in the profile touches financial services or any regulated domain."
+        },
+        {
+          "requirement_id": "r_pk_loc",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_tallow"
+            ]
+          },
+          "rationale": "The only location recorded is Dublin, not Germany. A profile does not state where someone is willing to live, and graduates relocate, so this is open rather than a refusal."
+        }
+      ]
+    },
+    {
+      "id": "c15_contractor_x_backend_senior",
+      "profile_id": "p_contractor_overlap",
+      "job_id": "j_backend_senior",
+      "as_of": "2026-09-19",
+      "note": "An infrastructure specialist against an application posting. Includes the adjacent-technology case: a Kubernetes and Helm platform engineer against a plain 'comfortable with Docker'.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_py",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Python appears nowhere — not in the skills list and not in any of the three role descriptions, which are Go, Kubernetes and Terraform throughout."
+        },
+        {
+          "requirement_id": "r_django",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Django appears nowhere."
+        },
+        {
+          "requirement_id": "r_pg",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "PostgreSQL appears nowhere."
+        },
+        {
+          "requirement_id": "r_k8s",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_k8s"
+            ]
+          },
+          "rationale": "'K8s' is listed and two roles describe running Kubernetes in production."
+        },
+        {
+          "requirement_id": "r_docker",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_meridian"
+            ]
+          },
+          "rationale": "Docker is never named. But the profile describes running a Kubernetes platform and writing Helm charts for years, and it is not really possible to do that without containers. The posting asks only to be 'comfortable with Docker'. Strongly implied, never stated.",
+          "contested": true,
+          "contested_note": "A reviewer who judges only what the document says would call this missing. The reviewer allowed the inference because the adjacent evidence is unusually strong and the bar unusually low.",
+          "aspect": "implied_not_stated"
+        },
+        {
+          "requirement_id": "r_redis",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Redis appears nowhere."
+        },
+        {
+          "requirement_id": "r_exp5",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_meridian",
+              "e_northstar",
+              "e_lumen"
+            ]
+          },
+          "rationale": "About eight and a half years of merged professional employment, all of it engineering roles writing and running software. Over the five-year bar even counting the overlap once."
+        },
+        {
+          "requirement_id": "r_django3",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "No Django anywhere, so no Django years."
+        },
+        {
+          "requirement_id": "r_degree",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "education",
+            "refs": [
+              "ed_kesteven"
+            ]
+          },
+          "rationale": "A BEng in Software Engineering is a bachelor's degree in a field plainly related to computer science."
+        },
+        {
+          "requirement_id": "r_awsdev",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "The profile holds AWS Certified Solutions Architect – Associate, which is a different credential from AWS Certified Developer, and it has expired. Neither half of that is the certification asked for."
+        },
+        {
+          "requirement_id": "r_eu",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Not stated. Long employment in Frankfurt makes it very likely."
+        },
+        {
+          "requirement_id": "r_berlin",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_lumen"
+            ]
+          },
+          "rationale": "The current ongoing role is in Frankfurt, which is in CET and therefore within the stated window."
+        }
+      ]
+    },
+    {
+      "id": "c16_frontend_prose_x_grad_backend",
+      "profile_id": "p_frontend_prose",
+      "job_id": "j_grad_backend",
+      "as_of": "2026-09-19",
+      "note": "An over-qualified candidate against a graduate posting, which tests requirements phrased as minimums the candidate exceeds rather than meets literally.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_g_py",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Python appears nowhere in this profile."
+        },
+        {
+          "requirement_id": "r_g_react",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_pixelforge"
+            ]
+          },
+          "rationale": "The bar is 'any React exposure' and the profile describes six years of shipping a React dashboard. Far beyond what was asked.",
+          "aspect": "prose_evidence"
+        },
+        {
+          "requirement_id": "r_g_k8s",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Kubernetes appears nowhere."
+        },
+        {
+          "requirement_id": "r_g_degree",
+          "verdict": "missing",
+          "evidence": {
+            "source_type": "education",
+            "refs": [
+              "ed_avenida"
+            ]
+          },
+          "rationale": "A Diploma in Web Development is not a bachelor's degree in computer science. Neither the level nor the subject is reached."
+        },
+        {
+          "requirement_id": "r_g_intern",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_arcadia",
+              "e_pixelforge"
+            ]
+          },
+          "rationale": "The requirement asks for internship or placement experience, meaning some prior exposure to professional work. Eight years of full-time employment exceeds it rather than missing it.",
+          "contested": true,
+          "contested_note": "Read literally, the profile records no internship and no placement, which would make this missing. The reviewer read the requirement as a floor rather than as a specific credential."
+        },
+        {
+          "requirement_id": "r_g_ie",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Not stated. Employment is in Portugal, which is in the EU, but Irish work authorisation is a separate question the profile cannot answer."
+        }
+      ]
+    },
+    {
+      "id": "c17_backend_mid_x_studio_berlin",
+      "profile_id": "p_backend_mid",
+      "job_id": "j_studio_berlin",
+      "as_of": "2026-09-19",
+      "note": "A posting that states where it is in three words and no punctuation. The same question c01 asks, phrased the way a great many postings phrase it — which is worth judging separately because the wording, not the substance, is what changes.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_sb_py",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_python"
+            ]
+          },
+          "rationale": "Python is listed with seven years, and both roles describe Python work."
+        },
+        {
+          "requirement_id": "r_sb_loc",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_harborline"
+            ]
+          },
+          "rationale": "The posting says the job is in Berlin. The current, ongoing role at Harborline Logistics is located in Berlin, so the profile places this person where the work is."
+        },
+        {
+          "requirement_id": "r_sb_eu",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "The profile holds no field that states work authorisation. Seven years of employment in Berlin makes it very likely, but likely is not stated, and a person must confirm it."
+        }
+      ]
+    },
+    {
+      "id": "c18_junior_stuffed_x_studio_berlin",
+      "profile_id": "p_junior_stuffed",
+      "job_id": "j_studio_berlin",
+      "as_of": "2026-09-19",
+      "note": "The same three-word location requirement against a profile recorded somewhere else, so the comma-free phrasing is judged in both directions rather than only where it is satisfied.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_sb_py",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_j_python"
+            ]
+          },
+          "rationale": "Python is listed, used in the internship for reporting scripts, and the capstone project is a Python Flask application. Three independent corroborations."
+        },
+        {
+          "requirement_id": "r_sb_loc",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_tallow"
+            ]
+          },
+          "rationale": "The posting says the job is in Berlin. The only location this profile records is Dublin, which is somewhere else — but a profile does not state where someone is willing to live, and a recent graduate whose single role has ended may well move. Open rather than a refusal."
+        },
+        {
+          "requirement_id": "r_sb_eu",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "Not stated. The internship was in Dublin, inside the EU, which is suggestive but not a statement."
+        }
+      ]
+    },
+    {
+      "id": "cL1_hamburg_x_studio_berlin",
+      "profile_id": "p_loc_hamburg",
+      "job_id": "j_studio_berlin",
+      "as_of": "2026-09-19",
+      "note": "Same country, different city. A reader who would not call a Hamburg engineer 'based in Berlin' would still not treat them the way they treat someone in Toronto.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_sb_py",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_p_loc_hamburg_py"
+            ]
+          },
+          "rationale": "Python is listed as a skill and the role description says the work was Python services."
+        },
+        {
+          "requirement_id": "r_sb_loc",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_hh"
+            ]
+          },
+          "rationale": "The posting is for a job in Berlin. The current, ongoing role is in Hamburg — a different city, but the same country, so this person is already working where the job is and within reach of it. Not the same as being in another country.",
+          "contested": true,
+          "contested_note": "A reader who insists the posting says Berlin and means Berlin would call this uncertain. The reviewer treated same-country as materially different from same-continent-or-further."
+        },
+        {
+          "requirement_id": "r_sb_eu",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "The profile holds no field that states work authorisation, so a person must confirm it."
+        }
+      ]
+    },
+    {
+      "id": "cL2_toronto_x_de_anywhere",
+      "profile_id": "p_loc_toronto",
+      "job_id": "j_de_anywhere",
+      "as_of": "2026-09-19",
+      "note": "The clear mismatch. A posting that says Germany twice, against a profile that records only Canada.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_de_py",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_p_loc_toronto_py"
+            ]
+          },
+          "rationale": "Python is listed as a skill and the role description says the work was Python services."
+        },
+        {
+          "requirement_id": "r_de_loc",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_to"
+            ]
+          },
+          "rationale": "The posting asks for Berlin or elsewhere in Germany. The only role this profile records is in Toronto, Canada. That is somewhere else — but a profile does not state where someone lives or is willing to move, so this is open rather than a refusal."
+        }
+      ]
+    },
+    {
+      "id": "cL3_unstated_x_frankfurt",
+      "profile_id": "p_loc_unstated",
+      "job_id": "j_frankfurt_office",
+      "as_of": "2026-09-19",
+      "note": "The profile says nothing about where its work was. The column is nullable and, on the default resume pipeline, usually empty.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_ff_py",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_p_loc_unstated_py"
+            ]
+          },
+          "rationale": "Python is listed as a skill and the role description says the work was Python services."
+        },
+        {
+          "requirement_id": "r_ff_loc",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "The posting is for a job in Frankfurt. No role in this profile records a location at all, so there is nothing to compare it against. Silence is not a mismatch."
+        }
+      ]
+    },
+    {
+      "id": "cL4_split_x_studio_berlin",
+      "profile_id": "p_loc_split",
+      "job_id": "j_studio_berlin",
+      "as_of": "2026-09-19",
+      "note": "Two open engagements at once, in two countries. The document does not say which one places this person.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_sb_py",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_p_loc_split_py"
+            ]
+          },
+          "rationale": "Python is listed as a skill and the role description says the work was Python services."
+        },
+        {
+          "requirement_id": "r_sb_loc",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_sp_de",
+              "e_sp_pt"
+            ]
+          },
+          "rationale": "One ongoing role is in Berlin and another, also ongoing, is in Lisbon. The posting asks for Berlin. Reading only the Berlin row would answer the question; reading both shows the profile does not actually say where this person is."
+        },
+        {
+          "requirement_id": "r_sb_eu",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "The profile holds no field that states work authorisation, so a person must confirm it."
+        }
+      ]
+    },
+    {
+      "id": "cL5_remote_x_frankfurt",
+      "profile_id": "p_loc_remote",
+      "job_id": "j_frankfurt_office",
+      "as_of": "2026-09-19",
+      "note": "'Remote' is a real value of the location column and names no place.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_ff_py",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_p_loc_remote_py"
+            ]
+          },
+          "rationale": "Python is listed as a skill and the role description says the work was Python services."
+        },
+        {
+          "requirement_id": "r_ff_loc",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "The posting is for a job in Frankfurt. The only role this profile records gives its location as 'Remote', which says how the work was done rather than where the person is. Nothing here answers the question."
+        }
+      ]
+    },
+    {
+      "id": "cL6_moved_x_studio_berlin",
+      "profile_id": "p_loc_moved",
+      "job_id": "j_studio_berlin",
+      "as_of": "2026-09-19",
+      "note": "Berlin in the past, Toronto now. The historical location is real and is not where they are.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_sb_py",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_p_loc_moved_py"
+            ]
+          },
+          "rationale": "Python is listed as a skill and the role description says the work was Python services."
+        },
+        {
+          "requirement_id": "r_sb_loc",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_mv_ca"
+            ]
+          },
+          "rationale": "The posting is for a job in Berlin, and this profile does record a Berlin role — but it ended in 2020, and the ongoing role since 2021 is in Toronto. The most recent thing the profile says is Canada."
+        },
+        {
+          "requirement_id": "r_sb_eu",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "The profile holds no field that states work authorisation, so a person must confirm it."
+        }
+      ]
+    },
+    {
+      "id": "cL7_lapsed_x_studio_berlin",
+      "profile_id": "p_loc_lapsed",
+      "job_id": "j_studio_berlin",
+      "as_of": "2026-09-19",
+      "note": "One Berlin role that has ended, and nothing since. The counterpart to cL6: the same ended role, without a newer one contradicting it.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_sb_py",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_p_loc_lapsed_py"
+            ]
+          },
+          "rationale": "Python is listed as a skill and the role description says the work was Python services."
+        },
+        {
+          "requirement_id": "r_sb_loc",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_lp"
+            ]
+          },
+          "rationale": "The posting is for a job in Berlin. The most recent employment this profile records is in Berlin. It ended in 2020 and nothing newer says otherwise, so Berlin is still the last thing the document says about where this person works.",
+          "contested": true,
+          "contested_note": "The role ended six years before the as-of date, and a reader who weighs that gap heavily would call it uncertain. The reviewer took the most recent recorded location at face value because nothing in the profile contradicts it."
+        },
+        {
+          "requirement_id": "r_sb_eu",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "none"
+          },
+          "rationale": "The profile holds no field that states work authorisation, so a person must confirm it."
+        }
+      ]
+    },
+    {
+      "id": "cL8_berlin_x_eu_remote",
+      "profile_id": "p_backend_mid",
+      "job_id": "j_eu_remote",
+      "as_of": "2026-09-19",
+      "note": "A posting whose location condition is a region and a working arrangement rather than a place — neither of which this dataset's other cases exercise.",
+      "ground_truth": [
+        {
+          "requirement_id": "r_re_py",
+          "verdict": "matched",
+          "evidence": {
+            "source_type": "skill",
+            "refs": [
+              "s_python"
+            ]
+          },
+          "rationale": "Python is listed with seven years, and both roles describe Python work."
+        },
+        {
+          "requirement_id": "r_re_loc",
+          "verdict": "uncertain",
+          "evidence": {
+            "source_type": "experience",
+            "refs": [
+              "e_harborline"
+            ]
+          },
+          "rationale": "The posting says fully remote within the EU. Germany is in the EU and the current role is in Berlin, so nothing here contradicts the requirement — but 'the EU' is a group of countries rather than a place, and whether this person can work remotely for this employer is not something the profile states."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "version": "1",
+  "description": "Representative resume shapes. Coverage of awkwardness, not volume.",
+  "cases": [
+    {
+      "id": "conventional-single-column",
+      "shape": "conventional single-column resume",
+      "note": "The baseline. If this one regresses, something is badly wrong.",
+      "pages": [
+        "JANE OKONKWO\njane.okonkwo@example.com | +44 7700 900123\n\nEXPERIENCE\nSenior Backend Engineer, Northwind Ltd\nMarch 2021 - Present\nLed the payments platform rewrite and mentored three engineers.\n\nBackend Engineer, Trellis Systems\nJune 2018 - February 2021\nBuilt the ingestion pipeline and its monitoring.\n\nEDUCATION\nBSc Computer Science, University of Manchester\nSeptember 2014 - June 2017\n\nSKILLS\nPython, Django, PostgreSQL, Docker, Kubernetes\n"
+      ],
+      "expected": {
+        "experiences": [
+          {
+            "company": "Northwind Ltd",
+            "job_title": "Senior Backend Engineer",
+            "start_date": {"value": "2021-03-01", "precision": "month"},
+            "end_date": null
+          },
+          {
+            "company": "Trellis Systems",
+            "job_title": "Backend Engineer",
+            "start_date": {"value": "2018-06-01", "precision": "month"},
+            "end_date": {"value": "2021-02-01", "precision": "month"}
+          }
+        ],
+        "education": [
+          {
+            "institution": "University of Manchester",
+            "degree": "BSc Computer Science"
+          }
+        ],
+        "skills": [
+          {"name": "Python"},
+          {"name": "Django"},
+          {"name": "PostgreSQL"},
+          {"name": "Docker"},
+          {"name": "Kubernetes"}
+        ]
+      }
+    },
+    {
+      "id": "two-column-layout",
+      "shape": "two-column resume",
+      "note": "Extraction interleaves the columns, so the sections arrive out of order and a line can belong to either side. The classic layout failure.",
+      "pages": [
+        "RAVI MENON                         SKILLS\nravi@example.com                   Go\n                                   Terraform\nEXPERIENCE                         AWS\nPlatform Engineer, Beacon Cloud\n2022 - 2024                        EDUCATION\nOwned the deployment tooling.      BEng Electronics\n                                   Anna University\n"
+      ],
+      "expected": {
+        "experiences": [
+          {
+            "company": "Beacon Cloud",
+            "job_title": "Platform Engineer",
+            "start_date": {"value": "2022-01-01", "precision": "year"},
+            "end_date": {"value": "2024-01-01", "precision": "year"}
+          }
+        ],
+        "education": [
+          {"institution": "Anna University", "degree": "BEng Electronics"}
+        ],
+        "skills": [{"name": "Go"}, {"name": "Terraform"}, {"name": "AWS"}]
+      }
+    },
+    {
+      "id": "tables-for-skills-and-dates",
+      "shape": "resume with tables",
+      "note": "DOCX tables arrive as pipe-delimited rows. A structurer that only understands lines reads the header as a skill.",
+      "pages": [
+        "PRIYA SHARMA\n\n## EXPERIENCE\nRole | Company | Period\nData Engineer | Vertex Analytics | Jan 2020 - Dec 2023\nAnalyst | Vertex Analytics | Aug 2018 - Dec 2019\n\n## SKILLS\nCategory | Skills\nLanguages | Python, Scala\nPlatforms | Spark, Airflow\n"
+      ],
+      "expected": {
+        "experiences": [
+          {
+            "company": "Vertex Analytics",
+            "job_title": "Data Engineer",
+            "start_date": {"value": "2020-01-01", "precision": "month"},
+            "end_date": {"value": "2023-12-01", "precision": "month"}
+          },
+          {
+            "company": "Vertex Analytics",
+            "job_title": "Analyst",
+            "start_date": {"value": "2018-08-01", "precision": "month"},
+            "end_date": {"value": "2019-12-01", "precision": "month"}
+          }
+        ],
+        "skills": [
+          {"name": "Python"},
+          {"name": "Scala"},
+          {"name": "Spark"},
+          {"name": "Airflow"}
+        ]
+      }
+    },
+    {
+      "id": "sparse-graduate",
+      "shape": "sparse resume",
+      "note": "Almost nothing to work with. Tests restraint: the temptation is to pad.",
+      "pages": [
+        "TOM HALE\ntom.hale@example.com\n\nEDUCATION\nBA History, Durham University\n2023\n\nSKILLS\nExcel\n"
+      ],
+      "expected": {
+        "experiences": [],
+        "education": [
+          {"institution": "Durham University", "degree": "BA History"}
+        ],
+        "skills": [{"name": "Excel"}]
+      }
+    },
+    {
+      "id": "missing-dates",
+      "shape": "resume with missing dates",
+      "note": "The profile requires a start date for an experience. These entries must be reported as unmappable, never given an invented date.",
+      "pages": [
+        "ANA COSTA\n\nEXPERIENCE\nConsultant, Meridian Advisory\nAdvised clients on supply chain risk.\n\nResearch Assistant, Lisbon Institute\nPublished two papers on logistics modelling.\n\nSKILLS\nR, Stata\n"
+      ],
+      "expected": {
+        "experiences": [
+          {"company": "Meridian Advisory", "job_title": "Consultant", "start_date": null},
+          {"company": "Lisbon Institute", "job_title": "Research Assistant", "start_date": null}
+        ],
+        "skills": [{"name": "R"}, {"name": "Stata"}]
+      },
+      "expected_unmapped_sections": ["experiences"]
+    },
+    {
+      "id": "month-only-dates",
+      "shape": "resume with month-only dates",
+      "note": "The precision rule, stated plainly. Reading 'May 2024' as 1 May 2024 is wrong even though the date is right.",
+      "pages": [
+        "LUCA BIANCHI\n\nEXPERIENCE\nProduct Designer, Studio Nord\nMay 2024 - Present\n\nJunior Designer, Atelier Rossi\nSeptember 2021 - April 2024\n\nSKILLS\nFigma, Sketch\n"
+      ],
+      "expected": {
+        "experiences": [
+          {
+            "company": "Studio Nord",
+            "job_title": "Product Designer",
+            "start_date": {"value": "2024-05-01", "precision": "month"},
+            "end_date": null
+          },
+          {
+            "company": "Atelier Rossi",
+            "job_title": "Junior Designer",
+            "start_date": {"value": "2021-09-01", "precision": "month"},
+            "end_date": {"value": "2024-04-01", "precision": "month"}
+          }
+        ],
+        "skills": [{"name": "Figma"}, {"name": "Sketch"}]
+      }
+    },
+    {
+      "id": "many-roles-one-employer",
+      "shape": "multiple jobs, one employer",
+      "note": "Promotions at one company. A structurer that keys on the employer collapses three roles into one.",
+      "pages": [
+        "SARAH LINDQVIST\n\nEXPERIENCE\nEngineering Manager, Halden Group\nJanuary 2023 - Present\n\nTeam Lead, Halden Group\nMarch 2021 - December 2022\n\nSoftware Engineer, Halden Group\nJuly 2018 - February 2021\n\nSKILLS\nJava, Kotlin\n"
+      ],
+      "expected": {
+        "experiences": [
+          {
+            "company": "Halden Group",
+            "job_title": "Engineering Manager",
+            "start_date": {"value": "2023-01-01", "precision": "month"},
+            "end_date": null
+          },
+          {
+            "company": "Halden Group",
+            "job_title": "Team Lead",
+            "start_date": {"value": "2021-03-01", "precision": "month"},
+            "end_date": {"value": "2022-12-01", "precision": "month"}
+          },
+          {
+            "company": "Halden Group",
+            "job_title": "Software Engineer",
+            "start_date": {"value": "2018-07-01", "precision": "month"},
+            "end_date": {"value": "2021-02-01", "precision": "month"}
+          }
+        ],
+        "skills": [{"name": "Java"}, {"name": "Kotlin"}]
+      }
+    },
+    {
+      "id": "projects-and-certifications",
+      "shape": "resume with projects and certifications",
+      "note": "The two sections most often skipped entirely.",
+      "pages": [
+        "DIEGO PEREZ\n\nPROJECTS\nOpenRoute, a transit planner in Rust\nhttps://github.com/example/openroute\n\nLedgerLite, a double-entry bookkeeping library\n\nCERTIFICATIONS\nAWS Certified Solutions Architect - Associate\nIssued March 2023\n\nCKA: Certified Kubernetes Administrator\nIssued November 2022\n\nSKILLS\nRust, Kubernetes\n"
+      ],
+      "expected": {
+        "projects": [
+          {"name": "OpenRoute"},
+          {"name": "LedgerLite"}
+        ],
+        "certifications": [
+          {"name": "AWS Certified Solutions Architect - Associate"},
+          {"name": "CKA: Certified Kubernetes Administrator"}
+        ],
+        "skills": [{"name": "Rust"}, {"name": "Kubernetes"}]
+      }
+    },
+    {
+      "id": "unusual-formatting",
+      "shape": "unusual formatting",
+      "note": "Bullets, arrows, inconsistent casing, a headline that looks like a heading. Nothing here is invalid; it is just not the shape anyone codes for.",
+      "pages": [
+        "// MARCUS WEBB //\n>> senior sre | remote <<\n\n~ WHERE I HAVE WORKED ~\n* SRE @ Kestrel Labs .... 2019 -> 2024\n* devops engineer @ Pike & Co .... 2016 -> 2019\n\n~ WHAT I KNOW ~\n* prometheus * grafana * ansible\n"
+      ],
+      "expected": {
+        "experiences": [
+          {
+            "company": "Kestrel Labs",
+            "job_title": "SRE",
+            "start_date": {"value": "2019-01-01", "precision": "year"},
+            "end_date": {"value": "2024-01-01", "precision": "year"}
+          },
+          {
+            "company": "Pike & Co",
+            "job_title": "devops engineer",
+            "start_date": {"value": "2016-01-01", "precision": "year"},
+            "end_date": {"value": "2019-01-01", "precision": "year"}
+          }
+        ],
+        "skills": [
+          {"name": "prometheus"},
+          {"name": "grafana"},
+          {"name": "ansible"}
+        ]
+      }
+    },
+    {
+      "id": "scanned-ocr-noise",
+      "shape": "scanned resume (OCR output)",
+      "requires_ocr": true,
+      "note": "What OCR actually produces: transposed characters, lost punctuation, a stray glyph from a logo. The expectation is the truth of the document, not of the OCR — so a reading that repeats OCR noise as fact counts against it.",
+      "pages": [
+        "N I N A  R O S S\n\nEXPERlENCE\nLaboratory Technician, Fenwick Diagnostics\n2017 - 2022\nRan the sample processing line.\n\nEDUCATlON\nBSc Biochemistry, University of Leeds\n2013 - 2016\n\nSKlLLS\nHPLC, PCR, LIMS\n"
+      ],
+      "expected": {
+        "experiences": [
+          {
+            "company": "Fenwick Diagnostics",
+            "job_title": "Laboratory Technician",
+            "start_date": {"value": "2017-01-01", "precision": "year"},
+            "end_date": {"value": "2022-01-01", "precision": "year"}
+          }
+        ],
+        "education": [
+          {"institution": "University of Leeds", "degree": "BSc Biochemistry"}
+        ],
+        "skills": [{"name": "HPLC"}, {"name": "PCR"}, {"name": "LIMS"}]
+      }
+    },
+    {
+      "id": "no-grade-stated",
+      "shape": "education with no grade",
+      "note": "A grade is the classic hallucination: plausible, expected by the shape of the section, and absent. Anything reported here is fabricated.",
+      "pages": [
+        "OLA NILSEN\n\nEDUCATION\nMSc Data Science, KTH Royal Institute of Technology\n2019 - 2021\n\nSKILLS\nPython\n"
+      ],
+      "expected": {
+        "education": [
+          {
+            "institution": "KTH Royal Institute of Technology",
+            "degree": "MSc Data Science",
+            "grade": null
+          }
+        ],
+        "skills": [{"name": "Python"}]
+      }
+    }
+  ]
+}

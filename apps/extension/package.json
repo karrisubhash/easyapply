@@ -1,0 +1,27 @@
+{
+  "name": "@easyapply/extension",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Chrome extension (Manifest V3): capture a job posting, see its requirements and your match, tailor a resume, and prepare the application form, all reviewed by you and never submitted.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:browser": "playwright test",
+    "test:browser:real": "node e2e/real-stack.mjs"
+  },
+  "dependencies": {
+    "@easyapply/shared": "*"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/chrome": "^0.3.0",
+    "@types/node": "^22.13.1",
+    "esbuild": "^0.28.2",
+    "jsdom": "^26.0.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.0.5"
+  }
+}

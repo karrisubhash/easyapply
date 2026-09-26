@@ -1,0 +1,72 @@
+{
+  "dataset_version": "declared_only_v2",
+  "expectations": {
+    "state": "absent",
+    "statement": "This dataset holds fixtures and nothing else. There is no ground_truth.json, no verdict, no rationale and no expected value of any kind anywhere in this directory, and none may be added by a model. The rows below were selected by the author from the shape each fixture was written to probe; no matcher was run to choose them, and no matcher output was consulted while writing them. Expected verdicts, if this dataset ever acquires any, must be written by a human reviewer reading the documents."
+  },
+  "review": {
+    "created": "2026-09-21",
+    "authors": [
+      "assistant:claude-opus-5 — fixture author only. Authored the profiles, the postings and the row selection. Authored no expectation, and is not eligible to."
+    ],
+    "why": "docs/matching-v6-declared-only-analysis.md §G lists the evidence still required before any V6 declared-only policy could be defended. declared_only_v1 covers none of items 2-6. Each pairing below exists for one of them."
+  },
+  "pairings": [
+    {
+      "id": "v2c01_prose_exposure_x_tools",
+      "profile_id": "v2_prose_exposure",
+      "job_id": "v2_j_tools",
+      "as_of": "2026-09-01",
+      "probes": "Exposure wording on both sides at once: the posting lowers its bar with the same words the profile uses to hedge its claim, and two of the posting's lines put an exposure word next to a production ask.",
+      "requirement_ids": ["rq_it_k8s", "rq_it_tf", "rq_it_k8sprod", "rq_it_tfprod", "rq_it_py"]
+    },
+    {
+      "id": "v2c02_prose_exposure_x_infra",
+      "profile_id": "v2_prose_exposure",
+      "job_id": "v2_j_infra",
+      "as_of": "2026-09-01",
+      "probes": "The same hedged prose claims against a posting that sets a bare bar and a duration bar instead of an exposure one.",
+      "requirement_ids": ["rq_ie_tf", "rq_ie_k8s3"]
+    },
+    {
+      "id": "v2c03_project_contradiction_x_infra",
+      "profile_id": "v2_project_contradiction",
+      "job_id": "v2_j_infra",
+      "as_of": "2026-09-01",
+      "probes": "A technology asserted twice in declaring fields while the project's own description says it was not used. §G item 4: is a second declaration evidence, or the same claim repeated?",
+      "requirement_ids": ["rq_ie_tf", "rq_ie_redis"]
+    },
+    {
+      "id": "v2c04_project_undeclared_x_infra",
+      "profile_id": "v2_project_undeclared",
+      "job_id": "v2_j_infra",
+      "as_of": "2026-09-01",
+      "probes": "§G item 5: technologies a project description says were used, declared in no structured field at all.",
+      "requirement_ids": ["rq_ie_pg", "rq_ie_redis"]
+    },
+    {
+      "id": "v2c05_stated_durations_x_infra",
+      "profile_id": "v2_stated_durations",
+      "job_id": "v2_j_infra",
+      "as_of": "2026-09-01",
+      "probes": "§G item 6: a stated duration the profile's own dates contradict, a stated duration nothing corroborates, and a stated duration the employment record agrees with, against two duration bars.",
+      "requirement_ids": ["rq_ie_k8s3", "rq_ie_tf", "rq_ie_py5"]
+    },
+    {
+      "id": "v2c06_stated_durations_x_tools",
+      "profile_id": "v2_stated_durations",
+      "job_id": "v2_j_tools",
+      "as_of": "2026-09-01",
+      "probes": "The same stated durations against exposure-worded asks rather than duration bars, plus one ask for a technology the profile never names.",
+      "requirement_ids": ["rq_it_k8s", "rq_it_go", "rq_it_kafka"]
+    },
+    {
+      "id": "v2c07_exposure_corroborated_x_tools",
+      "profile_id": "v2_exposure_corroborated",
+      "job_id": "v2_j_tools",
+      "as_of": "2026-09-01",
+      "probes": "The control for the exposure axis: exposure-worded asks meeting evidence that is not in doubt, and one bare declaration in the same profile for contrast.",
+      "requirement_ids": ["rq_it_k8s", "rq_it_k8sprod", "rq_it_go"]
+    }
+  ]
+}

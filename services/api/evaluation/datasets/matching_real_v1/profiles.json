@@ -1,0 +1,617 @@
+{
+  "dataset_version": "matching_real_v1",
+  "note": "Synthesised candidates, not anonymised ones. Every name, employer, institution and date is invented; what is drawn from reality is the SHAPE — a career changer whose strongest evidence is a long-running side project, a contractor with overlapping engagements, a front-end engineer whose real skills live in prose rather than in the skills list, a graduate with a skills section longer than their CV. Anonymising real profiles would leave re-identifiable combinations of employer, dates and title; synthesising from patterns does not, and costs nothing here because the benchmark measures judgment, not provenance.",
+  "profiles": [
+    {
+      "id": "p_backend_mid",
+      "label": "Mid-level backend engineer, well-documented",
+      "summary": "Seven years of Python work with clean structured data: skills are listed, roles are dated, and descriptions corroborate the skills. The easy case, included so the benchmark has a baseline where a matcher should not struggle.",
+      "skills": [
+        {
+          "ref": "s_python",
+          "name": "Python",
+          "years": 7
+        },
+        {
+          "ref": "s_django",
+          "name": "Django",
+          "years": 6
+        },
+        {
+          "ref": "s_postgres",
+          "name": "Postgres"
+        },
+        {
+          "ref": "s_docker",
+          "name": "Docker"
+        },
+        {
+          "ref": "s_rest",
+          "name": "REST APIs"
+        }
+      ],
+      "experiences": [
+        {
+          "ref": "e_harborline",
+          "company": "Harborline Logistics",
+          "job_title": "Backend Engineer",
+          "start": "2021-03-01",
+          "end": null,
+          "location": "Berlin, Germany",
+          "employment_type": "full_time",
+          "description": "Built and maintained Django REST services for freight tracking. Designed PostgreSQL schemas and Celery task pipelines. Deployed on AWS ECS behind a Docker build."
+        },
+        {
+          "ref": "e_brightfold",
+          "company": "Brightfold Media",
+          "job_title": "Software Engineer",
+          "start": "2019-06-01",
+          "end": "2021-02-28",
+          "location": "Berlin, Germany",
+          "employment_type": "full_time",
+          "description": "Python services for ad delivery. Introduced Docker-based local development and continuous integration."
+        }
+      ],
+      "education": [
+        {
+          "ref": "ed_northgate",
+          "institution": "Northgate University",
+          "degree": "BSc Computer Science",
+          "field_of_study": "Computer Science"
+        }
+      ],
+      "certifications": [],
+      "projects": [
+        {
+          "ref": "pj_routewise",
+          "name": "Routewise",
+          "technologies": [
+            "Django",
+            "PostgreSQL"
+          ],
+          "description": "Weekend project for cycling route planning.",
+          "start": "2022-01-01",
+          "end": "2023-06-01"
+        }
+      ]
+    },
+    {
+      "id": "p_career_changer",
+      "label": "Mechanical engineer moving into software",
+      "summary": "Six years of mechanical engineering, then two and a half years of paid web development — but a self-maintained Django project running since 2020. The case that separates 'has done this for years' from 'has been paid to do this for years', and the one where a bachelor's in the wrong subject meets 'or related field'.",
+      "skills": [
+        {
+          "ref": "s_cc_python",
+          "name": "Python"
+        },
+        {
+          "ref": "s_cc_django",
+          "name": "Django"
+        },
+        {
+          "ref": "s_cc_git",
+          "name": "Git"
+        }
+      ],
+      "experiences": [
+        {
+          "ref": "e_vantor",
+          "company": "Vantor Engineering",
+          "job_title": "Mechanical Design Engineer",
+          "start": "2017-09-01",
+          "end": "2023-11-30",
+          "location": "Munich, Germany",
+          "employment_type": "full_time",
+          "description": "Mechanical design for industrial pump assemblies. Automated CAD reporting with Python scripts."
+        },
+        {
+          "ref": "e_freelance",
+          "company": "Self-employed",
+          "job_title": "Web Developer",
+          "start": "2024-02-01",
+          "end": null,
+          "location": "Munich, Germany",
+          "employment_type": "freelance",
+          "description": "Small business websites and internal tools built with Django and PostgreSQL."
+        }
+      ],
+      "education": [
+        {
+          "ref": "ed_rhinefield",
+          "institution": "Rhinefield Institute of Technology",
+          "degree": "B.Tech Mechanical Engineering",
+          "field_of_study": "Mechanical Engineering"
+        }
+      ],
+      "certifications": [],
+      "projects": [
+        {
+          "ref": "pj_openledger",
+          "name": "OpenLedger",
+          "technologies": [
+            "Django",
+            "PostgreSQL",
+            "Docker"
+          ],
+          "description": "Open-source bookkeeping tool, maintained single-handedly since 2020. Around 900 GitHub stars.",
+          "start": "2020-01-01",
+          "end": null
+        }
+      ]
+    },
+    {
+      "id": "p_contractor_overlap",
+      "label": "Infrastructure contractor with overlapping engagements",
+      "summary": "Three engagements, two of which overlap by nearly three years. Summing them gives ten years of experience; merging them gives eight and a half. Also carries one live certification and one that lapsed, and a regulated-banking engagement that a domain requirement should be able to see.",
+      "skills": [
+        {
+          "ref": "s_golang",
+          "name": "Golang"
+        },
+        {
+          "ref": "s_k8s",
+          "name": "K8s"
+        },
+        {
+          "ref": "s_terraform",
+          "name": "Terraform"
+        },
+        {
+          "ref": "s_aws",
+          "name": "AWS"
+        }
+      ],
+      "experiences": [
+        {
+          "ref": "e_meridian",
+          "company": "Meridian Bank",
+          "job_title": "Platform Contractor",
+          "start": "2018-01-01",
+          "end": "2021-06-30",
+          "location": "Frankfurt, Germany",
+          "employment_type": "contract",
+          "description": "Kubernetes platform for a regulated retail bank. Terraform-managed AWS accounts inside PCI-DSS scope, working to BaFin audit requirements."
+        },
+        {
+          "ref": "e_northstar",
+          "company": "Northstar Retail",
+          "job_title": "DevOps Contractor",
+          "start": "2020-03-01",
+          "end": "2022-12-31",
+          "location": "Remote",
+          "employment_type": "contract",
+          "description": "Go services and Helm charts for an e-commerce platform. Ran concurrently with the Meridian engagement."
+        },
+        {
+          "ref": "e_lumen",
+          "company": "Lumen Health",
+          "job_title": "Site Reliability Engineer",
+          "start": "2023-02-01",
+          "end": null,
+          "location": "Frankfurt, Germany",
+          "employment_type": "full_time",
+          "description": "Go and Kubernetes for a clinical scheduling platform handling patient data."
+        }
+      ],
+      "education": [
+        {
+          "ref": "ed_kesteven",
+          "institution": "Kesteven Polytechnic",
+          "degree": "BEng Software Engineering",
+          "field_of_study": "Software Engineering"
+        }
+      ],
+      "certifications": [
+        {
+          "ref": "c_cka",
+          "name": "Certified Kubernetes Administrator",
+          "issuer": "Cloud Native Computing Foundation",
+          "expires": "2027-05-01"
+        },
+        {
+          "ref": "c_aws_sa",
+          "name": "AWS Certified Solutions Architect – Associate",
+          "issuer": "Amazon Web Services",
+          "expires": "2024-03-01"
+        }
+      ],
+      "projects": []
+    },
+    {
+      "id": "p_frontend_prose",
+      "label": "Front-end engineer whose real skills are only in prose",
+      "summary": "Six years of front-end work. The skills list names only the basics; React, TypeScript, Jest and Playwright appear solely inside role descriptions — which is how a great many real profiles are written. Also contains the counter-example: a technology mentioned as evaluated and abandoned, which is a mention that should NOT become experience.",
+      "skills": [
+        {
+          "ref": "s_fe_js",
+          "name": "JavaScript"
+        },
+        {
+          "ref": "s_fe_html",
+          "name": "HTML"
+        },
+        {
+          "ref": "s_fe_css",
+          "name": "CSS"
+        }
+      ],
+      "experiences": [
+        {
+          "ref": "e_pixelforge",
+          "company": "Pixelforge Studio",
+          "job_title": "Frontend Engineer",
+          "start": "2020-09-01",
+          "end": null,
+          "location": "Lisbon, Portugal",
+          "employment_type": "full_time",
+          "description": "Built and shipped the customer dashboard in React with TypeScript. Owned the component library and migrated it to styled-components. Wrote the Jest unit suite and the Playwright end-to-end tests."
+        },
+        {
+          "ref": "e_arcadia",
+          "company": "Arcadia Tours",
+          "job_title": "Junior Web Developer",
+          "start": "2018-04-01",
+          "end": "2020-08-31",
+          "location": "Lisbon, Portugal",
+          "employment_type": "full_time",
+          "description": "jQuery and vanilla JavaScript for a tour booking site. Evaluated React Native for a companion mobile app, but the project was cancelled before any code shipped."
+        }
+      ],
+      "education": [
+        {
+          "ref": "ed_avenida",
+          "institution": "Avenida Technical College",
+          "degree": "Diploma in Web Development",
+          "field_of_study": "Web Development"
+        }
+      ],
+      "certifications": [],
+      "projects": []
+    },
+    {
+      "id": "p_data_senior",
+      "label": "Senior ML engineer, eleven years, doctorate",
+      "summary": "The seniority and domain case. Led a team, owned model governance at a regulated lender, holds a PhD in a quantitative subject that is not named 'Computer Science'. Everything a posting asks for at this level is present in the document and almost none of it is in a structured field.",
+      "skills": [
+        {
+          "ref": "s_ds_python",
+          "name": "Python",
+          "years": 11
+        },
+        {
+          "ref": "s_ds_pytorch",
+          "name": "PyTorch",
+          "years": 5
+        },
+        {
+          "ref": "s_ds_sql",
+          "name": "SQL"
+        },
+        {
+          "ref": "s_ds_spark",
+          "name": "Apache Spark"
+        },
+        {
+          "ref": "s_ds_ml",
+          "name": "Machine Learning"
+        }
+      ],
+      "experiences": [
+        {
+          "ref": "e_quantel",
+          "company": "Quantel Capital",
+          "job_title": "Senior Machine Learning Engineer",
+          "start": "2019-01-01",
+          "end": null,
+          "location": "London, United Kingdom",
+          "employment_type": "full_time",
+          "description": "Lead four engineers building credit-risk models for a regulated consumer lender. PyTorch and Spark on a shared feature store. Own model governance and the FCA model-risk documentation."
+        },
+        {
+          "ref": "e_orbital",
+          "company": "Orbital Analytics",
+          "job_title": "Data Scientist",
+          "start": "2015-03-01",
+          "end": "2018-12-31",
+          "location": "London, United Kingdom",
+          "employment_type": "full_time",
+          "description": "Demand forecasting models for logistics clients, in Python and scikit-learn."
+        }
+      ],
+      "education": [
+        {
+          "ref": "ed_phd",
+          "institution": "Caldmere University",
+          "degree": "PhD Statistics",
+          "field_of_study": "Statistics"
+        },
+        {
+          "ref": "ed_msc",
+          "institution": "Caldmere University",
+          "degree": "MSc Mathematics",
+          "field_of_study": "Mathematics"
+        }
+      ],
+      "certifications": [
+        {
+          "ref": "c_aws_ml",
+          "name": "AWS Certified Machine Learning – Specialty",
+          "issuer": "Amazon Web Services",
+          "expires": "2027-08-01"
+        }
+      ],
+      "projects": []
+    },
+    {
+      "id": "p_junior_stuffed",
+      "label": "Recent graduate with a skills list longer than the CV",
+      "summary": "One six-month internship, one capstone project, and a skills section naming seven technologies — four of which nothing else in the profile touches. Extremely common, and the case that asks whether a matcher can tell a corroborated claim from an unsupported one.",
+      "skills": [
+        {
+          "ref": "s_j_python",
+          "name": "Python"
+        },
+        {
+          "ref": "s_j_react",
+          "name": "React"
+        },
+        {
+          "ref": "s_j_kubernetes",
+          "name": "Kubernetes"
+        },
+        {
+          "ref": "s_j_terraform",
+          "name": "Terraform"
+        },
+        {
+          "ref": "s_j_kafka",
+          "name": "Kafka"
+        },
+        {
+          "ref": "s_j_aws",
+          "name": "AWS"
+        },
+        {
+          "ref": "s_j_java",
+          "name": "Java"
+        }
+      ],
+      "experiences": [
+        {
+          "ref": "e_tallow",
+          "company": "Tallow & Co",
+          "job_title": "Software Engineering Intern",
+          "start": "2025-06-01",
+          "end": "2025-12-31",
+          "location": "Dublin, Ireland",
+          "employment_type": "internship",
+          "description": "Six-month internship. Wrote Python scripts for internal reporting and fixed bugs in a React admin page."
+        }
+      ],
+      "education": [
+        {
+          "ref": "ed_ardmore",
+          "institution": "Ardmore University",
+          "degree": "BSc Computer Science",
+          "field_of_study": "Computer Science"
+        }
+      ],
+      "certifications": [],
+      "projects": [
+        {
+          "ref": "pj_capstone",
+          "name": "Timetabler",
+          "technologies": [
+            "Python",
+            "Flask"
+          ],
+          "description": "Final-year capstone: a Flask web application for university timetabling.",
+          "start": "2024-10-01",
+          "end": "2025-05-01"
+        }
+      ]
+    },
+    {
+      "id": "p_loc_hamburg",
+      "label": "Engineer working in Hamburg",
+      "summary": "A single ongoing role in a German city that is not the one a Berlin posting names. Included to separate 'same city' from 'same country', which are different questions a reader answers differently.",
+      "skills": [
+        {
+          "ref": "s_p_loc_hamburg_py",
+          "name": "Python"
+        }
+      ],
+      "experiences": [
+        {
+          "ref": "e_hh",
+          "company": "Nordwerk GmbH",
+          "job_title": "Backend Engineer",
+          "start": "2020-04-01",
+          "end": null,
+          "location": "Hamburg, Germany",
+          "employment_type": "full_time",
+          "description": "Python services."
+        }
+      ],
+      "education": [],
+      "certifications": [],
+      "projects": []
+    },
+    {
+      "id": "p_loc_toronto",
+      "label": "Engineer working in Toronto",
+      "summary": "A single ongoing role on another continent. The clear-mismatch control.",
+      "skills": [
+        {
+          "ref": "s_p_loc_toronto_py",
+          "name": "Python"
+        }
+      ],
+      "experiences": [
+        {
+          "ref": "e_to",
+          "company": "Lakeshore Digital",
+          "job_title": "Backend Engineer",
+          "start": "2019-08-01",
+          "end": null,
+          "location": "Toronto, Canada",
+          "employment_type": "full_time",
+          "description": "Python services."
+        }
+      ],
+      "education": [],
+      "certifications": [],
+      "projects": []
+    },
+    {
+      "id": "p_loc_unstated",
+      "label": "Engineer whose roles record no location",
+      "summary": "The column is nullable and, with the default resume pipeline, usually empty. A profile that simply does not say where its work was.",
+      "skills": [
+        {
+          "ref": "s_p_loc_unstated_py",
+          "name": "Python"
+        }
+      ],
+      "experiences": [
+        {
+          "ref": "e_nl",
+          "company": "Quiet Systems",
+          "job_title": "Backend Engineer",
+          "start": "2019-01-01",
+          "end": null,
+          "location": null,
+          "employment_type": "full_time",
+          "description": "Python services."
+        }
+      ],
+      "education": [],
+      "certifications": [],
+      "projects": []
+    },
+    {
+      "id": "p_loc_split",
+      "label": "Two concurrent roles in different countries",
+      "summary": "A contractor holding two open engagements at once, in Berlin and in Lisbon. The profile genuinely does not say which one places them.",
+      "skills": [
+        {
+          "ref": "s_p_loc_split_py",
+          "name": "Python"
+        }
+      ],
+      "experiences": [
+        {
+          "ref": "e_sp_de",
+          "company": "Havelmark",
+          "job_title": "Backend Contractor",
+          "start": "2021-01-01",
+          "end": null,
+          "location": "Berlin, Germany",
+          "employment_type": "full_time",
+          "description": "Python services."
+        },
+        {
+          "ref": "e_sp_pt",
+          "company": "Tejo Labs",
+          "job_title": "Backend Contractor",
+          "start": "2022-06-01",
+          "end": null,
+          "location": "Lisbon, Portugal",
+          "employment_type": "full_time",
+          "description": "Python services."
+        }
+      ],
+      "education": [],
+      "certifications": [],
+      "projects": []
+    },
+    {
+      "id": "p_loc_remote",
+      "label": "Engineer whose only role is recorded as Remote",
+      "summary": "'Remote' is a real value of this column and names no place. Where this person is, the profile does not say.",
+      "skills": [
+        {
+          "ref": "s_p_loc_remote_py",
+          "name": "Python"
+        }
+      ],
+      "experiences": [
+        {
+          "ref": "e_rm",
+          "company": "Untethered Inc",
+          "job_title": "Backend Engineer",
+          "start": "2021-05-01",
+          "end": null,
+          "location": "Remote",
+          "employment_type": "full_time",
+          "description": "Python services."
+        }
+      ],
+      "education": [],
+      "certifications": [],
+      "projects": []
+    },
+    {
+      "id": "p_loc_moved",
+      "label": "Engineer who worked in Berlin and then moved",
+      "summary": "Berlin until 2020, Toronto since. The historical location is real and is not where they are now.",
+      "skills": [
+        {
+          "ref": "s_p_loc_moved_py",
+          "name": "Python"
+        }
+      ],
+      "experiences": [
+        {
+          "ref": "e_mv_de",
+          "company": "Havelmark",
+          "job_title": "Backend Engineer",
+          "start": "2015-02-01",
+          "end": "2020-12-31",
+          "location": "Berlin, Germany",
+          "employment_type": "full_time",
+          "description": "Python services."
+        },
+        {
+          "ref": "e_mv_ca",
+          "company": "Lakeshore Digital",
+          "job_title": "Backend Engineer",
+          "start": "2021-02-01",
+          "end": null,
+          "location": "Toronto, Canada",
+          "employment_type": "full_time",
+          "description": "Python services."
+        }
+      ],
+      "education": [],
+      "certifications": [],
+      "projects": []
+    },
+    {
+      "id": "p_loc_lapsed",
+      "label": "Engineer whose only located role has ended",
+      "summary": "One Berlin role, finished in 2020, and nothing since. The most recent thing the profile says about where they work is still Berlin.",
+      "skills": [
+        {
+          "ref": "s_p_loc_lapsed_py",
+          "name": "Python"
+        }
+      ],
+      "experiences": [
+        {
+          "ref": "e_lp",
+          "company": "Havelmark",
+          "job_title": "Backend Engineer",
+          "start": "2015-02-01",
+          "end": "2020-12-31",
+          "location": "Berlin, Germany",
+          "employment_type": "full_time",
+          "description": "Python services."
+        }
+      ],
+      "education": [],
+      "certifications": [],
+      "projects": []
+    }
+  ]
+}

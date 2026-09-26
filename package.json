@@ -1,0 +1,16 @@
+{
+  "name": "easyapply",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @easyapply/web",
+    "build": "npm run build --workspace @easyapply/web",
+    "test": "npm run test --workspace @easyapply/web",
+    "lint": "npm run lint --workspace @easyapply/web",
+    "api:types": "npm run api:export && npm run generate --workspace @easyapply/shared",
+    "api:export": "python services/api/export_openapi.py"
+  }
+}

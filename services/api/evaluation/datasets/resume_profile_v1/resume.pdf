@@ -1,0 +1,166 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+2 0 obj
+<< /Length 3517 >>
+stream
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 760.00 Tm
+(ALEX MORGAN) Tj
+1 0 0 1 56.00 746.00 Tm
+(Bristol, United Kingdom | +44 7700 900123 | alex.morgan@example.com) Tj
+1 0 0 1 56.00 732.00 Tm
+(LinkedIn) Tj
+1 0 0 1 108.00 732.00 Tm
+(|) Tj
+1 0 0 1 118.00 732.00 Tm
+(GitHub) Tj
+1 0 0 1 162.00 732.00 Tm
+(|) Tj
+1 0 0 1 172.00 732.00 Tm
+(Portfolio) Tj
+1 0 0 1 56.00 711.00 Tm
+(Summary) Tj
+1 0 0 1 56.00 697.00 Tm
+(Backend engineer focused on distributed systems and data pipelines, with) Tj
+1 0 0 1 56.00 683.00 Tm
+(production experience building Python services, event-driven architectures) Tj
+1 0 0 1 56.00 669.00 Tm
+(and observability tooling across two regulated industries.) Tj
+1 0 0 1 56.00 648.00 Tm
+(Technical Skills) Tj
+1 0 0 1 56.00 634.00 Tm
+(Languages: Python, Go, SQL, TypeScript) Tj
+1 0 0 1 56.00 620.00 Tm
+(Backend: Django, FastAPI, Celery, gRPC, REST APIs) Tj
+1 0 0 1 56.00 606.00 Tm
+(Data: PostgreSQL, Redis, Kafka, dbt, Query Optimisation) Tj
+1 0 0 1 56.00 592.00 Tm
+(Cloud & Tooling: AWS, Docker, Kubernetes, Terraform, GitHub Actions, Load) Tj
+1 0 0 1 56.00 578.00 Tm
+(Testing) Tj
+1 0 0 1 56.00 557.00 Tm
+(Experience) Tj
+1 0 0 1 56.00 543.00 Tm
+(Senior Backend Engineer) Tj
+1 0 0 1 420.00 543.00 Tm
+(Mar 2022 - Present) Tj
+1 0 0 1 56.00 529.00 Tm
+(Northwind Logistics) Tj
+1 0 0 1 420.00 529.00 Tm
+(Bristol, United Kingdom) Tj
+1 0 0 1 56.00 515.00 Tm
+(• Rebuilt the shipment tracking service in Python and FastAPI, cutting p99) Tj
+1 0 0 1 56.00 501.00 Tm
+(latency by 63% across 4M daily events.) Tj
+1 0 0 1 56.00 487.00 Tm
+(• Introduced Kafka-based event streaming, replacing a nightly batch job and) Tj
+1 0 0 1 56.00 473.00 Tm
+(reducing data staleness from 18 hours to under 2 minutes.) Tj
+1 0 0 1 56.00 459.00 Tm
+(• Mentored 4 engineers through design review and on-call onboarding.) Tj
+1 0 0 1 56.00 445.00 Tm
+(Backend Engineer) Tj
+1 0 0 1 420.00 445.00 Tm
+(Jul 2019 - Feb 2022) Tj
+1 0 0 1 56.00 431.00 Tm
+(Cavendish Health) Tj
+1 0 0 1 420.00 431.00 Tm
+(Reading, United Kingdom) Tj
+1 0 0 1 56.00 417.00 Tm
+(• Built HL7 and FHIR ingestion pipelines processing 250k patient records) Tj
+1 0 0 1 56.00 403.00 Tm
+(daily, replacing a manual nightly import.) Tj
+1 0 0 1 56.00 389.00 Tm
+(• Reduced infrastructure spend by 31% by right-sizing ECS services.) Tj
+1 0 0 1 56.00 368.00 Tm
+(Projects) Tj
+1 0 0 1 56.00 354.00 Tm
+(Ledger Reconciliation Engine | Python, PostgreSQL, Celery) Tj
+1 0 0 1 330.00 354.00 Tm
+(GitHub) Tj
+1 0 0 1 376.00 354.00 Tm
+(|) Tj
+1 0 0 1 386.00 354.00 Tm
+(Demo) Tj
+1 0 0 1 56.00 340.00 Tm
+(• Reconciles 1.2M daily transactions against three upstream ledgers with) Tj
+1 0 0 1 56.00 326.00 Tm
+(idempotent replay and a full audit trail.) Tj
+1 0 0 1 56.00 312.00 Tm
+(• Exposes a REST API and a Prometheus metrics endpoint.) Tj
+1 0 0 1 56.00 298.00 Tm
+(Observability Starter Kit | Terraform, Grafana, Prometheus) Tj
+1 0 0 1 334.00 298.00 Tm
+(GitHub) Tj
+1 0 0 1 56.00 284.00 Tm
+(• Opinionated Terraform module deploying a metrics and tracing stack.) Tj
+1 0 0 1 56.00 263.00 Tm
+(Certifications) Tj
+1 0 0 1 56.00 249.00 Tm
+(AWS Certified Solutions Architect | Amazon Web Services | 2023) Tj
+1 0 0 1 56.00 235.00 Tm
+(Certified Kubernetes Administrator | CNCF | 2022) Tj
+1 0 0 1 56.00 214.00 Tm
+(Achievements) Tj
+1 0 0 1 56.00 200.00 Tm
+(• Speaker at PyCon UK 2023 on event-driven Python.) Tj
+1 0 0 1 56.00 179.00 Tm
+(Education) Tj
+1 0 0 1 56.00 165.00 Tm
+(BSc, Computer Science | First Class Honours) Tj
+1 0 0 1 420.00 165.00 Tm
+(2015 - 2018) Tj
+1 0 0 1 56.00 151.00 Tm
+(University of Bristol, Bristol) Tj
+ET
+endstream
+endobj
+3 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 0] /Rect [56.00 730.00 105.60 742.00] /A << /Type /Action /S /URI /URI (https://www.linkedin.com/in/alex-morgan-example/) >> >>
+endobj
+4 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 0] /Rect [118.00 730.00 155.20 742.00] /A << /Type /Action /S /URI /URI (https://github.com/alexmorgan-example) >> >>
+endobj
+5 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 0] /Rect [172.00 730.00 227.80 742.00] /A << /Type /Action /S /URI /URI (https://alexmorgan.example.com) >> >>
+endobj
+6 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 0] /Rect [330.00 352.00 367.20 364.00] /A << /Type /Action /S /URI /URI (https://github.com/alexmorgan-example/ledger-reconciliation) >> >>
+endobj
+7 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 0] /Rect [386.00 352.00 410.80 364.00] /A << /Type /Action /S /URI /URI (https://demo.alexmorgan.example.com/ledger) >> >>
+endobj
+8 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 0] /Rect [334.00 296.00 371.20 308.00] /A << /Type /Action /S /URI /URI (https://github.com/alexmorgan-example/observability-starter) >> >>
+endobj
+9 0 obj
+<< /Type /Page /Parent 10 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 2 0 R /Annots [3 0 R 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R] >>
+endobj
+10 0 obj
+<< /Type /Pages /Kids [9 0 R] /Count 1 >>
+endobj
+11 0 obj
+<< /Type /Catalog /Pages 10 0 R >>
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000009 00000 n 
+0000000106 00000 n 
+0000003675 00000 n 
+0000003862 00000 n 
+0000004039 00000 n 
+0000004209 00000 n 
+0000004408 00000 n 
+0000004590 00000 n 
+0000004789 00000 n 
+0000004962 00000 n 
+0000005020 00000 n 
+trailer
+<< /Size 12 /Root 11 0 R >>
+startxref
+5071
+%%EOF

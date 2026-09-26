@@ -1,0 +1,149 @@
+{
+  "version": "1",
+  "source": "resume_source.py",
+  "note": "Authored from the document, before running the pipeline against it. Every entry here is something resume.pdf states in so many words. Assertions are field-appropriate: exact where the resume gives an exact value, substring where normalisation may legitimately differ (a company that keeps its parenthetical, an institution that keeps its city).",
+
+  "contact": {
+    "full_name": "ALEX MORGAN",
+    "email": "alex.morgan@example.com",
+    "phone_digits": "447700900123",
+    "location_contains": "Bristol"
+  },
+
+  "summary_contains": [
+    "Backend engineer focused on distributed systems and data pipelines",
+    "event-driven architectures",
+    "across two regulated industries."
+  ],
+
+  "links_include": [
+    "https://www.linkedin.com/in/alex-morgan-example/",
+    "https://github.com/alexmorgan-example",
+    "https://alexmorgan.example.com",
+    "https://github.com/alexmorgan-example/ledger-reconciliation",
+    "https://demo.alexmorgan.example.com/ledger",
+    "https://github.com/alexmorgan-example/observability-starter"
+  ],
+
+  "experiences": [
+    {
+      "job_title": "Senior Backend Engineer",
+      "company_contains": "Northwind Logistics",
+      "location_contains": "Bristol",
+      "start_date": "2022-03-01",
+      "start_date_precision": "month",
+      "end_date": null,
+      "description_contains": [
+        "p99",
+        "63%",
+        "4M daily events",
+        "Kafka-based event streaming",
+        "18 hours to under 2 minutes",
+        "Mentored 4 engineers"
+      ]
+    },
+    {
+      "job_title": "Backend Engineer",
+      "company_contains": "Cavendish Health",
+      "location_contains": "Reading",
+      "start_date": "2019-07-01",
+      "start_date_precision": "month",
+      "end_date": "2022-02-01",
+      "end_date_precision": "month",
+      "description_contains": [
+        "HL7 and FHIR",
+        "250k patient records",
+        "31%",
+        "ECS services"
+      ]
+    }
+  ],
+
+  "education": [
+    {
+      "institution_contains": "University of Bristol",
+      "degree": "BSc",
+      "field_of_study_contains": "Computer Science",
+      "grade_contains": "First Class",
+      "start_date": "2015-01-01",
+      "start_date_precision": "year",
+      "end_date": "2018-01-01",
+      "end_date_precision": "year"
+    }
+  ],
+
+  "skills_include": [
+    "Python", "Go", "SQL", "TypeScript",
+    "Django", "FastAPI", "Celery", "gRPC", "REST APIs",
+    "PostgreSQL", "Redis", "Kafka", "dbt", "Query Optimisation",
+    "AWS", "Docker", "Kubernetes", "Terraform", "GitHub Actions", "Load Testing"
+  ],
+
+  "skill_categories_include": ["Languages", "Backend", "Data", "Cloud & Tooling"],
+
+  "projects": [
+    {
+      "name": "Ledger Reconciliation Engine",
+      "technologies": ["Python", "PostgreSQL", "Celery"],
+      "description_contains": [
+        "1.2M daily transactions",
+        "idempotent replay",
+        "Prometheus metrics endpoint"
+      ]
+    },
+    {
+      "name": "Observability Starter Kit",
+      "technologies": ["Terraform", "Grafana", "Prometheus"],
+      "description_contains": ["Terraform module"]
+    }
+  ],
+
+  "certifications": [
+    {
+      "name_contains": "AWS Certified Solutions Architect",
+      "issuing_organization_contains": "Amazon Web Services",
+      "issue_date": "2023-01-01"
+    },
+    {
+      "name_contains": "Certified Kubernetes Administrator",
+      "issuing_organization_contains": "CNCF",
+      "issue_date": "2022-01-01"
+    }
+  ],
+
+  "must_not_appear": {
+    "note": "Each of these is a reading the pipeline actually produced before the fix, or the same class of error. They are asserted individually so a regression names itself.",
+    "skill_names": [
+      "Languages:Python",
+      "Languages",
+      "Backend",
+      "Data",
+      "Cloud & Tooling",
+      "Load",
+      "Testing",
+      "GitHub Actions, Load"
+    ],
+    "skill_names_containing": [":"],
+    "job_titles": [
+      "latency by 63% across 4M daily events.",
+      "reducing data staleness from 18 hours to under 2 minutes.",
+      "daily, replacing a manual nightly import.",
+      "Senior Backend Engineer Mar 2022 - Present"
+    ],
+    "companies": ["United Kingdom", "Bristol, United Kingdom"],
+    "project_names": ["Demo", "GitHub"],
+    "project_technologies": ["GitHub", "Demo", "Celery GitHub", "Prometheus GitHub"],
+    "education_degrees": ["University of Bristol"],
+    "certification_names": ["Speaker at PyCon UK 2023 on event-driven Python."]
+  },
+
+  "exact_counts": {
+    "note": "A count is how a section that leaks into its neighbour gets caught. The resume has no more and no fewer than these.",
+    "experiences": 2,
+    "education": 1,
+    "projects": 2,
+    "certifications": 2,
+    "skills": 20,
+    "links": 6
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "dataset_version": "declared_only_v1",
+  "review": {
+    "created": "2026-09-20",
+    "reviewers": [
+      "assistant:claude-opus-5 — analytical reviewer for the declared-only policy study. Not a recruiter, not a second human rater, and not the matcher."
+    ],
+    "methodology": "Every verdict was written by reading the profile fixture and the posting as two documents and deciding what a careful hiring reviewer would conclude, using the verdict definitions and reviewer rules fixed in matching_real_v1/README.md. Each rationale was written at the same time as its verdict. The whole file was completed and frozen before the matcher was executed against this dataset even once; the profiles and postings were authored first, and the only property of the engine consulted while writing them was the curated technology vocabulary, so that a case would test declared-only policy rather than vocabulary coverage. Where the two reviewer rules that govern declared-only evidence (rule 1, stated years and project technologies count as corroboration; rule 6, duration counts paid employment) point in different directions, the verdict follows the rule that governs the requirement's own kind and the conflict is recorded in contested_note rather than resolved silently.",
+    "independence_statement": "No verdict in this file was read off, derived from, or adjusted to any matcher output. The expectations were authored and the file frozen before the first execution of any algorithm against declared_only_v1, and the SHA-256 of this file at that moment is recorded in the analysis that accompanies the dataset. Where the matcher later disagreed, the disagreement is the measurement: no verdict here has been edited because an algorithm reached a different one."
+  },
+  "cases": [
+    {
+      "id": "c01_grad_bare_x_grad",
+      "profile_id": "d_grad_bare",
+      "job_id": "j_grad",
+      "as_of": "2026-09-01",
+      "note": "A thin profile against the posting most likely to forgive it: every optional ask is phrased as exposure rather than as use.",
+      "ground_truth": [
+        {"requirement_id": "rq_gr_py", "verdict": "matched", "evidence": {"source_type": "experience", "refs": ["e_intern"]}, "aspect": "exact_skill", "rationale": "Python is in the skills list and the internship description says Python scripts were written for the billing reconciliation. The claim and the work agree."},
+        {"requirement_id": "rq_gr_k8s", "verdict": "uncertain", "evidence": {"source_type": "skill", "refs": ["s_k8s"]}, "aspect": "uncorroborated_claim", "rationale": "Kubernetes appears once, in the skills list. Nothing else in this profile exists to corroborate it: one six-month internship about billing scripts and a React page, no projects, no second role. MATCHED asks the reviewer to point at the item that clearly satisfies the requirement, and the only item is the claim itself."},
+        {"requirement_id": "rq_gr_tf", "verdict": "matched", "evidence": {"source_type": "skill", "refs": ["s_terraform"]}, "aspect": "uncorroborated_claim", "contested": true, "contested_note": "The posting asks for 'any Terraform exposure', which is the lowest bar a posting can set, and a skills-list entry is an assertion of exactly that much. A second reader could hold that a graduate's list entry does not establish even exposure, in which case this is UNCERTAIN like the Kubernetes line above. The verdict turns entirely on the posting's wording, not on the strength of the evidence, which is identical in both rows.", "rationale": "Terraform is in the skills list and nowhere else. The posting asks only that the candidate have been exposed to it, and a candidate listing a technology is asserting at least that."},
+        {"requirement_id": "rq_gr_docker", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "Docker is not in the skills list, not in the internship description, and there are no projects. Nothing in the profile speaks to it."},
+        {"requirement_id": "rq_gr_intern", "verdict": "matched", "evidence": {"source_type": "experience", "refs": ["e_intern"]}, "aspect": "experience_ambiguous", "rationale": "The profile records a six-month role titled Software Engineering Intern with employment type internship. This is the requirement, literally."},
+        {"requirement_id": "rq_gr_degree", "verdict": "matched", "evidence": {"source_type": "education", "refs": ["ed_bsc"]}, "aspect": "related_field", "rationale": "A BSc in Computer Science is the level and the named subject the posting asks for, with no relatedness judgment required."}
+      ]
+    },
+    {
+      "id": "c02_grad_bare_x_platform",
+      "profile_id": "d_grad_bare",
+      "job_id": "j_platform",
+      "as_of": "2026-09-01",
+      "note": "The same thin profile against a senior infrastructure posting: the identical claims now answer required asks, and one of them carries an explicit production bar.",
+      "ground_truth": [
+        {"requirement_id": "rq_pf_k8s", "verdict": "uncertain", "evidence": {"source_type": "skill", "refs": ["s_k8s"]}, "aspect": "uncorroborated_claim", "rationale": "The same single skills-list entry as in the graduate posting, now against a required ask for a platform role. Nothing in six months of billing scripts corroborates it. The claim is present and unsupported, which is what UNCERTAIN is for."},
+        {"requirement_id": "rq_pf_tf", "verdict": "uncertain", "evidence": {"source_type": "skill", "refs": ["s_terraform"]}, "aspect": "uncorroborated_claim", "rationale": "Terraform is claimed in the skills list. The posting asks for it in production and says so explicitly, and this profile's only employment is a six-month internship that describes no infrastructure work at all."},
+        {"requirement_id": "rq_pf_aws", "verdict": "uncertain", "evidence": {"source_type": "skill", "refs": ["s_aws"]}, "aspect": "uncorroborated_claim", "rationale": "AWS is listed with nothing anywhere in the profile touching it. That this is a preferred rather than a required ask changes how much the gap matters, not what the profile shows about it."},
+        {"requirement_id": "rq_pf_docker", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "Docker appears nowhere in this profile: not the skills list, not the internship, and there are no projects."},
+        {"requirement_id": "rq_pf_infra5", "verdict": "missing", "evidence": {"source_type": "experience", "refs": ["e_intern"]}, "aspect": "experience_insufficient", "rationale": "The profile's entire dated employment is one six-month internship. Five years is not merely unproven here, it is ruled out by what the profile itself records."},
+        {"requirement_id": "rq_pf_k8s3", "verdict": "uncertain", "evidence": {"source_type": "skill", "refs": ["s_k8s"]}, "aspect": "experience_duration", "rationale": "The profile claims Kubernetes but attaches no duration to it and shows no role that used it, so three years can be neither confirmed nor ruled out. Unlike the infrastructure line above, nothing here bounds the Kubernetes claim from below or above."},
+        {"requirement_id": "rq_pf_auth", "verdict": "uncertain", "evidence": {"source_type": "none", "refs": []}, "aspect": "free_text", "rationale": "The profile schema holds no field that records work authorisation, so this cannot be answered from the document however suggestive the employment history is."}
+      ]
+    },
+    {
+      "id": "c03_grad_bare_x_backend",
+      "profile_id": "d_grad_bare",
+      "job_id": "j_backend",
+      "as_of": "2026-09-01",
+      "note": "Control pairing: the thin profile against a posting whose asks it mostly cannot reach at all, so that the declared-only rows elsewhere are not the only thing this profile contributes.",
+      "ground_truth": [
+        {"requirement_id": "rq_be_py", "verdict": "matched", "evidence": {"source_type": "experience", "refs": ["e_intern"]}, "aspect": "exact_skill", "rationale": "Declared as a skill and demonstrated in the internship description, which names the Python scripts written there."},
+        {"requirement_id": "rq_be_pg", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "PostgreSQL appears nowhere in this profile, in any field."},
+        {"requirement_id": "rq_be_redis", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "Redis appears nowhere in this profile, in any field."},
+        {"requirement_id": "rq_be_gql", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "GraphQL appears nowhere in this profile, in any field."},
+        {"requirement_id": "rq_be_django", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "Django appears nowhere in this profile. The Python that is here is scripting, not a web framework."},
+        {"requirement_id": "rq_be_py4", "verdict": "missing", "evidence": {"source_type": "experience", "refs": ["e_intern"]}, "aspect": "experience_insufficient", "rationale": "Python is genuinely demonstrated, and for six months. Four years of professional Python is settled in the negative by the profile's own dates."},
+        {"requirement_id": "rq_be_swe5", "verdict": "missing", "evidence": {"source_type": "experience", "refs": ["e_intern"]}, "aspect": "experience_insufficient", "rationale": "Total dated employment is half a year against a five-year bar. Computable and clearly short."}
+      ]
+    },
+    {
+      "id": "c04_grad_project_x_grad",
+      "profile_id": "d_grad_project",
+      "job_id": "j_grad",
+      "as_of": "2026-09-01",
+      "note": "The same junior shape as d_grad_bare, except that two of the uncorroborated claims are the stated technologies of a three-year project whose description says the work was actually done.",
+      "ground_truth": [
+        {"requirement_id": "rq_gr_py", "verdict": "matched", "evidence": {"source_type": "experience", "refs": ["e_junior"]}, "aspect": "exact_skill", "rationale": "Declared as a skill and demonstrated in the junior role, which describes maintaining a Python service."},
+        {"requirement_id": "rq_gr_k8s", "verdict": "matched", "evidence": {"source_type": "project", "refs": ["pr_home"]}, "aspect": "project_not_employment", "rationale": "Kubernetes is a stated technology of the home platform, and that project's description says a three-node cluster has served the house continuously since early 2024. The posting asks only that Kubernetes be helpful, and a reviewer can point at described, sustained work rather than at a bare claim."},
+        {"requirement_id": "rq_gr_tf", "verdict": "matched", "evidence": {"source_type": "skill", "refs": ["s_terraform"]}, "aspect": "uncorroborated_claim", "contested": true, "contested_note": "Same disagreement as c01/rq_gr_tf: the posting's 'any exposure' phrasing is what carries this, not the evidence, which is one list entry and nothing else. A reader who holds that a list entry establishes nothing would say UNCERTAIN.", "rationale": "Terraform is in the skills list and touched nowhere else, not even by the project. The posting asks only for exposure, which is the one thing a list entry does assert."},
+        {"requirement_id": "rq_gr_docker", "verdict": "matched", "evidence": {"source_type": "project", "refs": ["pr_home"]}, "aspect": "project_not_employment", "rationale": "Docker is a stated technology of the project and the project description independently says it was deployed with Docker Compose. Two different fields, one of them describing the work, against a posting that says only that Docker is used across the team."},
+        {"requirement_id": "rq_gr_intern", "verdict": "uncertain", "evidence": {"source_type": "experience", "refs": ["e_junior"]}, "aspect": "experience_ambiguous", "contested": true, "contested_note": "A year of paid junior development is arguably more than the internship the posting asks for, which would make this MATCHED. It is also not an internship or a placement, which is what was asked. The profile does not contain the thing named; it contains something adjacent and larger.", "rationale": "The profile records a full-time Junior Developer role, not an internship and not a placement. Whether that answers the question the posting asked is a judgment the document does not settle."},
+        {"requirement_id": "rq_gr_degree", "verdict": "matched", "evidence": {"source_type": "education", "refs": ["ed_bsc"]}, "aspect": "related_field", "rationale": "A BSc in Software Engineering against a posting asking for Computer Science or a related field. These two subjects are as closely related as any pair in this discipline."}
+      ]
+    },
+    {
+      "id": "c05_grad_project_x_platform",
+      "profile_id": "d_grad_project",
+      "job_id": "j_platform",
+      "as_of": "2026-09-01",
+      "note": "Project-corroborated claims against required infrastructure asks, including one that explicitly demands production and one that asks for a duration the project can nearly but not quite supply.",
+      "ground_truth": [
+        {"requirement_id": "rq_pf_k8s", "verdict": "matched", "evidence": {"source_type": "project", "refs": ["pr_home"]}, "aspect": "project_not_employment", "contested": true, "contested_note": "The posting states the requirement as the bare word 'Kubernetes' and sets no bar, and the project describes a cluster run continuously for over two years. A second reader could hold that a required Kubernetes line on a platform posting implies professional use whether or not it says so, which would make this UNCERTAIN.", "rationale": "The requirement names Kubernetes and asks nothing about how it was acquired. The profile describes operating a three-node cluster continuously since early 2024, which is work actually done rather than a claim."},
+        {"requirement_id": "rq_pf_tf", "verdict": "uncertain", "evidence": {"source_type": "skill", "refs": ["s_terraform"]}, "aspect": "uncorroborated_claim", "rationale": "Terraform is a bare skills-list entry here; even the project, which corroborates two other claims, does not touch it. The posting asks for production use and explicitly rules out a home lab."},
+        {"requirement_id": "rq_pf_aws", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "AWS is not in this profile's skills list, role description or project."},
+        {"requirement_id": "rq_pf_docker", "verdict": "matched", "evidence": {"source_type": "project", "refs": ["pr_home"]}, "aspect": "project_not_employment", "rationale": "A stated project technology whose use the project description also narrates, against a requirement that names Docker and sets no bar."},
+        {"requirement_id": "rq_pf_infra5", "verdict": "missing", "evidence": {"source_type": "experience", "refs": ["e_junior"]}, "aspect": "experience_insufficient", "rationale": "One year of dated employment against a five-year professional bar. The project is not employment and cannot close a four-year gap in any case."},
+        {"requirement_id": "rq_pf_k8s3", "verdict": "uncertain", "evidence": {"source_type": "project", "refs": ["pr_home"]}, "aspect": "experience_duration", "contested": true, "contested_note": "The project has run since 2023 but the description dates the Kubernetes cluster specifically to early 2024, which is about two years and seven months at as_of — short of three. A reader who counts the whole project would say the duration is met but unpaid; a reader who counts the cluster would say it is not met at all. Both readings land short of MATCHED, by different routes.", "rationale": "The posting asks for three years of Kubernetes without saying professional. The profile's Kubernetes is dated by a project description to early 2024, which does not reach three years, and no paid role touches it."},
+        {"requirement_id": "rq_pf_auth", "verdict": "uncertain", "evidence": {"source_type": "none", "refs": []}, "aspect": "free_text", "rationale": "Nothing in the profile schema records work authorisation, so the document cannot answer this."}
+      ]
+    },
+    {
+      "id": "c06_changer_x_backend",
+      "profile_id": "d_changer",
+      "job_id": "j_backend",
+      "as_of": "2026-09-01",
+      "note": "A career changer against the posting closest to their new discipline. Total employment is eight years; software employment is twenty months, and two duration bars sit between the two numbers.",
+      "ground_truth": [
+        {"requirement_id": "rq_be_py", "verdict": "matched", "evidence": {"source_type": "experience", "refs": ["e_dev"]}, "aspect": "exact_skill", "rationale": "Declared as a skill and demonstrated in the backend role, which describes the nightly Python import jobs."},
+        {"requirement_id": "rq_be_pg", "verdict": "matched", "evidence": {"source_type": "experience", "refs": ["e_dev"]}, "aspect": "exact_skill", "rationale": "Declared, and the backend role says the candidate owns the PostgreSQL schema."},
+        {"requirement_id": "rq_be_redis", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "Redis appears nowhere in this profile, in any field."},
+        {"requirement_id": "rq_be_gql", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "GraphQL appears nowhere in this profile, in any field."},
+        {"requirement_id": "rq_be_django", "verdict": "matched", "evidence": {"source_type": "experience", "refs": ["e_dev"]}, "aspect": "technology", "rationale": "Declared, and the role description says Django services are built and maintained there."},
+        {"requirement_id": "rq_be_py4", "verdict": "missing", "evidence": {"source_type": "experience", "refs": ["e_dev"]}, "aspect": "experience_insufficient", "rationale": "The only role using Python began in January 2025, which is twenty months at as_of. Four years is settled in the negative by the profile's own dates; the mechanical engineering years cannot count toward Python."},
+        {"requirement_id": "rq_be_swe5", "verdict": "missing", "evidence": {"source_type": "experience", "refs": ["e_dev", "e_mech"]}, "aspect": "experience_insufficient", "rationale": "Eight years of dated employment, of which six are mechanical design engineering and twenty months are software. Read as a document, this profile does not show five years of software engineering."}
+      ]
+    },
+    {
+      "id": "c07_changer_x_platform",
+      "profile_id": "d_changer",
+      "job_id": "j_platform",
+      "as_of": "2026-09-01",
+      "note": "The de-confounding pairing for total employment: eight years of dated work, almost none of it in the discipline the posting is about, and one declared-only claim corroborated by a project that never describes using it.",
+      "ground_truth": [
+        {"requirement_id": "rq_pf_k8s", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "Kubernetes appears nowhere in this profile: not the skills list, not either role, not the project."},
+        {"requirement_id": "rq_pf_tf", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "Terraform appears nowhere in this profile, in any field."},
+        {"requirement_id": "rq_pf_aws", "verdict": "uncertain", "evidence": {"source_type": "skill", "refs": ["s_aws"]}, "aspect": "uncorroborated_claim", "rationale": "AWS is a skills-list entry and nothing else in the profile touches it. Eight years of dated employment do not corroborate it, because six of them are mechanical design and the twenty months of software describe Django, PostgreSQL and import jobs."},
+        {"requirement_id": "rq_pf_docker", "verdict": "uncertain", "evidence": {"source_type": "project", "refs": ["pr_rota"]}, "aspect": "project_not_employment", "contested": true, "contested_note": "matching_real_v1's reviewer rule 1 counts a project technology as corroboration outright, which would make this MATCHED. The reviewer here read the skills entry and the project's technology field as the same assertion made twice: the project description names volunteers and shift planning and never mentions Docker or any deployment at all, so nothing in the document describes the technology being used.", "rationale": "Docker is claimed in the skills list and again in the project's technology field, and described nowhere. The requirement is a required line on a platform posting."},
+        {"requirement_id": "rq_pf_infra5", "verdict": "missing", "evidence": {"source_type": "experience", "refs": ["e_dev", "e_mech"]}, "aspect": "experience_insufficient", "rationale": "Neither role is infrastructure work: one is mechanical design, the other is Django application development. The eight-year total is real and is not five years of professional infrastructure experience."},
+        {"requirement_id": "rq_pf_k8s3", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "There is no Kubernetes anywhere in this profile, so there are no years of it to weigh."},
+        {"requirement_id": "rq_pf_auth", "verdict": "uncertain", "evidence": {"source_type": "none", "refs": []}, "aspect": "free_text", "rationale": "The profile holds no field recording work authorisation, so the document cannot answer this."}
+      ]
+    },
+    {
+      "id": "c08_mid_x_backend",
+      "profile_id": "d_mid",
+      "job_id": "j_backend",
+      "as_of": "2026-09-01",
+      "note": "Two uncorroborated claims in a profile substantial enough that either would be unremarkable, against the posting whose described work sits closest to them.",
+      "ground_truth": [
+        {"requirement_id": "rq_be_py", "verdict": "matched", "evidence": {"source_type": "experience", "refs": ["e_fern", "e_onstead"]}, "aspect": "exact_skill", "rationale": "Declared with six stated years and demonstrated in both role descriptions."},
+        {"requirement_id": "rq_be_pg", "verdict": "matched", "evidence": {"source_type": "experience", "refs": ["e_fern", "e_onstead"]}, "aspect": "exact_skill", "rationale": "Declared, and both roles describe owning or tuning PostgreSQL."},
+        {"requirement_id": "rq_be_redis", "verdict": "uncertain", "evidence": {"source_type": "skill", "refs": ["s_redis"]}, "aspect": "uncorroborated_claim", "contested": true, "contested_note": "The second role says the scheduling layer was migrated onto Celery, and Celery requires a broker that is very often Redis. A reader willing to follow that inference would call this MATCHED. The reviewer here would not: the document names Celery, not its broker, and the profile could equally be describing RabbitMQ or SQS. This is the clearest case in the dataset where a human's verdict depends on entailment from described work — something no deterministic rule in this codebase computes.", "rationale": "Redis is in the skills list and in no role description or project. The profile is substantial and the claim is entirely plausible; plausible is not shown."},
+        {"requirement_id": "rq_be_gql", "verdict": "uncertain", "evidence": {"source_type": "skill", "refs": ["s_graphql"]}, "aspect": "uncorroborated_claim", "rationale": "GraphQL is a skills-list entry with nothing corroborating it, and the described work points the other way: both roles describe REST services and feed processing. A six-year backend engineer could well know GraphQL, and this profile does not show it."},
+        {"requirement_id": "rq_be_django", "verdict": "matched", "evidence": {"source_type": "experience", "refs": ["e_fern"]}, "aspect": "technology", "rationale": "Declared, and the first role describes building Django REST services in Python."},
+        {"requirement_id": "rq_be_py4", "verdict": "matched", "evidence": {"source_type": "experience", "refs": ["e_fern", "e_onstead"]}, "aspect": "experience_duration", "rationale": "Both roles name Python and run continuously from March 2020 to as_of, which is six and a half years against a four-year bar."},
+        {"requirement_id": "rq_be_swe5", "verdict": "matched", "evidence": {"source_type": "experience", "refs": ["e_fern", "e_onstead"]}, "aspect": "experience_duration", "rationale": "Six and a half years of continuous dated employment, both roles titled Backend Engineer and both described as software work, against a five-year software engineering bar."}
+      ]
+    },
+    {
+      "id": "c09_mid_x_platform",
+      "profile_id": "d_mid",
+      "job_id": "j_platform",
+      "as_of": "2026-09-01",
+      "note": "Control pairing: a substantial profile that simply does not claim the things this posting asks for, so that MISSING behaviour is measured on a profile nobody would call thin.",
+      "ground_truth": [
+        {"requirement_id": "rq_pf_k8s", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "Kubernetes appears nowhere in this profile, in any field."},
+        {"requirement_id": "rq_pf_tf", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "Terraform appears nowhere in this profile, in any field."},
+        {"requirement_id": "rq_pf_aws", "verdict": "matched", "evidence": {"source_type": "experience", "refs": ["e_fern"]}, "aspect": "exact_skill", "rationale": "Declared as a skill and demonstrated in the first role, which describes running the AWS deployment pipeline."},
+        {"requirement_id": "rq_pf_docker", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "Docker appears nowhere in this profile, in any field."},
+        {"requirement_id": "rq_pf_infra5", "verdict": "uncertain", "evidence": {"source_type": "experience", "refs": ["e_fern", "e_onstead"]}, "aspect": "experience_ambiguous", "contested": true, "contested_note": "Six and a half years of employment is past the bar in total, and running a deployment pipeline is infrastructure-adjacent. Whether application backend work with one deployment-pipeline sentence counts as professional infrastructure experience is exactly the kind of call two reviewers would split on.", "rationale": "The duration is met in total but the work described is backend application development, with a single line about a deployment pipeline. The document does not settle whether five of those years were infrastructure."},
+        {"requirement_id": "rq_pf_k8s3", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "There is no Kubernetes anywhere in this profile, so there are no years of it to weigh."},
+        {"requirement_id": "rq_pf_auth", "verdict": "uncertain", "evidence": {"source_type": "none", "refs": []}, "aspect": "free_text", "rationale": "The profile holds no field recording work authorisation, so the document cannot answer this."}
+      ]
+    },
+    {
+      "id": "c10_senior_bare_x_platform",
+      "profile_id": "d_senior_bare",
+      "job_id": "j_platform",
+      "as_of": "2026-09-01",
+      "note": "The decisive pairing. Twelve years of described, dated, senior work, and three claims whose evidential situation is identical to a graduate's stuffed list.",
+      "ground_truth": [
+        {"requirement_id": "rq_pf_k8s", "verdict": "uncertain", "evidence": {"source_type": "skill", "refs": ["s_k8s"]}, "aspect": "uncorroborated_claim", "contested": true, "contested_note": "Twelve years of payments platform work makes a Kubernetes claim plausible in a way a graduate's is not, and a reader who weighs the profile's overall substance would say MATCHED. The reviewer here weighed what the document says about Kubernetes specifically, which is one word in a list — the same thing the graduate's profile says. Seniority is context for the claim, not evidence for it.", "rationale": "Kubernetes is in the skills list. Three detailed role descriptions covering twelve years name Java, Spring, Kafka, PostgreSQL and AWS, and none of them names Kubernetes or any container platform. The claim is unsupported by an unusually informative profile."},
+        {"requirement_id": "rq_pf_tf", "verdict": "uncertain", "evidence": {"source_type": "skill", "refs": ["s_terraform"]}, "aspect": "uncorroborated_claim", "rationale": "Terraform is a bare skills-list entry and the posting asks for production use explicitly. Nothing in twelve years of described work mentions infrastructure as code."},
+        {"requirement_id": "rq_pf_aws", "verdict": "matched", "evidence": {"source_type": "experience", "refs": ["e_ash_principal"]}, "aspect": "exact_skill", "rationale": "Declared, and the current role says the candidate manages the AWS account the payments platform runs in."},
+        {"requirement_id": "rq_pf_docker", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "Docker appears nowhere in this profile, in any field."},
+        {"requirement_id": "rq_pf_infra5", "verdict": "matched", "evidence": {"source_type": "experience", "refs": ["e_ash_senior", "e_ash_principal"]}, "aspect": "experience_duration", "contested": true, "contested_note": "A reader could call this application engineering rather than infrastructure: payments services, not clusters. The reviewer counted running an event backbone that carries every payment event and owning the account the platform runs in as infrastructure responsibility held for eight years.", "rationale": "Twelve years of dated employment, of which the last eight describe running a Kafka event backbone and owning the platform's AWS account. That is professional infrastructure work well past a five-year bar."},
+        {"requirement_id": "rq_pf_k8s3", "verdict": "uncertain", "evidence": {"source_type": "skill", "refs": ["s_k8s"]}, "aspect": "experience_duration", "rationale": "The Kubernetes claim carries no duration and no role demonstrates it, so three years can be neither confirmed nor ruled out. The profile's twelve-year total says nothing about how much of it, if any, involved Kubernetes."},
+        {"requirement_id": "rq_pf_auth", "verdict": "uncertain", "evidence": {"source_type": "none", "refs": []}, "aspect": "free_text", "rationale": "The profile holds no field recording work authorisation, so the document cannot answer this."}
+      ]
+    },
+    {
+      "id": "c11_senior_bare_x_backend",
+      "profile_id": "d_senior_bare",
+      "job_id": "j_backend",
+      "as_of": "2026-09-01",
+      "note": "Control pairing: a senior profile in the wrong language stack, so that MISSING and the generic duration path are both measured on a twelve-year profile.",
+      "ground_truth": [
+        {"requirement_id": "rq_be_py", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "Python appears nowhere in this profile. Twelve years of seniority in a Java stack is not evidence of Python."},
+        {"requirement_id": "rq_be_pg", "verdict": "matched", "evidence": {"source_type": "experience", "refs": ["e_delmore"]}, "aspect": "exact_skill", "rationale": "Declared, and the first role describes maintaining the PostgreSQL cluster behind settlement reporting."},
+        {"requirement_id": "rq_be_redis", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "Redis appears nowhere in this profile, in any field."},
+        {"requirement_id": "rq_be_gql", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "GraphQL appears nowhere in this profile, in any field."},
+        {"requirement_id": "rq_be_django", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "Django appears nowhere in this profile, in any field."},
+        {"requirement_id": "rq_be_py4", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "There is no Python anywhere in this profile, so there are no years of it to count."},
+        {"requirement_id": "rq_be_swe5", "verdict": "matched", "evidence": {"source_type": "experience", "refs": ["e_delmore", "e_ash_senior", "e_ash_principal"]}, "aspect": "experience_duration", "rationale": "Twelve years of continuous dated employment in roles titled Software Engineer, Senior Software Engineer and Principal Engineer, every one of them describing software work."}
+      ]
+    },
+    {
+      "id": "c12_senior_years_x_data",
+      "profile_id": "d_senior_years",
+      "job_id": "j_data",
+      "as_of": "2026-09-01",
+      "note": "Uncorroborated claims that carry their own stated durations, against duration bars phrased without the word professional — one above the stated number and one below it.",
+      "ground_truth": [
+        {"requirement_id": "rq_da_scala", "verdict": "uncertain", "evidence": {"source_type": "skill", "refs": ["s_scala"]}, "aspect": "uncorroborated_claim", "contested": true, "contested_note": "Reviewer rule 1 counts stated years as corroboration, which would make this MATCHED. The reviewer here read the described work as pointing away from the claim rather than toward it: both roles describe Python transforms over Spark, which is how PySpark work is written up, not Scala work. A reader who treats the number as the corroboration rule says it is would disagree.", "rationale": "Scala is claimed in the skills list with six years attached, and no role description, project or other field names it. The two roles that do describe Spark describe writing Python over it."},
+        {"requirement_id": "rq_da_scala5", "verdict": "uncertain", "evidence": {"source_type": "skill", "refs": ["s_scala"]}, "aspect": "experience_duration", "contested": true, "contested_note": "The two governing reviewer rules disagree here and the disagreement is the point. Rule 1 counts stated years as corroboration, which would make six stated years answer a five-year bar. Rule 6 says duration counts paid employment whose role plausibly involved the subject, and no paid role here involves Scala at all. The verdict follows rule 6 because the requirement is a duration requirement, and the conflict is recorded rather than resolved.", "rationale": "The posting asks for five years of Scala. The profile asserts six in a skills field and shows no employment that used it, so the number cannot be checked against anything."},
+        {"requirement_id": "rq_da_k8s3", "verdict": "missing", "evidence": {"source_type": "skill", "refs": ["s_k8s"]}, "aspect": "experience_insufficient", "contested": true, "contested_note": "This is the asymmetry the dataset was built to expose: the same self-stated number is being trusted to rule a requirement out here while being treated as insufficient to rule one in elsewhere. A reader who distrusts the number in both directions would say UNCERTAIN. The reviewer treats the profile's own strongest claim as a ceiling, because a candidate has no reason to understate.", "rationale": "The profile claims two years of Kubernetes, which is the most the document asserts, against a three-year bar. Nothing else in the profile touches Kubernetes, so two years is the ceiling and it falls short."},
+        {"requirement_id": "rq_da_snow", "verdict": "matched", "evidence": {"source_type": "skill", "refs": ["s_snowflake"]}, "aspect": "uncorroborated_claim", "contested": true, "contested_note": "This is reviewer rule 1 applied literally: a stated year of experience is corroboration, and the posting asks only that Snowflake be nice to have. A reader who requires corroboration from outside the skills table would say UNCERTAIN, since the number and the claim are the same field.", "rationale": "Snowflake is claimed with one stated year against a nice-to-have line. The bar is the lowest the posting sets and the claim is specific rather than bare."},
+        {"requirement_id": "rq_da_spark", "verdict": "matched", "evidence": {"source_type": "experience", "refs": ["e_pellow", "e_vantwick"]}, "aspect": "exact_skill", "rationale": "Declared with eight stated years and demonstrated in both roles, the current one owning the Spark jobs behind a customer data platform. The posting asks for production Spark and the profile describes exactly that."},
+        {"requirement_id": "rq_da_airflow", "verdict": "matched", "evidence": {"source_type": "experience", "refs": ["e_vantwick"]}, "aspect": "technology", "rationale": "Declared, and the current role describes owning the Airflow schedules that run the platform's jobs."}
+      ]
+    },
+    {
+      "id": "c13_senior_years_x_platform",
+      "profile_id": "d_senior_years",
+      "job_id": "j_platform",
+      "as_of": "2026-09-01",
+      "note": "The same two-year Kubernetes claim against a bare required ask and against a three-year bar, in a profile whose discipline is not the posting's.",
+      "ground_truth": [
+        {"requirement_id": "rq_pf_k8s", "verdict": "matched", "evidence": {"source_type": "skill", "refs": ["s_k8s"]}, "aspect": "uncorroborated_claim", "contested": true, "contested_note": "Held against c10/rq_pf_k8s, which is UNCERTAIN, the only difference between the two rows is that this claim carries a number and that one does not. A reader who does not count a self-stated duration as corroboration would call both UNCERTAIN; a reader who does would call both MATCHED only if seniority also counted. The pair exists to make the contribution of the number measurable on its own.", "rationale": "Kubernetes is claimed with two stated years and no other corroboration. The posting names Kubernetes and sets no bar, and the profile asserts a specific duration rather than a bare word."},
+        {"requirement_id": "rq_pf_tf", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "Terraform appears nowhere in this profile, in any field."},
+        {"requirement_id": "rq_pf_aws", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "AWS appears nowhere in this profile, in any field."},
+        {"requirement_id": "rq_pf_docker", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "Docker appears nowhere in this profile, in any field."},
+        {"requirement_id": "rq_pf_infra5", "verdict": "uncertain", "evidence": {"source_type": "experience", "refs": ["e_pellow", "e_vantwick"]}, "aspect": "experience_ambiguous", "contested": true, "contested_note": "Ten years of data engineering is past the bar in total, and owning Airflow schedules and Spark jobs is operational work. Whether that is professional infrastructure experience is a genuine call; a platform team might say no, a data platform team might say obviously.", "rationale": "The duration is met in total and the discipline is data engineering rather than infrastructure. The document does not settle whether five of those years were infrastructure work."},
+        {"requirement_id": "rq_pf_k8s3", "verdict": "missing", "evidence": {"source_type": "skill", "refs": ["s_k8s"]}, "aspect": "experience_insufficient", "contested": true, "contested_note": "Same asymmetry as c12/rq_da_k8s3, and recorded for the same reason: the self-stated two years is being read as a ceiling. A reader who treats an uncorroborated number as unusable in both directions would say UNCERTAIN.", "rationale": "The profile's own claim is two years of Kubernetes against a three-year bar, and nothing else in the profile touches it. The strongest thing the document says falls short."},
+        {"requirement_id": "rq_pf_auth", "verdict": "uncertain", "evidence": {"source_type": "none", "refs": []}, "aspect": "free_text", "rationale": "The profile holds no field recording work authorisation, so the document cannot answer this."}
+      ]
+    },
+    {
+      "id": "c14_changer_x_grad",
+      "profile_id": "d_changer",
+      "job_id": "j_grad",
+      "as_of": "2026-09-01",
+      "note": "The same twice-asserted, never-described Docker claim as c07, now against a posting whose wording sets almost no bar — so that the bar and the evidence vary independently.",
+      "ground_truth": [
+        {"requirement_id": "rq_gr_py", "verdict": "matched", "evidence": {"source_type": "experience", "refs": ["e_dev"]}, "aspect": "exact_skill", "rationale": "Declared and demonstrated in the backend role's description of the nightly Python import jobs."},
+        {"requirement_id": "rq_gr_k8s", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "Kubernetes appears nowhere in this profile, in any field."},
+        {"requirement_id": "rq_gr_tf", "verdict": "missing", "evidence": {"source_type": "none", "refs": []}, "aspect": "missing_evidence", "rationale": "Terraform appears nowhere in this profile, so there is nothing for even an exposure-level ask to weigh."},
+        {"requirement_id": "rq_gr_docker", "verdict": "matched", "evidence": {"source_type": "project", "refs": ["pr_rota"]}, "aspect": "project_not_employment", "contested": true, "contested_note": "The evidence is identical to c07/rq_pf_docker, which is UNCERTAIN: a skills entry and a project technology field, with no description of the technology being used anywhere. What differs is the bar — this posting says only that Docker is used across the team, where the platform posting states it as a required line. A reader who holds that evidence this thin cannot clear any bar would say UNCERTAIN here too.", "rationale": "Docker is asserted twice, in the skills list and in the project's technology field. The posting does not ask for a level of Docker at all, only notes that the team uses it."},
+        {"requirement_id": "rq_gr_intern", "verdict": "uncertain", "evidence": {"source_type": "experience", "refs": ["e_dev"]}, "aspect": "experience_ambiguous", "contested": true, "contested_note": "Twenty months of paid backend development is more professional experience than the internship the posting asks for, which a reader could call MATCHED. It is still not an internship or a placement, and this candidate's earlier career is in another discipline entirely.", "rationale": "The profile records no internship and no placement. It records a mechanical engineering career and twenty months of full-time development, which is adjacent to the question rather than an answer to it."},
+        {"requirement_id": "rq_gr_degree", "verdict": "uncertain", "evidence": {"source_type": "education", "refs": ["ed_beng"]}, "aspect": "related_field", "rationale": "A BEng in Mechanical Engineering reaches bachelor level. Whether mechanical engineering is a field related to computer science is a genuine judgment call that the profile holds no information to settle."}
+      ]
+    }
+  ]
+}

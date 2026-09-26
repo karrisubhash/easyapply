@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+  A Lever-hosted job posting (jobs.lever.co/<company>/<uuid>), reduced to its
+  structure.
+
+  The markup - the header logo link, the posting header with its h2 title and
+  category chips (location, team, commitment, workplace type), the Apply link
+  to /apply, the job-description section, the h3 + posting-requirements list
+  sections, the closing section and the final Apply section - is copied from a
+  live jobs.lever.co posting as it was served on 2026-09-26. The words are
+  invented: no real company's posting is committed here.
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Acme Robotics - Platform Engineer</title>
+    <meta property="og:title" content="Acme Robotics - Platform Engineer" />
+  </head>
+  <body class="show header-comfortable">
+    <div class="main-header page-full-width section-wrapper">
+      <div class="main-header-content page-centered narrow-section page-full-width">
+        <a href="https://jobs.lever.co/acmerobotics" class="main-header-logo"><img alt="Acme Robotics logo" src="https://example.invalid/logo.png" /></a>
+      </div>
+    </div>
+    <div class="content-wrapper posting-page">
+      <div class="content">
+        <div class="section-wrapper accent-section page-full-width">
+          <div class="section page-centered posting-header">
+            <div class="posting-headline">
+              <h2>Platform   Engineer</h2>
+              <div class="posting-categories">
+                <div href="#" class="sort-by-time posting-category medium-category-label width-full capitalize-labels location">Berlin, Germany</div>
+                <div href="#" class="sort-by-team posting-category medium-category-label capitalize-labels department">Engineering /</div>
+                <div href="#" class="sort-by-commitment posting-category medium-category-label capitalize-labels commitment">Full-time /</div>
+                <div href="#" class="sort-by-time posting-category medium-category-label capitalize-labels workplaceTypes">Hybrid</div>
+              </div>
+            </div>
+            <div class="postings-btn-wrapper"><a class="postings-btn template-btn-submit black" href="https://jobs.lever.co/acmerobotics/3f2a9c1e-5b7d-4e8a-9c0f-1a2b3c4d5e6f/apply">Apply</a></div>
+          </div>
+        </div>
+        <div class="section-wrapper page-full-width">
+          <div class="section page-centered" data-qa="job-description">
+            <div><strong><span style="font-size: 18px;">About the team</span></strong></div>
+            <div>&nbsp;</div>
+            <div>Acme Robotics runs the fleet that moves parcels through our warehouses.</div>
+            <div><br /></div>
+          </div>
+          <div class="section page-centered">
+            <div>
+              <h3>What you'll do</h3>
+              <div class="posting-requirements plain-list" data-qa="posting-requirements"><div><ul>
+                <li>Operate Kubernetes clusters for the robot fleet.</li>
+                <li>Automate infrastructure with Terraform.</li>
+              </ul></div></div>
+            </div>
+          </div>
+          <div class="section page-centered">
+            <div>
+              <h3>What we value</h3>
+              <div class="posting-requirements plain-list" data-qa="posting-requirements"><div><ul>
+                <li>3+ years operating Linux in production.</li>
+                <li>Strong Python and Go.</li>
+              </ul></div></div>
+            </div>
+          </div>
+          <div class="section page-centered" data-qa="closing-description">
+            <div>Acme Robotics is an equal opportunity employer.</div>
+          </div>
+          <div class="section page-centered last-section-apply" data-qa="btn-apply-bottom">
+            <a class="postings-btn template-btn-submit black" href="https://jobs.lever.co/acmerobotics/3f2a9c1e-5b7d-4e8a-9c0f-1a2b3c4d5e6f/apply">Apply for this job</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>window.__tracking = "must not appear in the text";</script>
+  </body>
+</html>

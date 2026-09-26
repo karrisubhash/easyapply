@@ -1,0 +1,35 @@
+# Build context for deploy/staging/Dockerfile (the repository root).
+# Above all never in an image: a developer's .env files (real keys) and
+# services/api/var/ (uploaded resumes, generated documents, evaluation captures).
+**/.env
+**/.env.*
+!**/.env.example
+services/api/var/
+*.dump
+
+# Rebuilt inside the image, or not needed there.
+.git/
+**/node_modules/
+**/.next/
+**/.next-e2e/
+**/.next-ext-e2e/
+**/.venv/
+**/__pycache__/
+**/.pytest_cache/
+**/*.tsbuildinfo
+**/.artifacts/
+**/playwright-report/
+**/test-results/
+
+# Tests, evaluation, docs and the extension: the image serves the web app and
+# the API only. (apps/web/e2e stays: the web build type-checks
+# playwright.config.ts, which imports from it.) The extension's package.json stays, because the lockfile names
+# it as a workspace and `npm ci` checks the two agree.
+services/api/tests/
+services/api/evaluation/
+apps/extension/*
+!apps/extension/package.json
+docs/
+PROJECT.md
+infrastructure/
+tests/

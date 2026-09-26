@@ -1,0 +1,21 @@
+# EasyApply API — direct dependencies only.
+# Transitive dependencies are resolved by pip; we do not vendor a full lockfile yet.
+# Versions are intentionally unpinned at this stage. We pin them once the schema
+# and the first endpoints are stable.
+
+fastapi
+uvicorn[standard]
+pydantic-settings
+sqlalchemy
+psycopg[binary]
+alembic
+python-multipart
+PyJWT               # the web app's signed identity assertion (app/api/assertion_identity.py); HS256 only
+
+# --- resume ingestion ---
+pypdf              # PDF text extraction, per page
+python-docx        # DOCX text and structure
+pypdfium2          # rasterising PDF pages for OCR (no external binary)
+pytesseract        # local OCR adapter; needs the tesseract binary at runtime
+anthropic          # AI structuring, behind app/services/resume/structuring.py
+httpx              # OpenRouter adapter (app/services/ai/providers/openrouter.py); no vendor SDK

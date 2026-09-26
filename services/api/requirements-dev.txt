@@ -1,0 +1,9 @@
+# EasyApply API — development and test dependencies.
+# Install with: pip install -r requirements-dev.txt
+
+-r requirements.txt
+
+pytest
+
+# Starlette's TestClient transport. Starlette 1.6 deprecated plain httpx.
+httpx2

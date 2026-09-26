@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--
+  A Lever-hosted application page (jobs.lever.co/<company>/<uuid>/apply),
+  reduced to its structure.
+
+  The markup - the posting header on the application page, form#application-form,
+  li.application-question blocks whose <label> wraps a .application-label (the
+  required mark a span.required) and a .application-field, inputs identified by
+  NAME (name, email, phone, location, org, urls[...]) rather than id, the hidden
+  inputs Lever adds, the custom-question cards: a checkbox group, radio groups,
+  a native <select>, a textarea; the additional-information textarea, the
+  marketing-consent checkbox and a type="button" submit - is copied from a live
+  jobs.lever.co application page as it was served on 2026-09-26. The
+  university list is cut to three options. The words are invented or generic;
+  no real company's form is committed here.
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Acme Robotics - Platform Engineer</title>
+  </head>
+  <body class="application header-comfortable">
+    <div class="content-wrapper application-page">
+      <div class="content">
+        <div class="section-wrapper accent-section small-accent page-full-width">
+          <div class="section page-centered posting-header">
+            <h2>Platform Engineer</h2>
+            <div class="posting-categories">
+              <div href="#" class="sort-by-time posting-category medium-category-label width-full capitalize-labels location">Berlin, Germany</div>
+            </div>
+          </div>
+        </div>
+        <div class="section-wrapper page-full-width">
+          <form id="application-form" enctype="multipart/form-data" method="POST">
+            <div class="section page-centered application-form">
+              <h4>Submit your application</h4>
+              <ul>
+                <li class="application-question resume"><label><div class="application-label">Resume/CV <span class="required">✱</span></div><div class="application-field"><a href="#" class="postings-btn template-btn-utility visible-resume-upload">ATTACH RESUME/CV</a><input class="application-file-input" type="file" name="resume" id="resume-upload-input" /></div></label></li>
+                <li class="application-question"><label><div class="application-label">Full name<span class="required">✱</span></div><div class="application-field"><input type="text" name="name" required /></div></label></li>
+                <li class="application-question"><label><div class="application-label">Email<span class="required">✱</span></div><div class="application-field"><input name="email" data-qa="email-input" type="email" required /></div></label></li>
+                <li class="application-question"><label><div class="application-label">Phone</div><div class="application-field"><input type="text" name="phone" /></div></label></li>
+                <li class="application-question"><label><div class="application-label">Current location <span class="required">✱</span></div><div class="application-field"><input type="text" name="location" id="location-input" required /><input type="hidden" name="selectedLocation" /></div></label></li>
+                <li class="application-question"><label><div class="application-label">Current company</div><div class="application-field"><input type="text" name="org" /></div></label></li>
+              </ul>
+            </div>
+            <div class="section page-centered application-form">
+              <h4>Links</h4>
+              <ul>
+                <li class="application-question"><label><div class="application-label">LinkedIn URL</div><div class="application-field"><input type="text" name="urls[LinkedIn]" /></div></label></li>
+                <li class="application-question"><label><div class="application-label">GitHub URL</div><div class="application-field"><input type="text" name="urls[GitHub]" /></div></label></li>
+                <li class="application-question"><label><div class="application-label">Portfolio URL</div><div class="application-field"><input type="text" name="urls[Portfolio]" /></div></label></li>
+              </ul>
+            </div>
+            <div class="section page-centered application-form" data-qa="additional-cards">
+              <input type="hidden" name="cards[11111111-aaaa-4bbb-8ccc-000000000001][baseTemplate]" value="{}" />
+              <ul>
+                <li class="application-question custom-question"><div><div class="application-label full-width multiple-select"><div class="text">Language skills (check all that apply)<span class="required">✱</span></div></div><div class="application-field full-width required-field"><ul data-qa="checkboxes">
+                  <li><label><input type="checkbox" name="cards[11111111-aaaa-4bbb-8ccc-000000000001][field0]" value="English" required /><span class="application-answer-alternative">English</span></label></li>
+                  <li><label><input type="checkbox" name="cards[11111111-aaaa-4bbb-8ccc-000000000001][field0]" value="German" required /><span class="application-answer-alternative">German</span></label></li>
+                </ul></div></div></li>
+                <li class="application-question custom-question"><label><div class="application-label full-width text"><div class="text">Preferred name | What would you like us to call you?</div></div><div class="application-field full-width"><input type="text" name="cards[11111111-aaaa-4bbb-8ccc-000000000001][field1]" /></div></label></li>
+              </ul>
+              <input type="hidden" name="cards[22222222-aaaa-4bbb-8ccc-000000000002][baseTemplate]" value="{}" />
+              <ul>
+                <li class="application-question custom-question"><div><div class="application-label full-width multiple-choice"><div class="text">Are you legally authorized to work in the country for which you are applying?<span class="required">✱</span></div></div><div class="application-field full-width required-field"><ul data-qa="multiple-choice">
+                  <li><label><input type="radio" name="cards[22222222-aaaa-4bbb-8ccc-000000000002][field0]" value="Yes" required="required" /><span class="application-answer-alternative">Yes</span></label></li>
+                  <li><label><input type="radio" name="cards[22222222-aaaa-4bbb-8ccc-000000000002][field0]" value="No" required="required" /><span class="application-answer-alternative">No</span></label></li>
+                </ul></div></div></li>
+                <li class="application-question custom-question"><div><div class="application-label full-width multiple-choice"><div class="text">Will you now or in the future require sponsorship for employment visa status?<span class="required">✱</span></div></div><div class="application-field full-width required-field"><ul data-qa="multiple-choice">
+                  <li><label><input type="radio" name="cards[22222222-aaaa-4bbb-8ccc-000000000002][field1]" value="Yes" required="required" /><span class="application-answer-alternative">Yes</span></label></li>
+                  <li><label><input type="radio" name="cards[22222222-aaaa-4bbb-8ccc-000000000002][field1]" value="No" required="required" /><span class="application-answer-alternative">No</span></label></li>
+                </ul></div></div></li>
+              </ul>
+              <input type="hidden" name="cards[33333333-aaaa-4bbb-8ccc-000000000003][baseTemplate]" value="{}" />
+              <ul>
+                <li class="application-question custom-question"><label><div class="application-label full-width dropdown"><div class="text">Which university did you last attend?<span class="required">✱</span></div></div><div class="application-field full-width required-field"><select name="cards[33333333-aaaa-4bbb-8ccc-000000000003][field0]" required><option value="">Click here</option><option value="University A">University A</option><option value="University B">University B</option><option value="Other">Other</option></select></div></label></li>
+                <li class="application-question custom-question"><label><div class="application-label full-width textarea"><div class="text">What has been your proudest project, and why?</div></div><div class="application-field full-width"><textarea name="cards[33333333-aaaa-4bbb-8ccc-000000000003][field1]"></textarea></div></label></li>
+              </ul>
+            </div>
+            <div class="section page-centered application-form">
+              <h4>Additional information</h4>
+              <ul>
+                <li class="application-question additional-information"><label><div class="application-field full-width"><textarea name="comments" id="additional-information" placeholder="Add a cover letter or anything else you want to share."></textarea></div></label></li>
+              </ul>
+            </div>
+            <div class="section page-centered application-form" data-qa="consent">
+              <ul>
+                <li class="application-question"><label><div class="application-label">I agree to be contacted about future opportunities</div><div class="application-field"><input type="hidden" name="consent[marketing]" value="0" /><input type="checkbox" name="consent[marketing]" value="1" /></div></label></li>
+              </ul>
+            </div>
+            <input type="hidden" name="accountId" value="00000000-0000-0000-0000-000000000000" />
+            <input type="hidden" name="origin" />
+            <input type="hidden" name="h-captcha-response" />
+            <div class="section page-centered application-form last-section-apply">
+              <button id="btn-submit" type="button" class="postings-btn template-btn-submit black" data-qa="btn-submit">Submit application</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

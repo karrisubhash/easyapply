@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "EasyApply",
+  "description": "Save the job you are viewing, see how your profile matches it, tailor a resume, and prepare the application form. You review everything; it never submits.",
+  "version": "0.2.0",
+  "minimum_chrome_version": "120",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyhLHmtsEwPLaDvWCzwsRJSBZteJTcEU19WifzAtaMcB5H5/Z38Js4ZexxvSq1Bol7t2hXKL8opZFa9HN6mSoKwaNxn6GrlSIn8xZlx+aQ+QFAAt/r2d+IsY0r7ZpGHSXrB0M4KpdaCN4T0psD4B8G9+Asas6qYnaytulj1iik1z3PKZXSrj73W5WIulbPcAYyjzygFcKSovbJLEjSvH6ZXF5rvwAeFdyZNWJfFR/3XGBnhBygiSDK5s6zJldYNR3W3ykRwD+qIq3Bi02bEhPfQJa/AqFsZOp24SJIvHbHb4v/CSQdtisJKiLcylOkCojTRai2a70LuoNjG0BSGXdjQIDAQAB",
+  "action": {
+    "default_title": "EasyApply: this job",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://job-boards.greenhouse.io/*", "https://job-boards.eu.greenhouse.io/*", "https://jobs.lever.co/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": ["storage"],
+  "host_permissions": ["https://job-boards.greenhouse.io/*", "https://job-boards.eu.greenhouse.io/*", "https://jobs.lever.co/*"]
+}

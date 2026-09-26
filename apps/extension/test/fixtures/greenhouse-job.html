@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!--
+  A Greenhouse-hosted job posting, reduced to its structure.
+
+  The markup — class names, nesting, the SVG location icon, the logo link, the
+  Apply button, the pay-range block inside the description and the application
+  form beside it — is copied from live job-boards.greenhouse.io postings as they
+  were served on 2026-09-26. The words are invented: no real company's posting
+  is committed here.
+-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta property="og:type" content="article" />
+    <link rel="canonical" href="http://job-boards.greenhouse.io/acmerobotics/jobs/4012345002" />
+    <title>Job Application for Senior Backend Engineer at Acme Robotics</title>
+    <meta property="og:title" content="Senior Backend Engineer" />
+    <meta property="og:description" content="Remote, Berlin" />
+    <meta property="og:url" content="https://job-boards.greenhouse.io/acmerobotics/jobs/4012345002" />
+  </head>
+  <body>
+    <div id="react-portal-mount-point"></div>
+    <main class="main font-secondary job-post">
+      <div class="job-post-container">
+        <div class="image-container">
+          <a href="https://boards.greenhouse.io/acmerobotics" target="_blank" rel="noreferrer" class="logo"
+            ><img src="https://example.invalid/logo.png" alt="Acme Robotics Logo" class=""
+          /></a>
+        </div>
+        <div>
+          <div class="job__tags"></div>
+          <div class="job__header">
+            <div class="job__title">
+              <h1 class="section-header section-header--large font-primary">Senior   Backend
+                Engineer</h1>
+              <div class="job__location">
+                <svg class="svg-icon" fill="none" height="20" width="20" viewBox="0 0 24 24">
+                  <title>Location</title>
+                  <path class="icon--primary-color" d="M6.46958 3.811C7.93571 2.34217"></path>
+                </svg>
+                <div>Remote, Berlin</div>
+              </div>
+            </div>
+            <button type="button" class="btn btn--pill" aria-label="Apply">Apply</button>
+          </div>
+          <div class="job__description body">
+            <div>
+              <p>Acme Robotics builds warehouse robots.&nbsp;We are <a href="https://example.invalid/about">a small team</a> with <strong>big</strong> <em>ambitions</em>.</p>
+              <p>This paragraph<br />has a line break.</p>
+            </div>
+            <div>
+              <h2><strong>What you'll do</strong></h2>
+              <ul>
+                <li>Design and operate Python services on PostgreSQL.</li>
+                <li><p>Own the job-scheduling API end to end.</p></li>
+                <li>Mentor engineers
+                  <ul>
+                    <li>through code review</li>
+                    <li>through pairing</li>
+                  </ul>
+                </li>
+              </ul>
+              <h2><strong>What you'll bring</strong></h2>
+              <ul>
+                <li><strong>Experience -&nbsp;</strong>5+ years of backend development.</li>
+                <li>Strong knowledge of SQL and FastAPI.</li>
+              </ul>
+              <p><strong>Nice to have</strong></p>
+              <ol>
+                <li>Kubernetes</li>
+                <li>Terraform</li>
+              </ol>
+              <script>window.__tracking = "must not appear in the text";</script>
+              <style>.x { color: red }</style>
+              <p hidden>Hidden text must not appear.</p>
+            </div>
+            <div class="job__pay-ranges">
+              <div class="pay-range">
+                <div class="description"><div class="body"><span><p><strong>Pay Transparency</strong></p></span></div></div>
+                <p class="body body--medium">Annual Base Salary Range:</p>
+                <p class="body"><bdi>$150,000</bdi> - <bdi>$180,000</bdi> <bdi>USD</bdi></p>
+              </div>
+            </div>
+            <div>
+              <p>Acme Robotics is an equal opportunity employer.</p>
+            </div>
+          </div>
+          <div class="job-alert job-alert--margin"></div>
+          <div class="divider"></div>
+          <div class="application--container">
+            <div class="application--header">
+              <h2 class="section-header font-primary">Apply for this job</h2>
+            </div>
+            <form id="application-form">
+              <div class="field-wrapper">
+                <label for="first_name">First Name</label>
+                <input id="first_name" name="first_name" value="" />
+              </div>
+              <button type="submit">Submit application</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      window.__remixContext = { "state": { "loaderData": { "jobPost": { "title": "Senior Backend Engineer" } } } };
+    </script>
+  </body>
+</html>

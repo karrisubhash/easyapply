@@ -1,0 +1,151 @@
+{
+  "profiles": [
+    {
+      "id": "v2_prose_exposure",
+      "label": "Exposure wording on the profile side, for technologies the skills list never names",
+      "summary": "Mid-level backend engineer. Two technologies appear nowhere but in a role description, and in both cases the sentence that names them uses the same exposure vocabulary a posting might use to lower its own bar.",
+      "skills": [
+        {"ref": "s_python", "name": "Python"},
+        {"ref": "s_django", "name": "Django"},
+        {"ref": "s_postgres", "name": "PostgreSQL"}
+      ],
+      "experiences": [
+        {
+          "ref": "e_marrable",
+          "company": "Marrable Health",
+          "job_title": "Backend Engineer",
+          "start": "2021-03-01",
+          "end": null,
+          "description": "Build the Django services behind a claims portal and own the PostgreSQL schema they read. Familiar with Kubernetes from the platform team's handover documentation, though they run the deployments themselves. Some exposure to Terraform while reviewing their module changes.",
+          "employment_type": "full_time",
+          "location": "Leeds, United Kingdom"
+        }
+      ],
+      "education": [
+        {"ref": "ed_bsc", "institution": "University of York", "degree": "BSc", "field_of_study": "Computer Science"}
+      ]
+    },
+    {
+      "id": "v2_project_contradiction",
+      "label": "Project technology list contradicted by the project's own description",
+      "summary": "Two technologies are asserted twice each — once in the skills list and once on a project's technology list — and the project description states plainly that neither was actually used.",
+      "skills": [
+        {"ref": "s_python", "name": "Python"},
+        {"ref": "s_postgres", "name": "PostgreSQL"},
+        {"ref": "s_terraform", "name": "Terraform"},
+        {"ref": "s_redis", "name": "Redis"}
+      ],
+      "experiences": [
+        {
+          "ref": "e_cadwell",
+          "company": "Cadwell Telemetry",
+          "job_title": "Software Engineer",
+          "start": "2022-01-01",
+          "end": null,
+          "description": "Write the Python ingestion jobs for a fleet telemetry product and keep the PostgreSQL tables they land in.",
+          "employment_type": "full_time",
+          "location": "Bristol, United Kingdom"
+        }
+      ],
+      "education": [
+        {"ref": "ed_bsc", "institution": "University of Bristol", "degree": "BSc", "field_of_study": "Software Engineering"}
+      ],
+      "projects": [
+        {
+          "ref": "pr_nightsail",
+          "name": "Nightsail deployment sandbox",
+          "technologies": ["Terraform", "Redis"],
+          "description": "A sandbox I set up to try infrastructure tooling out. I evaluated Terraform for it but ended up deploying everything by hand, and the Redis caching layer I sketched was never built.",
+          "start": "2023-05-01",
+          "end": null
+        }
+      ]
+    },
+    {
+      "id": "v2_project_undeclared",
+      "label": "Project description names technologies the structured profile never declares",
+      "summary": "Two technologies are described as being used, in a project's own prose, and appear in no skills row and on no project technology list.",
+      "skills": [
+        {"ref": "s_python", "name": "Python"},
+        {"ref": "s_flask", "name": "Flask"}
+      ],
+      "experiences": [
+        {
+          "ref": "e_pellrowe",
+          "company": "Pell & Rowe",
+          "job_title": "Junior Backend Developer",
+          "start": "2024-06-01",
+          "end": null,
+          "description": "Maintain the Flask API behind a booking widget and the scheduled jobs that send its reminders.",
+          "employment_type": "full_time",
+          "location": "Cardiff, United Kingdom"
+        }
+      ],
+      "education": [
+        {"ref": "ed_bsc", "institution": "Cardiff University", "degree": "BSc", "field_of_study": "Computer Science"}
+      ],
+      "projects": [
+        {
+          "ref": "pr_allotment",
+          "name": "Allotment planner",
+          "technologies": ["Python"],
+          "description": "A small allotment-planning site I run for my village. It stores everything in Postgres, and I have kept a Redis instance in front of the availability lookups since the second season.",
+          "start": "2022-02-01",
+          "end": null
+        }
+      ]
+    },
+    {
+      "id": "v2_stated_durations",
+      "label": "Stated durations, one of them longer than the whole recorded career",
+      "summary": "Four skills carry stated years. One of them claims more years of a technology than the profile records of employment altogether; the others range from plausible to corroborated.",
+      "skills": [
+        {"ref": "s_python", "name": "Python", "years": 5},
+        {"ref": "s_k8s", "name": "Kubernetes", "years": 12},
+        {"ref": "s_terraform", "name": "Terraform", "years": 4},
+        {"ref": "s_go", "name": "Go", "years": 3}
+      ],
+      "experiences": [
+        {
+          "ref": "e_sartwell",
+          "company": "Sartwell Systems",
+          "job_title": "Backend Engineer",
+          "start": "2021-09-01",
+          "end": null,
+          "description": "Own the Python services behind a payments reconciliation tool and the reports the finance team runs off them.",
+          "employment_type": "full_time",
+          "location": "Manchester, United Kingdom"
+        }
+      ],
+      "education": [
+        {"ref": "ed_bsc", "institution": "University of Salford", "degree": "BSc", "field_of_study": "Mathematics"}
+      ]
+    },
+    {
+      "id": "v2_exposure_corroborated",
+      "label": "Strong employment evidence meeting exposure-worded asks",
+      "summary": "A platform engineer whose role description demonstrates two of the technologies directly, and who declares a third that nothing else in the profile touches. The control against which exposure-worded requirements are read.",
+      "skills": [
+        {"ref": "s_k8s", "name": "Kubernetes"},
+        {"ref": "s_terraform", "name": "Terraform"},
+        {"ref": "s_aws", "name": "AWS"},
+        {"ref": "s_go", "name": "Go"}
+      ],
+      "experiences": [
+        {
+          "ref": "e_harlow",
+          "company": "Harlow Grid",
+          "job_title": "Platform Engineer",
+          "start": "2019-04-01",
+          "end": null,
+          "description": "Run the Kubernetes clusters that host twelve product teams' services. Write the Terraform modules that provision them in AWS and review every change made to them.",
+          "employment_type": "full_time",
+          "location": "London, United Kingdom"
+        }
+      ],
+      "education": [
+        {"ref": "ed_bsc", "institution": "University of Nottingham", "degree": "BSc", "field_of_study": "Computer Science"}
+      ]
+    }
+  ]
+}

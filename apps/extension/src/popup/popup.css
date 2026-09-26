@@ -1,0 +1,428 @@
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --fg: #1c1f24;
+  --muted: #5b6270;
+  --border: #d7dbe2;
+  --field: #ffffff;
+  --accent: #2f5bd3;
+  --accent-fg: #ffffff;
+  --success-bg: #e8f5ec;
+  --success-fg: #1d5b33;
+  --info-bg: #eaf0fb;
+  --info-fg: #23407f;
+  --error-bg: #fbeaea;
+  --error-fg: #8a1f1f;
+  --warning-fg: #7a5200;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17191d;
+    --fg: #e7e9ee;
+    --muted: #a3a9b5;
+    --border: #3a3f48;
+    --field: #1f2227;
+    --accent: #7c9cf0;
+    --accent-fg: #0e1320;
+    --success-bg: #173222;
+    --success-fg: #a6dfb8;
+    --info-bg: #1b2640;
+    --info-fg: #b7c8f2;
+    --error-bg: #3a1a1a;
+    --error-fg: #f2b3b3;
+    --warning-fg: #f0c674;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 440px;
+  max-width: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font: 13px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.bar {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.bar strong {
+  color: var(--fg);
+}
+
+.body {
+  padding: 12px 14px 14px;
+}
+
+.lede {
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+
+.field {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.req {
+  color: var(--error-fg);
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--field);
+  color: var(--fg);
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-size: 12px;
+}
+
+input[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: var(--error-fg);
+}
+
+input[readonly],
+textarea[readonly] {
+  opacity: 0.8;
+}
+
+.hint {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.hint--warning {
+  color: var(--warning-fg);
+}
+
+.identity {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 2px 10px;
+  margin: 4px 0 10px;
+  font-size: 12px;
+}
+
+.identity dt {
+  color: var(--muted);
+}
+
+.identity dd {
+  margin: 0;
+}
+
+.url {
+  overflow-wrap: anywhere;
+}
+
+.issues {
+  margin: 0 0 10px;
+  padding-left: 18px;
+}
+
+.issues:empty {
+  display: none;
+}
+
+.issue--error {
+  color: var(--error-fg);
+}
+
+.issue--warning {
+  color: var(--warning-fg);
+}
+
+.exact {
+  margin-bottom: 10px;
+}
+
+.exact summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.exact pre {
+  max-height: 220px;
+  overflow: auto;
+  margin: 6px 0 0;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 11px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.notice {
+  margin-bottom: 10px;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+.notice p {
+  margin: 0 0 4px;
+  overflow-wrap: anywhere;
+}
+
+.notice p:last-child {
+  margin-bottom: 0;
+}
+
+.notice__title {
+  font-weight: 600;
+}
+
+.notice--success {
+  background: var(--success-bg);
+  color: var(--success-fg);
+}
+
+.notice--info {
+  background: var(--info-bg);
+  color: var(--info-fg);
+}
+
+.notice--error {
+  background: var(--error-bg);
+  color: var(--error-fg);
+}
+
+.notice a {
+  color: inherit;
+  font-weight: 600;
+}
+
+button {
+  padding: 7px 14px;
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.primary {
+  width: 100%;
+  border: 0;
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+button.secondary {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--fg);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.fineprint {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.account {
+  margin: 0 0 8px;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+/* --- after a save: the form collapses, the job panel below takes over ---------- */
+
+.link-button {
+  display: block;
+  margin: 0 0 8px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.review--saved .field,
+.review--saved .identity,
+.review--saved .issues,
+.review--saved .exact,
+.review--saved .fineprint {
+  display: none;
+}
+
+.job-panel {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.panel-section {
+  margin-bottom: 14px;
+}
+
+.panel-section h3 {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+
+.panel-section h4 {
+  margin: 8px 0 4px;
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0 5px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.tag--quiet {
+  margin-left: 4px;
+}
+
+.req-list,
+.results,
+.evidence {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.req-row,
+.result {
+  margin: 0 0 6px;
+  overflow-wrap: anywhere;
+}
+
+.req-detail {
+  color: var(--muted);
+}
+
+.citation {
+  display: block;
+  margin: 2px 0 0 2px;
+  color: var(--muted);
+  font-size: 12px;
+  font-style: italic;
+}
+
+.citation--unverified {
+  text-decoration: underline dotted var(--warning-fg);
+}
+
+.result__head {
+  margin: 0;
+}
+
+.result__label {
+  font-weight: 600;
+}
+
+.result__why {
+  margin: 2px 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.verdict {
+  display: inline-block;
+  padding: 0 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.verdict--matched {
+  background: var(--success-bg);
+  color: var(--success-fg);
+}
+
+.verdict--uncertain {
+  background: var(--info-bg);
+  color: var(--warning-fg);
+}
+
+/* "Not found" is neutral, not a failure: the engine never concludes a person is unsuitable. */
+.verdict--missing {
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.evidence__item {
+  margin: 2px 0 2px 10px;
+  padding-left: 6px;
+  border-left: 2px solid var(--border);
+  font-size: 12px;
+}
+
+.evidence__item--short {
+  border-left-style: dashed;
+  opacity: 0.85;
+}
+
+.axes {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 2px 10px;
+  margin: 6px 0;
+  font-size: 12px;
+}
+
+.axes dt {
+  color: var(--muted);
+}
+
+.axes dd {
+  margin: 0;
+}
+
+.axis-label {
+  margin: 4px 0 2px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.links {
+  margin: 4px 0 8px;
+}
+
+.links a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.responsibilities summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 12px;
+}

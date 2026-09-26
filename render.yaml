@@ -1,0 +1,104 @@
+# EasyApply — FREE-TIER STAGING on Render (a Blueprint). Not production.
+# Procedures, values and limitations: docs/staging-deployment.md.
+#
+#   browser / extension --https--> easyapply-staging (free web service, Docker)
+#                                    | Next.js on $PORT (public)
+#                                    | FastAPI on 127.0.0.1:8000 (same container,
+#                                    |   loopback only: not reachable from outside)
+#                                    v private network
+#                                  easyapply-staging-db (free Postgres, no external
+#                                    access; also holds the documents)
+#
+# Why one container: the free tier has no private services, so a second service
+# would put the API on the public internet. Why documents in Postgres: the free
+# tier has no persistent disk, and the container filesystem is wiped whenever
+# the instance restarts or sleeps (STORAGE_BACKEND=database).
+#
+# Secrets are never written here. `generateValue` has Render create a random
+# value once; `sync: false` values come from the Entra tenant and are set per
+# service after it exists. Until they are set the deployment fails closed:
+# every sign-in and proxied request answers auth_misconfigured.
+
+databases:
+  - name: easyapply-staging-db
+    databaseName: easyapply
+    user: easyapply
+    plan: free
+    region: virginia
+    postgresMajorVersion: "18"
+    # Empty: no connection from outside Render's private network at all.
+    ipAllowList: []
+
+services:
+  - type: web
+    name: easyapply-staging
+    runtime: docker
+    plan: free
+    region: virginia
+    dockerfilePath: ./deploy/staging/Dockerfile
+    dockerContext: .
+    # Liveness of the web process only (the API is checked before it starts —
+    # deploy/staging/start.sh). Readiness is /api/health/ready.
+    healthCheckPath: /api/health
+    autoDeploy: false
+    envVars:
+      # --- both processes -----------------------------------------------------
+      - key: AUTH_MODE
+        value: entra
+      - key: IDENTITY_ASSERTION_SECRET
+        generateValue: true
+      - key: OPERATOR_API_TOKEN
+        generateValue: true
+      - key: ENTRA_TENANT_ID
+        sync: false
+      - key: ENTRA_ISSUER
+        sync: false
+      # --- the API --------------------------------------------------------------
+      - key: ENVIRONMENT
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: easyapply-staging-db
+          property: connectionString
+      - key: STORAGE_BACKEND
+        value: database
+      - key: RESUME_QUEUE_BACKEND
+        value: thread
+      - key: RESUME_QUEUE_MAX_WORKERS
+        value: "1"
+      - key: TAILORING_QUEUE_BACKEND
+        value: thread
+      - key: TAILORING_QUEUE_MAX_WORKERS
+        value: "1"
+      # Deterministic structuring and tailoring. No model is called and no key
+      # is configured; turning any of these on is a separate, explicit decision.
+      - key: RESUME_AI_ENABLED
+        value: "false"
+      - key: JOB_AI_ENABLED
+        value: "false"
+      - key: TAILORING_AI_ENABLED
+        value: "false"
+      # --- the web app -----------------------------------------------------------
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      - key: SESSION_SECRET
+        generateValue: true
+      # The API in this same container, on loopback (see the diagram above).
+      - key: API_BASE_URL
+        value: http://127.0.0.1:8000
+      # Exactly as users reach it. If Render assigns another hostname, change
+      # both, and the redirect URIs in the Entra app registration.
+      - key: APP_ORIGIN
+        value: https://easyapply-staging.onrender.com
+      - key: PROXY_ALLOWED_HOSTS
+        value: easyapply-staging.onrender.com
+      - key: ENTRA_AUTHORITY
+        sync: false
+      - key: ENTRA_CLIENT_ID
+        sync: false
+      - key: ENTRA_CLIENT_SECRET
+        sync: false
+      # The staging extension build keeps the id pinned by the key in
+      # apps/extension/src/manifest.json.
+      - key: PROXY_ALLOWED_EXTENSION_IDS
+        value: jjhciekcmhmngciccfgignmmlgjknakk

@@ -1,0 +1,15 @@
+# The image carries the application and its migrations, nothing else
+# (services/api/Dockerfile). Above all never: a developer's .env (real keys),
+# var/ (uploaded resumes, generated documents, evaluation captures).
+.env
+.env.*
+!.env.example
+var/
+.venv/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+tests/
+evaluation/
+export_openapi.py
+requirements-dev.txt

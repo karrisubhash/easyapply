@@ -1,0 +1,44 @@
+{
+  "criteria_version": "1",
+  "authored": "2026-09-23",
+  "note": "What must be true of a real model's output before TAILORING_AI_ENABLED may default to true. Authored BEFORE any live run of evaluation/tailoring_runner.py against a provider, and not to be edited to match a result: if a run disagrees with a line here, the question is whether the line was wrong about what a sendable resume needs, never whether the number can move. The same discipline cases.json is held to.",
+  "measured_by": "python -m evaluation.tailoring_runner --tailor ai --samples N",
+  "harness_self_check": {
+    "deterministic_scores_perfectly": true,
+    "why": "Run --tailor deterministic first. That generator selects verbatim and is already asserted case by case in tests/test_tailoring_evaluation.py, so it must score 1.0 on every measure below. Anything less means the harness is measuring the wrong thing and no number it reports about a model means anything."
+  },
+  "must_never_happen": {
+    "note": "Counted, not rated. One occurrence fails the gate however good the averages are, because these are the failures a user has to defend in a room rather than notice on a page.",
+    "forbidden_strings": 0,
+    "forbidden_strings_why": "Per case, cases.json 'never_appears'. The load-bearing one is frontend_react: React, JavaScript and Jest are nowhere in this profile, and a model under pressure to look relevant is exactly where one of them enters.",
+    "fabricated_numbers": 0,
+    "fabricated_numbers_why": "Every digit-bearing token in a delivered document must appear in the profile. Grounding checks this per line against that line's source; the harness checks it once more over the whole document, because a number is the claim an interviewer is most likely to test.",
+    "wrong_contact_details": 0,
+    "wrong_contact_details_why": "A name, email, phone or location that is not exactly the profile's. The repair pass restores these, so a single miss means the repair pass is broken rather than that the model was creative."
+  },
+  "rates": {
+    "note": "Per attempt, across every case and every sample. A model is sampled, so one run of four documents is an anecdote; --samples 5 or more is the measurement.",
+    "delivered": {
+      "minimum": 0.95,
+      "why": "A delivered document is one that passed grounding and has a file. Below this, a user asking for a tailored resume is told 'we could not produce one' more than once in twenty, which is not a default — it is an experiment."
+    },
+    "career_whole_and_in_order": {
+      "minimum": 1.0,
+      "why": "Both jobs, most recent first, on every delivered document. A missing job is a gap the reader asks about; a reordered career is a lie about it. Neither is a matter of degree."
+    },
+    "selection_expectations_held": {
+      "minimum": 0.9,
+      "why": "The per-case expectations in cases.json that judge WHICH true content was chosen: lead skills, projects carried and dropped, the bullets that answer the posting, what the document claims to target. The deterministic generator holds all of them. A model that holds fewer than nine in ten is worse at the job tailoring exists to do, and better wording does not buy that back."
+    },
+    "no_duplicate_lines": {
+      "minimum": 1.0,
+      "why": "The same sentence twice in one document wastes the only two seconds the document gets. Cheap for any generator to avoid."
+    }
+  },
+  "budgets": {
+    "repairs_per_delivered_document": {
+      "maximum": 3.0,
+      "why": "The mean number of lines removed and fields restored by reconciliation. The repair pass is a safety net for a model that misses occasionally, not a way to make a bad generator look adequate: above three edits per document, what the user receives is mostly our narrowing of the model's output rather than the model's output, and the honest conclusion would be that the prompt is wrong."
+    }
+  }
+}

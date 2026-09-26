@@ -1,0 +1,79 @@
+# ---------- Python ----------
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# ---------- Environment ----------
+.env
+.env.*
+!.env.example
+
+# ---------- Node / Next.js (apps/web, apps/extension) ----------
+node_modules/
+.next/
+# The end-to-end suite's own build, so it can serve what ships while a
+# development server is rewriting .next beside it.
+.next-e2e/
+# The extension's real-stack browser run builds its own (apps/extension/e2e/real-stack.mjs).
+.next-ext-e2e/
+out/
+.turbo/
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---------- Terraform (later) ----------
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars
+!*.tfvars.example
+
+# ---------- Editors / OS ----------
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# ---------- Local artifacts ----------
+*.log
+uploads/
+tmp/
+# The browser suite's own scratch space: its database dump, storage root,
+# downloads, generated fixture PDFs and flow screenshots. `e2e/support/env.cjs`
+# already described it as gitignored; it was not.
+apps/web/e2e/.artifacts/
+# The extension's build and its browser suite's scratch space (see
+# apps/extension/e2e/env.ts). `dist/` above already covers its build output.
+apps/extension/.artifacts/
+
+# ---------- Private data (added for the staging repository, 2026-09-26) ----------
+# The API's local storage root and evaluation captures: real uploaded resumes,
+# generated documents, provider transcripts. Never in source control.
+services/api/var/
+# Database dumps, wherever they are written.
+*.dump
+*.sql.gz
+# Playwright's default report and result directories.
+playwright-report/
+test-results/

@@ -1,0 +1,243 @@
+{
+  "profiles": [
+    {
+      "id": "d_grad_bare",
+      "label": "Graduate, long skills list, nothing corroborating most of it",
+      "summary": "Computer science graduate with one six-month internship. The skills list names seven technologies; the internship description touches two of them. Nothing else in the profile exists: no projects, no certifications, no second role.",
+      "skills": [
+        {"ref": "s_python", "name": "Python"},
+        {"ref": "s_react", "name": "React"},
+        {"ref": "s_k8s", "name": "Kubernetes"},
+        {"ref": "s_terraform", "name": "Terraform"},
+        {"ref": "s_aws", "name": "AWS"},
+        {"ref": "s_kafka", "name": "Kafka"},
+        {"ref": "s_go", "name": "Go"}
+      ],
+      "experiences": [
+        {
+          "ref": "e_intern",
+          "company": "Northwind Systems",
+          "job_title": "Software Engineering Intern",
+          "start": "2025-02-01",
+          "end": "2025-08-01",
+          "description": "Wrote Python scripts that reconciled the nightly billing exports. Fixed layout defects on an internal React dashboard. Shadowed the on-call rotation and wrote up two incident summaries.",
+          "employment_type": "internship",
+          "location": "Manchester, United Kingdom"
+        }
+      ],
+      "education": [
+        {"ref": "ed_bsc", "institution": "University of Leeds", "degree": "BSc", "field_of_study": "Computer Science"}
+      ]
+    },
+    {
+      "id": "d_grad_project",
+      "label": "Graduate whose uncorroborated skills are corroborated by a long-running personal project",
+      "summary": "Software engineering graduate, one year into a junior role. Two of the skills nothing at work touches are the stated technologies of a home platform they have built and operated for three years. One skill is named nowhere else at all.",
+      "skills": [
+        {"ref": "s_python", "name": "Python"},
+        {"ref": "s_postgres", "name": "PostgreSQL"},
+        {"ref": "s_docker", "name": "Docker"},
+        {"ref": "s_k8s", "name": "Kubernetes"},
+        {"ref": "s_terraform", "name": "Terraform"}
+      ],
+      "experiences": [
+        {
+          "ref": "e_junior",
+          "company": "Bramley Digital",
+          "job_title": "Junior Developer",
+          "start": "2025-09-01",
+          "end": null,
+          "description": "Maintain the customer portal's Python service and its PostgreSQL schema. Added two reporting endpoints and the export job behind them.",
+          "employment_type": "full_time",
+          "location": "Sheffield, United Kingdom"
+        }
+      ],
+      "education": [
+        {"ref": "ed_bsc", "institution": "University of Sheffield", "degree": "BSc", "field_of_study": "Software Engineering"}
+      ],
+      "projects": [
+        {
+          "ref": "pr_home",
+          "name": "Larkspur home automation platform",
+          "technologies": ["Docker", "Kubernetes"],
+          "description": "A self-hosted platform I have built and run since 2023. Deployed with Docker Compose at first, then moved onto a three-node Kubernetes cluster that has served the house continuously since early 2024.",
+          "start": "2023-01-01",
+          "end": null
+        }
+      ]
+    },
+    {
+      "id": "d_changer",
+      "label": "Career changer: six years in another discipline, twenty months in software",
+      "summary": "Mechanical design engineer who moved into backend development in 2025. Total dated employment is eight years; software employment is under two. One declared skill is corroborated only by a long-running charity project, one by nothing at all.",
+      "skills": [
+        {"ref": "s_python", "name": "Python"},
+        {"ref": "s_django", "name": "Django"},
+        {"ref": "s_postgres", "name": "PostgreSQL"},
+        {"ref": "s_aws", "name": "AWS"},
+        {"ref": "s_docker", "name": "Docker"}
+      ],
+      "experiences": [
+        {
+          "ref": "e_mech",
+          "company": "Halden Engineering",
+          "job_title": "Mechanical Design Engineer",
+          "start": "2018-06-01",
+          "end": "2024-09-30",
+          "description": "Designed sheet-metal enclosures for industrial controllers. Ran tolerance analyses and owned the CAD component library for the whole product line.",
+          "employment_type": "full_time",
+          "location": "Bristol, United Kingdom"
+        },
+        {
+          "ref": "e_dev",
+          "company": "Quillon Software",
+          "job_title": "Backend Developer",
+          "start": "2025-01-01",
+          "end": null,
+          "description": "Build and maintain the Django services behind a logistics client's dispatch portal. Own the PostgreSQL schema and the nightly Python import jobs.",
+          "employment_type": "full_time",
+          "location": "Bristol, United Kingdom"
+        }
+      ],
+      "education": [
+        {"ref": "ed_beng", "institution": "University of Bath", "degree": "BEng", "field_of_study": "Mechanical Engineering"}
+      ],
+      "projects": [
+        {
+          "ref": "pr_rota",
+          "name": "Rota planner for a local charity",
+          "technologies": ["Docker"],
+          "description": "A shift-planning tool I have written and maintained for a local charity since 2019. Around forty volunteers use it every week.",
+          "start": "2019-04-01",
+          "end": null
+        }
+      ]
+    },
+    {
+      "id": "d_mid",
+      "label": "Mid-level backend engineer with two plausible but uncorroborated claims",
+      "summary": "Six and a half years across two backend roles, both described in detail. Four declared skills are demonstrated in those descriptions. Two — Redis and GraphQL — are named in the skills list and nowhere else, in a profile where either would be unremarkable.",
+      "skills": [
+        {"ref": "s_python", "name": "Python", "years": 6},
+        {"ref": "s_django", "name": "Django"},
+        {"ref": "s_postgres", "name": "PostgreSQL"},
+        {"ref": "s_redis", "name": "Redis"},
+        {"ref": "s_graphql", "name": "GraphQL"},
+        {"ref": "s_aws", "name": "AWS"}
+      ],
+      "experiences": [
+        {
+          "ref": "e_fern",
+          "company": "Ferncastle Tech",
+          "job_title": "Backend Engineer",
+          "start": "2020-03-01",
+          "end": "2023-02-28",
+          "description": "Built Django REST services in Python for a booking platform. Tuned the PostgreSQL queries behind the availability search and ran the AWS deployment pipeline.",
+          "employment_type": "full_time",
+          "location": "Leeds, United Kingdom"
+        },
+        {
+          "ref": "e_onstead",
+          "company": "Onstead Labs",
+          "job_title": "Backend Engineer",
+          "start": "2023-03-01",
+          "end": null,
+          "description": "Own three Python services that process supplier feeds. Migrated the scheduling layer onto Celery and keep the PostgreSQL schema that everything reads.",
+          "employment_type": "full_time",
+          "location": "Leeds, United Kingdom"
+        }
+      ],
+      "education": [
+        {"ref": "ed_bsc", "institution": "University of Manchester", "degree": "BSc", "field_of_study": "Computer Science"}
+      ]
+    },
+    {
+      "id": "d_senior_bare",
+      "label": "Twelve-year senior engineer with three wholly uncorroborated claims",
+      "summary": "Twelve years of dated payments work across three roles, every one described in specifics. Five declared skills are demonstrated there. Kubernetes, Terraform and Rust are in the skills list and appear nowhere else in the profile — the same evidential situation as a graduate's stuffed list, in a profile of a completely different weight.",
+      "skills": [
+        {"ref": "s_java", "name": "Java"},
+        {"ref": "s_spring", "name": "Spring"},
+        {"ref": "s_kafka", "name": "Kafka"},
+        {"ref": "s_postgres", "name": "PostgreSQL"},
+        {"ref": "s_aws", "name": "AWS"},
+        {"ref": "s_k8s", "name": "Kubernetes"},
+        {"ref": "s_terraform", "name": "Terraform"},
+        {"ref": "s_rust", "name": "Rust"}
+      ],
+      "experiences": [
+        {
+          "ref": "e_delmore",
+          "company": "Delmore Systems",
+          "job_title": "Software Engineer",
+          "start": "2014-09-01",
+          "end": "2018-08-31",
+          "description": "Wrote the Java services behind a card payments gateway. Maintained the PostgreSQL cluster the settlement reports were built on.",
+          "employment_type": "full_time",
+          "location": "London, United Kingdom"
+        },
+        {
+          "ref": "e_ash_senior",
+          "company": "Ashcombe Group",
+          "job_title": "Senior Software Engineer",
+          "start": "2018-09-01",
+          "end": "2022-12-31",
+          "description": "Led the move from a Java monolith onto Spring Boot services. Ran the Kafka event backbone that carries every payment event the group processes.",
+          "employment_type": "full_time",
+          "location": "London, United Kingdom"
+        },
+        {
+          "ref": "e_ash_principal",
+          "company": "Ashcombe Group",
+          "job_title": "Principal Engineer",
+          "start": "2023-01-01",
+          "end": null,
+          "description": "Own the architecture of the payments platform. Manage the AWS account it runs in and mentor six engineers across two teams.",
+          "employment_type": "full_time",
+          "location": "London, United Kingdom"
+        }
+      ],
+      "education": [
+        {"ref": "ed_bsc", "institution": "University of Nottingham", "degree": "BSc", "field_of_study": "Computer Science"}
+      ]
+    },
+    {
+      "id": "d_senior_years",
+      "label": "Senior data engineer whose uncorroborated claims carry stated durations",
+      "summary": "Ten years of dated data engineering. Three declared skills are demonstrated in the role descriptions. Three others — Scala, Kubernetes, Snowflake — appear only in the skills list, each with a number of years attached to it and nothing else anywhere in the profile.",
+      "skills": [
+        {"ref": "s_python", "name": "Python", "years": 10},
+        {"ref": "s_spark", "name": "Spark", "years": 8},
+        {"ref": "s_airflow", "name": "Airflow"},
+        {"ref": "s_scala", "name": "Scala", "years": 6},
+        {"ref": "s_k8s", "name": "Kubernetes", "years": 2},
+        {"ref": "s_snowflake", "name": "Snowflake", "years": 1}
+      ],
+      "experiences": [
+        {
+          "ref": "e_pellow",
+          "company": "Pellow Analytics",
+          "job_title": "Data Engineer",
+          "start": "2016-06-01",
+          "end": "2021-05-31",
+          "description": "Built the Python batch pipelines that produced retail demand forecasts, running them over Spark on a shared cluster.",
+          "employment_type": "full_time",
+          "location": "Edinburgh, United Kingdom"
+        },
+        {
+          "ref": "e_vantwick",
+          "company": "Vantwick Data",
+          "job_title": "Senior Data Engineer",
+          "start": "2021-06-01",
+          "end": null,
+          "description": "Own the Spark jobs behind the customer data platform and the Airflow schedules that run them. Write the Python transforms the analysts depend on.",
+          "employment_type": "full_time",
+          "location": "Edinburgh, United Kingdom"
+        }
+      ],
+      "education": [
+        {"ref": "ed_msc", "institution": "University of Edinburgh", "degree": "MSc", "field_of_study": "Statistics"}
+      ]
+    }
+  ]
+}

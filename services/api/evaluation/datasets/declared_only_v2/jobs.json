@@ -1,0 +1,37 @@
+{
+  "jobs": [
+    {
+      "id": "v2_j_tools",
+      "label": "Internal Tools Engineer — exposure wording at volume, including two lines where an exposure word sits next to a production ask",
+      "job_title": "Internal Tools Engineer",
+      "company_kind": "insurance group, 3000 people",
+      "location": "Leeds, United Kingdom",
+      "description": "We are hiring an Internal Tools Engineer for the team that builds and runs the services our support staff work in all day.\n\nEssential:\n- Python\n- Familiar with the production challenges of Kubernetes\n- Exposure to Terraform in a production environment\n\nWe would also like:\n- Familiarity with Kubernetes\n- Awareness of Terraform or a similar infrastructure-as-code tool\n- Some exposure to Go\n- Basic Redis knowledge\n- Willingness to learn Kafka",
+      "requirements": [
+        {"id": "rq_it_py", "category": "skill", "label": "Python", "is_required": true, "aspect": "exact_skill", "source_quote": "Python"},
+        {"id": "rq_it_k8sprod", "category": "skill", "label": "Kubernetes", "is_required": true, "aspect": "uncorroborated_claim", "source_quote": "Familiar with the production challenges of Kubernetes"},
+        {"id": "rq_it_tfprod", "category": "skill", "label": "Terraform", "is_required": true, "aspect": "uncorroborated_claim", "source_quote": "Exposure to Terraform in a production environment"},
+        {"id": "rq_it_k8s", "category": "skill", "label": "Kubernetes", "is_required": false, "aspect": "uncorroborated_claim", "source_quote": "Familiarity with Kubernetes"},
+        {"id": "rq_it_tf", "category": "skill", "label": "Terraform", "is_required": false, "aspect": "uncorroborated_claim", "source_quote": "Awareness of Terraform or a similar infrastructure-as-code tool"},
+        {"id": "rq_it_go", "category": "skill", "label": "Go", "is_required": false, "aspect": "uncorroborated_claim", "source_quote": "Some exposure to Go"},
+        {"id": "rq_it_redis", "category": "skill", "label": "Redis", "is_required": false, "aspect": "uncorroborated_claim", "source_quote": "Basic Redis knowledge"},
+        {"id": "rq_it_kafka", "category": "skill", "label": "Kafka", "is_required": false, "aspect": "uncorroborated_claim", "source_quote": "Willingness to learn Kafka"}
+      ]
+    },
+    {
+      "id": "v2_j_infra",
+      "label": "Infrastructure Engineer — bare asks and two duration bars, for reading against declarations of varying credibility",
+      "job_title": "Infrastructure Engineer",
+      "company_kind": "logistics group, 1200 people",
+      "location": "Manchester, United Kingdom",
+      "description": "Our infrastructure group is growing and we are looking for an engineer to join the team that owns provisioning and data services.\n\nRequirements:\n- Terraform\n- PostgreSQL\n- 3+ years of Kubernetes\n- 5+ years of professional Python development\n\nNice to have: Redis",
+      "requirements": [
+        {"id": "rq_ie_tf", "category": "skill", "label": "Terraform", "is_required": true, "aspect": "uncorroborated_claim", "source_quote": "Terraform"},
+        {"id": "rq_ie_pg", "category": "skill", "label": "PostgreSQL", "is_required": true, "aspect": "exact_skill", "source_quote": "PostgreSQL"},
+        {"id": "rq_ie_k8s3", "category": "experience", "label": "3+ years of Kubernetes", "is_required": true, "aspect": "experience_duration", "minimum_years": 3, "source_quote": "3+ years of Kubernetes"},
+        {"id": "rq_ie_py5", "category": "experience", "label": "5+ years of professional Python development", "is_required": true, "aspect": "experience_duration", "minimum_years": 5, "source_quote": "5+ years of professional Python development"},
+        {"id": "rq_ie_redis", "category": "skill", "label": "Redis", "is_required": false, "aspect": "uncorroborated_claim", "source_quote": "Nice to have: Redis"}
+      ]
+    }
+  ]
+}

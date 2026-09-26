@@ -1,0 +1,1082 @@
+{
+  "version": "non_doing_v1",
+  "review": {
+    "created": "2026-09-20",
+    "reviewer": "Claude (independent authoring pass; benchmark expansion task for NON_DOING_MARKERS)",
+    "methodology": "Every case's expected value was decided by reading the sentence as a document and applying the definitions already documented in app/services/matching/vocabulary.py and evidence.py: is_non_doing asks whether a clause says a technology was NOT used, and demonstrates() asks whether a clause shows the work was done rather than contemplated. No case's expected value was produced by running is_non_doing, demonstrates, or any matching rule. The defect_class on each case is a PREDICTION, authored at the same time as the expected value and before the benchmark runner existed, of what kind of mismatch (if any) the case would reveal: tokenizer, vocabulary, clause_context, attribution or evidence_model — see schema.py for the definitions. Pipeline cases additionally separate the five stages the task asked to be measured independently: non-doing classification, technology attribution, evidence tier, experience duration, and requirement verdict, so a case can show stage 1 succeeding while stage 4 or 5 still fails downstream.",
+    "independence_statement": "No verdict, tier, duration or attribution expectation in this dataset was derived by running is_non_doing(), demonstrates(), or any function in app.services.matching. This file must not be edited to agree with the implementation's output; a disagreement is a finding to report, not an error to fix by changing this file. See tests/test_nondoing_benchmark_independence.py for the structural, textual and behavioural proof."
+  },
+  "sentence_cases": [
+    {"id": "sd-001", "category": "genuine_non_doing", "markers": ["evaluated", "cancelled"], "construction": "positive", "pair_id": "mp-eval-01", "defect_class": "none",
+     "text": "Evaluated Apache Kafka for the checkout events pipeline, but the initiative was cancelled before launch.",
+     "expected_non_doing": true,
+     "rationale": "States plainly that Kafka was assessed and the project never reached production; a textbook disclaimer."},
+
+    {"id": "sd-002", "category": "genuine_non_doing", "markers": ["evaluation"], "construction": "positive", "defect_class": "none",
+     "text": "A brief evaluation of Cassandra concluded it was not worth the added operational complexity.",
+     "expected_non_doing": true,
+     "rationale": "The evaluation's own conclusion is that Cassandra was not adopted; no use followed."},
+
+    {"id": "sd-003", "category": "genuine_non_doing", "markers": ["considered", "rejected"], "construction": "positive", "pair_id": "mp-eval-02", "defect_class": "none",
+     "text": "Considered Redis for session storage and rejected it in favor of an in-memory cache.",
+     "expected_non_doing": true,
+     "rationale": "Considered and explicitly rejected; Redis was never used for the stated purpose."},
+
+    {"id": "sd-004", "category": "genuine_non_doing", "markers": ["investigated", "shelved"], "construction": "positive", "pair_id": "mp-eval-04", "defect_class": "none",
+     "text": "Investigated Elasticsearch as a search backend, but the proof of concept was shelved after benchmarking.",
+     "expected_non_doing": true,
+     "rationale": "A proof of concept that was shelved after benchmarking never became real usage."},
+
+    {"id": "sd-005", "category": "research_verb", "markers": ["explored"], "construction": "positive", "pair_id": "mp-eval-05", "defect_class": "none",
+     "text": "Explored using Svelte for the new dashboard but stuck with React after a two-week spike.",
+     "expected_non_doing": true,
+     "rationale": "Svelte was a two-week spike that was abandoned in favor of the existing framework."},
+
+    {"id": "sd-006", "category": "genuine_non_doing", "markers": ["investigating"], "construction": "positive", "defect_class": "none",
+     "text": "Investigating a migration to CockroachDB, but no decision has been made yet.",
+     "expected_non_doing": true,
+     "rationale": "Explicitly still open and undecided; no migration has happened."},
+
+    {"id": "sd-007", "category": "genuine_non_doing", "markers": ["trialled", "rejected"], "construction": "positive", "defect_class": "none",
+     "text": "Trialled Vue for a new admin panel; leadership rejected it in favor of the existing Angular stack.",
+     "expected_non_doing": true,
+     "rationale": "A trial that leadership rejected; Vue never entered real use."},
+
+    {"id": "sd-008", "category": "genuine_non_doing", "markers": ["trialed"], "construction": "positive", "defect_class": "none",
+     "text": "Trialed Terraform for provisioning a staging environment for three weeks before deciding not to roll it out further.",
+     "expected_non_doing": true,
+     "rationale": "A three-week trial that was explicitly not extended; no production use followed."},
+
+    {"id": "sd-009", "category": "genuine_non_doing", "markers": ["piloted"], "construction": "positive", "defect_class": "none",
+     "text": "Piloted a Flutter rewrite of the mobile app with two engineers for a quarter; the pilot was not extended.",
+     "expected_non_doing": true,
+     "rationale": "A pilot that was not extended past its trial period; no shipped Flutter work resulted."},
+
+    {"id": "sd-010", "category": "genuine_non_doing", "markers": ["prototyped"], "construction": "positive", "defect_class": "none",
+     "text": "Prototyped a recommendation engine in PyTorch as a hackathon project that was never taken further.",
+     "expected_non_doing": true,
+     "rationale": "A hackathon prototype explicitly never developed further is not production use."},
+
+    {"id": "sd-011", "category": "genuine_non_doing", "markers": ["canceled", "prototyped"], "construction": "positive", "defect_class": "none",
+     "text": "Prototyped an internal Notion-like wiki tool, but the project was canceled after leadership priorities shifted.",
+     "expected_non_doing": true,
+     "rationale": "A prototype that was canceled before completion; no real usage resulted."},
+
+    {"id": "sd-012", "category": "research_verb", "markers": ["researched"], "construction": "positive", "pair_id": "mp-eval-03", "defect_class": "none",
+     "text": "Researched GraphQL federation for six months but never adopted it due to licensing costs.",
+     "expected_non_doing": true,
+     "rationale": "Explicitly says GraphQL federation was never adopted after the research concluded."},
+
+    {"id": "sd-013", "category": "genuine_non_doing", "markers": ["abandoned"], "construction": "positive", "defect_class": "none",
+     "text": "Built an initial Django integration that was later abandoned when the vendor discontinued the API.",
+     "expected_non_doing": true,
+     "rationale": "An integration that was abandoned; whatever partial work existed did not become lasting use."},
+
+    {"id": "sd-014", "category": "genuine_non_doing", "markers": ["proposed", "rejected"], "construction": "positive", "defect_class": "none",
+     "text": "Proposed a MongoDB migration that was rejected by the architecture review board before any work began.",
+     "expected_non_doing": true,
+     "rationale": "Rejected before any work began; MongoDB was never touched."},
+
+    {"id": "sd-015", "category": "genuine_non_doing", "markers": ["shelved", "planned"], "construction": "positive", "defect_class": "none",
+     "text": "Shelved the planned move to Cassandra after the storage team found the operational cost too high.",
+     "expected_non_doing": true,
+     "rationale": "A planned move that was shelved before happening; Cassandra was never adopted."},
+
+    {"id": "sd-016", "category": "lifecycle_verb", "markers": ["proposed", "shelved"], "construction": "positive", "defect_class": "none",
+     "text": "Proposed decommissioning the legacy mainframe, a project that was ultimately shelved due to budget cuts.",
+     "expected_non_doing": true,
+     "rationale": "The decommission itself never happened; it was proposed and then shelved."},
+
+    {"id": "sd-017", "category": "lifecycle_verb", "markers": ["retiring", "planned"], "construction": "positive", "defect_class": "none",
+     "text": "Retiring the legacy PHP monolith is planned for next quarter once the new service reaches feature parity.",
+     "expected_non_doing": true,
+     "rationale": "A future, contingent plan; the retirement has not happened yet."},
+
+    {"id": "sd-018", "category": "lifecycle_verb", "markers": ["sunset"], "construction": "positive", "defect_class": "none",
+     "text": "Sunset support for the v1 REST API is scheduled for the end of the year, pending customer migration to v2.",
+     "expected_non_doing": true,
+     "rationale": "A scheduled, not-yet-happened end-of-life; v1 is still in use today by this sentence's own account."},
+
+    {"id": "sd-019", "category": "lifecycle_verb", "markers": ["decommissioned", "planned"], "construction": "positive", "pair_id": "mp-lifecycle-01", "defect_class": "none",
+     "text": "Decommissioning the aging Hadoop cluster is planned for next year once the Spark migration completes.",
+     "expected_non_doing": true,
+     "rationale": "Explicitly a future plan contingent on another migration finishing first; nothing has been decommissioned yet."},
+
+    {"id": "sd-020", "category": "lifecycle_verb", "markers": ["decommissioned"], "construction": "negative", "pair_id": "mp-lifecycle-01", "defect_class": "vocabulary",
+     "text": "Decommissioned the aging Hadoop cluster after running it as the primary analytics platform for nine years.",
+     "expected_non_doing": false,
+     "rationale": "Nine years as the primary analytics platform is unambiguous, extensive real use; the fact that it was later decommissioned does not erase that. A marker built around \"this was never really used\" is over-broad when applied to a system the author plainly operated for years before retiring it."},
+
+    {"id": "sd-021", "category": "lifecycle_verb", "markers": ["deprecated"], "construction": "negative", "defect_class": "vocabulary",
+     "text": "Deprecated our internal SOAP gateway after operating it in production for eight years.",
+     "expected_non_doing": false,
+     "rationale": "Eight years of operating a production gateway is clear demonstrated use; deprecating it afterward is itself an operational action performed on a system that was run, not evidence the work never happened."},
+
+    {"id": "sd-022", "category": "noun_collision", "markers": ["retired"], "construction": "negative", "defect_class": "vocabulary",
+     "text": "Retired Colonel Martinez joined the platform team and spent the next six years building its Kubernetes infrastructure.",
+     "expected_non_doing": false,
+     "rationale": "\"Retired\" describes the person's prior military career, not the fate of any technology; six years building Kubernetes infrastructure is squarely affirmative."},
+
+    {"id": "sd-023", "category": "genuine_non_doing", "markers": ["planning"], "construction": "positive", "pair_id": "mp-planning-01", "defect_class": "none",
+     "text": "Planning is underway for a Rust rewrite of the ingestion service, targeted for next year.",
+     "expected_non_doing": true,
+     "rationale": "A future, targeted-for-next-year rewrite; no Rust code has been written yet."},
+
+    {"id": "sd-024", "category": "noun_collision", "markers": ["planning"], "construction": "negative", "pair_id": "mp-planning-01", "defect_class": "vocabulary",
+     "text": "Ran the team's sprint planning sessions while independently building the checkout service in Node.js.",
+     "expected_non_doing": false,
+     "rationale": "\"Sprint planning\" is a fixed agile-ceremony term unrelated to whether Node.js was used; the same sentence says the checkout service was built."},
+
+    {"id": "sd-025", "category": "genuine_non_doing", "markers": ["upcoming"], "construction": "positive", "defect_class": "none",
+     "text": "Migration to the upcoming Django 6 release is targeted for Q3 next year.",
+     "expected_non_doing": true,
+     "rationale": "A future release and a targeted, not-yet-done migration; nothing has shipped on Django 6."},
+
+    {"id": "sd-026", "category": "genuine_non_doing", "markers": ["intend"], "construction": "positive", "defect_class": "none",
+     "text": "Intend to adopt GraphQL federation once the underlying services are decomposed further.",
+     "expected_non_doing": true,
+     "rationale": "A stated future intention contingent on other work; GraphQL federation has not been adopted."},
+
+    {"id": "sd-027", "category": "genuine_non_doing", "markers": ["intends"], "construction": "positive", "defect_class": "none",
+     "text": "The roadmap intends broader Kubernetes adoption across all product teams by next fiscal year.",
+     "expected_non_doing": true,
+     "rationale": "A roadmap intention for a future fiscal year, not a completed adoption."},
+
+    {"id": "sd-028", "category": "genuine_non_doing", "markers": ["proposed"], "construction": "positive", "defect_class": "none",
+     "text": "Proposed a caching layer using Redis during the design review; implementation has not started.",
+     "expected_non_doing": true,
+     "rationale": "Explicitly says implementation has not started; Redis exists only as a design-review proposal."},
+
+    {"id": "sd-029", "category": "completed_work_with_marker", "markers": ["proposed"], "construction": "negative", "defect_class": "clause_context",
+     "text": "As proposed by the original RFC, the team's Kafka consumer group handles all order events in production today.",
+     "expected_non_doing": false,
+     "rationale": "\"As proposed by the RFC\" describes the origin of the design, not its status; the same clause states it handles all order events in production today."},
+
+    {"id": "sd-030", "category": "noun_collision", "markers": ["upcoming"], "construction": "negative", "defect_class": "clause_context",
+     "text": "Kept a well-organized backlog of upcoming tickets while maintaining the production Django deployment single-handedly.",
+     "expected_non_doing": false,
+     "rationale": "\"Upcoming\" describes the ticket backlog, not Django, which the same sentence says is a production deployment maintained single-handedly."},
+
+    {"id": "sd-031", "category": "noun_collision", "markers": ["proposed"], "construction": "negative", "defect_class": "clause_context",
+     "text": "Tracked and triaged an ever-growing backlog of proposed features for the Elasticsearch-backed search product already live for customers.",
+     "expected_non_doing": false,
+     "rationale": "\"Proposed features\" are future feature requests; the search product itself is described as already live for customers."},
+
+    {"id": "sd-032", "category": "away_construction", "markers": ["migrating away"], "construction": "positive", "defect_class": "none",
+     "text": "We are migrating away from MongoDB toward a relational model.",
+     "expected_non_doing": true,
+     "rationale": "An in-progress migration away; the sentence describes leaving MongoDB, not using it going forward."},
+
+    {"id": "sd-033", "category": "away_construction", "markers": ["moved away"], "construction": "positive", "defect_class": "none",
+     "text": "The team moved away from monolithic Rails deployments after the 2022 outage.",
+     "expected_non_doing": true,
+     "rationale": "States the team left this deployment style behind after a specific incident."},
+
+    {"id": "sd-034", "category": "away_construction", "markers": ["moving away"], "construction": "positive", "defect_class": "none",
+     "text": "Moving away from Jenkins, the platform group is standardizing on GitHub Actions this quarter.",
+     "expected_non_doing": true,
+     "rationale": "An in-progress move away from Jenkins toward a different, named replacement."},
+
+    {"id": "sd-035", "category": "away_construction", "markers": ["replacing"], "construction": "positive", "pair_id": "mp-away-01", "defect_class": "none",
+     "text": "Replacing the legacy Oracle data warehouse with Snowflake is the team's main focus this quarter.",
+     "expected_non_doing": true,
+     "rationale": "\"Is the team's main focus this quarter\" marks this as in progress, not yet complete."},
+
+    {"id": "sd-036", "category": "away_construction", "markers": ["replacing"], "construction": "negative", "pair_id": "mp-away-01", "defect_class": "none",
+     "text": "Replaced the team's ad-hoc deployment scripts with a fully automated GitHub Actions pipeline that now ships every merge to production.",
+     "expected_non_doing": false,
+     "rationale": "Past tense and completed: the pipeline now ships every merge to production. \"Replaced\" is not itself a listed marker, and correctly so here — this describes finished, real work."},
+
+    {"id": "sd-037", "category": "away_construction", "markers": ["moved away"], "construction": "negative", "defect_class": "none",
+     "text": "Living away from the office, the fully remote team maintained the Redis cluster around the clock.",
+     "expected_non_doing": false,
+     "rationale": "\"Living away from the office\" is not the phrase \"moved away\"/\"moving away\"/\"migrating away\"; it describes the team's location, and the sentence affirms ongoing Redis maintenance."},
+
+    {"id": "sd-038", "category": "away_construction", "markers": ["moved away"], "construction": "negative", "defect_class": "none",
+     "text": "The support engineers, based away from headquarters, kept the PostgreSQL replicas healthy across three regions.",
+     "expected_non_doing": false,
+     "rationale": "\"Based away from headquarters\" is a location description, not a migration-away construction; the sentence affirms real PostgreSQL operations work."},
+
+    {"id": "sd-039", "category": "away_construction", "markers": ["moving away"], "construction": "negative", "defect_class": "none",
+     "text": "Worked away diligently for six months to bring the Kubernetes rollout to production.",
+     "expected_non_doing": false,
+     "rationale": "\"Worked away\" is the idiom for working hard, not a migration-away construction; the rollout reaching production is affirmative."},
+
+    {"id": "sd-040", "category": "learning_phrase", "markers": ["learning"], "construction": "positive", "defect_class": "none",
+     "text": "Currently learning Rust in my spare time through an online course.",
+     "expected_non_doing": true,
+     "rationale": "Explicitly a spare-time, in-progress learning activity, not professional use."},
+
+    {"id": "sd-041", "category": "learning_phrase", "markers": ["learning"], "construction": "positive", "defect_class": "none",
+     "text": "Learning Kubernetes through a weekend bootcamp before applying for infrastructure roles.",
+     "expected_non_doing": true,
+     "rationale": "A weekend bootcamp taken before seeking a role is preparation, not demonstrated production use."},
+
+    {"id": "sd-042", "category": "learning_phrase", "markers": ["keen", "learn"], "construction": "positive", "pair_id": "mp-keen-01", "defect_class": "none",
+     "text": "Keen to learn Go and hoping to use it on a future project.",
+     "expected_non_doing": true,
+     "rationale": "A stated future hope, not a claim of any Go work done."},
+
+    {"id": "sd-043", "category": "learning_phrase", "markers": ["exposure"], "construction": "positive", "pair_id": "mp-exposure-01", "defect_class": "none",
+     "text": "Some exposure to Kafka from a two-day internal workshop, no hands-on production work yet.",
+     "expected_non_doing": true,
+     "rationale": "Explicitly says there is no hands-on production work yet; the only exposure was a two-day workshop."},
+
+    {"id": "sd-044", "category": "learning_phrase", "markers": ["familiar"], "construction": "positive", "pair_id": "mp-familiar-01", "defect_class": "none",
+     "text": "Familiar with Terraform from reading the documentation, though I have not used it on a real project.",
+     "expected_non_doing": true,
+     "rationale": "Explicitly states no real-project use; familiarity here is limited to reading documentation."},
+
+    {"id": "sd-045", "category": "learning_phrase", "markers": ["studying"], "construction": "positive", "defect_class": "none",
+     "text": "Studying for the AWS Solutions Architect certification on weekends.",
+     "expected_non_doing": true,
+     "rationale": "Weekend exam preparation, not a claim of professional AWS work."},
+
+    {"id": "sd-046", "category": "learning_phrase", "markers": ["interested"], "construction": "positive", "defect_class": "none",
+     "text": "Interested in deepening my GraphQL skills through a side project next quarter.",
+     "expected_non_doing": true,
+     "rationale": "A stated future intention for a side project, not completed GraphQL work."},
+
+    {"id": "sd-047", "category": "learning_phrase", "markers": ["curious", "planning"], "construction": "positive", "defect_class": "none",
+     "text": "Curious about WebAssembly and planning to experiment with it soon.",
+     "expected_non_doing": true,
+     "rationale": "Curiosity plus a plan to experiment soon; no WebAssembly work has been done."},
+
+    {"id": "sd-048", "category": "learning_phrase", "markers": ["familiarity"], "construction": "positive", "defect_class": "none",
+     "text": "Basic familiarity with Elasticsearch gained from a single proof-of-concept that was not carried further.",
+     "expected_non_doing": true,
+     "rationale": "A single proof-of-concept explicitly not carried further is not demonstrated production use."},
+
+    {"id": "sd-049", "category": "noun_collision", "markers": ["keen"], "construction": "negative", "pair_id": "mp-keen-01", "defect_class": "vocabulary",
+     "text": "Maintained a keen eye for performance regressions across the Redis cluster in production.",
+     "expected_non_doing": false,
+     "rationale": "\"Keen eye\" is an idiom for attentiveness, not a claim of wanting to learn Redis; the sentence describes ongoing production maintenance."},
+
+    {"id": "sd-050", "category": "noun_collision", "markers": ["exposure"], "construction": "negative", "pair_id": "mp-exposure-01", "defect_class": "vocabulary",
+     "text": "Reduced customer data exposure by encrypting PII fields in the production PostgreSQL database.",
+     "expected_non_doing": false,
+     "rationale": "\"Exposure\" here means security risk, not the author's own familiarity with the technology; the sentence describes real production database work."},
+
+    {"id": "sd-051", "category": "noun_collision", "markers": ["familiar"], "construction": "negative", "pair_id": "mp-familiar-01", "defect_class": "vocabulary",
+     "text": "Refactored familiar error-handling patterns across the Django codebase to reduce duplication.",
+     "expected_non_doing": false,
+     "rationale": "\"Familiar\" describes the patterns as well-known, not the author's own uncertainty about Django; refactoring a codebase is affirmative work."},
+
+    {"id": "sd-052", "category": "noun_collision", "markers": ["interested"], "construction": "negative", "defect_class": "vocabulary",
+     "text": "Interested stakeholders received weekly dashboards built on top of the production Looker instance.",
+     "expected_non_doing": false,
+     "rationale": "\"Interested stakeholders\" describes the dashboard recipients, not the author's own uncertainty about Looker, which is described as a production instance."},
+
+    {"id": "sd-053", "category": "noun_collision", "markers": ["curious"], "construction": "negative", "defect_class": "none",
+     "text": "Curiosity-driven engineering culture shaped how the platform team built its internal Prometheus tooling.",
+     "expected_non_doing": false,
+     "rationale": "\"Curiosity-driven\" and \"curiosity\" are different tokens from the marker \"curious\"; this is a word-boundary control, and the sentence is affirmative."},
+
+    {"id": "sd-054", "category": "noun_collision", "markers": ["familiar"], "construction": "negative", "defect_class": "none",
+     "text": "Explained the onboarding flow to new hires unfamiliar with the internal deployment tooling built around Helm.",
+     "expected_non_doing": false,
+     "rationale": "\"Unfamiliar\" is a different word from the marker \"familiar\"; this is a word-boundary control describing the new hires, and Helm tooling is described as already built."},
+
+    {"id": "sd-055", "category": "noun_collision", "markers": ["learning"], "construction": "negative", "defect_class": "none",
+     "text": "Delivered three Learning Management System integrations for enterprise clients using Django and Postgres.",
+     "expected_non_doing": false,
+     "rationale": "\"Learning Management System\" is the name of a category of software, not a claim about the author's own learning; the sentence describes delivered integrations."},
+
+    {"id": "sd-056", "category": "explicit_non_use", "markers": ["intend"], "construction": "positive", "defect_class": "vocabulary",
+     "text": "Never used Kubernetes outside of a single tutorial.",
+     "expected_non_doing": true,
+     "rationale": "A plain-English statement that Kubernetes has never been used professionally, even though it uses none of the listed marker words."},
+
+    {"id": "sd-057", "category": "explicit_non_use", "markers": ["intend"], "construction": "positive", "defect_class": "vocabulary",
+     "text": "Has not worked with Rust in a professional capacity.",
+     "expected_non_doing": true,
+     "rationale": "An explicit denial of professional Rust work, expressed without any word in the marker list."},
+
+    {"id": "sd-058", "category": "explicit_non_use", "markers": ["exposure"], "construction": "positive", "defect_class": "vocabulary",
+     "text": "No hands-on GraphQL experience; only read about it in blog posts.",
+     "expected_non_doing": true,
+     "rationale": "Explicitly denies hands-on experience, stating the only contact was reading blog posts."},
+
+    {"id": "sd-059", "category": "explicit_non_use", "markers": ["exposure"], "construction": "positive", "defect_class": "vocabulary",
+     "text": "Does not have production experience with Elasticsearch.",
+     "expected_non_doing": true,
+     "rationale": "A direct denial of production experience, in plain English with no listed marker word."},
+
+    {"id": "sd-060", "category": "explicit_non_use", "markers": ["curious"], "construction": "positive", "defect_class": "vocabulary",
+     "text": "Read about Svelte once but never wrote a line of it.",
+     "expected_non_doing": true,
+     "rationale": "Explicitly denies ever writing any Svelte code."},
+
+    {"id": "sd-061", "category": "explicit_non_use", "markers": ["interested"], "construction": "positive", "defect_class": "vocabulary",
+     "text": "Kubernetes is on the wishlist for next year; nothing has been done with it so far.",
+     "expected_non_doing": true,
+     "rationale": "Explicitly says nothing has been done with Kubernetes so far."},
+
+    {"id": "sd-062", "category": "explicit_non_use", "markers": ["interested"], "construction": "positive", "defect_class": "vocabulary",
+     "text": "Would like to work with Terraform someday but has no experience with it yet.",
+     "expected_non_doing": true,
+     "rationale": "Explicitly denies any current Terraform experience."},
+
+    {"id": "sd-063", "category": "explicit_non_use", "markers": ["learn"], "construction": "positive", "defect_class": "vocabulary",
+     "text": "Unable to find time to try Rust despite several attempts to start.",
+     "expected_non_doing": true,
+     "rationale": "Says outright that no real attempt at Rust ever got off the ground."},
+
+    {"id": "sd-064", "category": "explicit_non_use", "markers": ["familiarity"], "construction": "positive", "defect_class": "vocabulary",
+     "text": "Claims no direct experience with Scala beyond a university course.",
+     "expected_non_doing": true,
+     "rationale": "Explicitly limits any Scala contact to a university course, denying direct experience."},
+
+    {"id": "sd-065", "category": "explicit_non_use", "markers": ["studying"], "construction": "positive", "defect_class": "vocabulary",
+     "text": "Zero production hours with Rust to date.",
+     "expected_non_doing": true,
+     "rationale": "A blunt, explicit statement of zero production experience."},
+
+    {"id": "sd-066", "category": "research_verb", "markers": ["researched"], "construction": "negative", "pair_id": "mp-eval-03", "defect_class": "none",
+     "text": "Led the team's research into distributed tracing before selecting and rolling out OpenTelemetry across all services.",
+     "expected_non_doing": false,
+     "rationale": "\"Research\" (the noun) is a different token from the marker \"researched\"; the sentence goes on to say OpenTelemetry was selected and rolled out."},
+
+    {"id": "sd-067", "category": "research_verb", "markers": ["investigated"], "construction": "negative", "pair_id": "mp-eval-04", "defect_class": "vocabulary",
+     "text": "Investigated a data-loss incident in the PostgreSQL cluster and shipped a fix within 24 hours.",
+     "expected_non_doing": false,
+     "rationale": "\"Investigated\" here means diagnosing a live incident, an entirely different sense from pre-adoption evaluation, and the fix was shipped."},
+
+    {"id": "sd-068", "category": "research_verb", "markers": ["exploring"], "construction": "negative", "pair_id": "mp-eval-05", "defect_class": "vocabulary",
+     "text": "While exploring downtown during the team offsite, she kept the on-call rotation running for the Kafka pipeline.",
+     "expected_non_doing": false,
+     "rationale": "\"Exploring downtown\" is a leisure activity unrelated to Kafka; the same sentence affirms she kept the on-call rotation running."},
+
+    {"id": "sd-069", "category": "completed_work_with_marker", "markers": ["evaluating"], "construction": "negative", "pair_id": "mp-eval-01", "defect_class": "clause_context",
+     "text": "After evaluating three message brokers, the team adopted Kafka, which has handled checkout events in production for two years.",
+     "expected_non_doing": false,
+     "rationale": "The evaluation is resolved within the same sentence into an adoption sustained for two years in production."},
+
+    {"id": "sd-070", "category": "completed_work_with_marker", "markers": ["considering"], "construction": "negative", "pair_id": "mp-eval-02", "defect_class": "clause_context",
+     "text": "After considering the tradeoffs, the team shipped a Redis-backed cache that now serves all session reads in production.",
+     "expected_non_doing": false,
+     "rationale": "The deliberation is resolved into a shipped, currently-serving production system in the same sentence."},
+
+    {"id": "sd-071", "category": "proper_name_collision", "markers": ["planning"], "construction": "negative", "defect_class": "vocabulary",
+     "text": "Implemented online giving and check-in workflows for three churches using Planning Center and Ruby on Rails.",
+     "expected_non_doing": false,
+     "rationale": "\"Planning Center\" is the proper name of a church-management software product, not a claim that anything was merely planned; the sentence describes implemented workflows."},
+
+    {"id": "sd-072", "category": "proper_name_collision", "markers": ["keen"], "construction": "negative", "defect_class": "vocabulary",
+     "text": "Instrumented event tracking across the marketing site using Keen and a custom Node.js pipeline.",
+     "expected_non_doing": false,
+     "rationale": "\"Keen\" (Keen.io) is the proper name of an analytics product here, not the adjective meaning eager to learn; the sentence describes instrumented, working tracking."},
+
+    {"id": "sd-073", "category": "proper_name_collision", "markers": ["intend"], "construction": "negative", "defect_class": "vocabulary",
+     "text": "As a contractor for Intend Health Strategies, built HL7 integration pipelines in Python for regional hospital networks.",
+     "expected_non_doing": false,
+     "rationale": "\"Intend Health Strategies\" is the name of the employer, not a statement of future intention; the sentence describes built, delivered pipelines."},
+
+    {"id": "sd-074", "category": "proper_name_collision", "markers": ["curious"], "construction": "negative", "defect_class": "vocabulary",
+     "text": "Built the video recommendation engine for Curious.com's course platform using Python and TensorFlow.",
+     "expected_non_doing": false,
+     "rationale": "\"Curious.com\" is the name of the client's platform, not a claim of the author's curiosity; the sentence describes a built recommendation engine."},
+
+    {"id": "sd-075", "category": "proper_name_collision", "markers": ["sunset", "learning"], "construction": "negative", "defect_class": "vocabulary",
+     "text": "Delivered onboarding automation for Sunset Learning, an ed-tech nonprofit, using Python and Airtable.",
+     "expected_non_doing": false,
+     "rationale": "\"Sunset Learning\" is the proper name of the client organization, not a statement that anything is being retired or learned; the automation was delivered."},
+
+    {"id": "sd-076", "category": "proper_name_collision", "markers": ["exposure"], "construction": "negative", "defect_class": "vocabulary",
+     "text": "Migrated the portfolio site to Exposure, a hosted photography platform, from a custom Jekyll build.",
+     "expected_non_doing": false,
+     "rationale": "\"Exposure\" is the proper name of the destination platform, not a claim of shallow familiarity; the migration is described as completed."},
+
+    {"id": "sd-077", "category": "proper_name_collision", "markers": ["curious", "learning"], "construction": "negative", "defect_class": "vocabulary",
+     "text": "Head of Curious Learning's engineering team, shipping literacy apps built with React Native.",
+     "expected_non_doing": false,
+     "rationale": "\"Curious Learning\" is the name of the nonprofit employer, not a claim about the author's own curiosity or learning; the sentence describes shipping apps."},
+
+    {"id": "sd-078", "category": "job_title", "markers": ["learning"], "construction": "negative", "defect_class": "vocabulary",
+     "text": "Learning Experience Designer",
+     "expected_non_doing": false,
+     "rationale": "A legitimate, common job title in education and ed-tech, not a disclaimer about anything being merely learned rather than done."},
+
+    {"id": "sd-079", "category": "job_title", "markers": ["learning"], "construction": "negative", "defect_class": "vocabulary",
+     "text": "Curriculum and Learning Technologist",
+     "expected_non_doing": false,
+     "rationale": "A real job title naming a discipline, not a personal disclaimer of incomplete learning."},
+
+    {"id": "sd-080", "category": "job_title", "markers": ["retired"], "construction": "negative", "defect_class": "vocabulary",
+     "text": "Retired Systems Architect - Independent Java Consultant",
+     "expected_non_doing": false,
+     "rationale": "\"Retired\" describes the person's employment status, not a claim that Java work never happened; the second half names ongoing consulting."},
+
+    {"id": "sd-081", "category": "job_title", "markers": ["retired"], "construction": "negative", "defect_class": "vocabulary",
+     "text": "VP of Engineering (Retired), 20 Years Building Distributed Java Systems",
+     "expected_non_doing": false,
+     "rationale": "The title itself states 20 years of building distributed Java systems; \"Retired\" describes current employment status, not the reality of that work."},
+
+    {"id": "sd-082", "category": "job_title", "markers": ["planning"], "construction": "negative", "defect_class": "clause_context",
+     "text": "Kubernetes Migration - Planning & Delivery Lead",
+     "expected_non_doing": false,
+     "rationale": "\"Delivery Lead\" for a named migration states the migration was delivered; \"Planning\" names one of the lead's responsibilities, not a caveat that nothing shipped."},
+
+    {"id": "sd-083", "category": "job_title", "markers": ["retired"], "construction": "negative", "defect_class": "none",
+     "text": "Site Reliability Engineer",
+     "expected_non_doing": false,
+     "rationale": "An ordinary job title with no marker word and no technology claim to weaken; a baseline control."},
+
+    {"id": "sd-084", "category": "job_title", "markers": ["researched"], "construction": "negative", "defect_class": "none",
+     "text": "Research Scientist, Applied Machine Learning",
+     "expected_non_doing": false,
+     "rationale": "\"Research\" (the noun) is not the marker \"researched\", and \"Machine Learning\" is a protected field name, not a disclaimer."},
+
+    {"id": "sd-085", "category": "job_title", "markers": ["learning"], "construction": "negative", "defect_class": "none",
+     "text": "Senior Data Engineer, Machine Learning Platform",
+     "expected_non_doing": false,
+     "rationale": "\"Machine Learning\" names the platform the engineer works on; it is a protected field name, not a disclaimer."},
+
+    {"id": "sd-086", "category": "job_title", "markers": ["explored"], "construction": "negative", "defect_class": "none",
+     "text": "Exploration & Onboarding Lead, Customer Success",
+     "expected_non_doing": false,
+     "rationale": "\"Exploration\" is a different token from the markers \"explored\"/\"exploring\"; a word-boundary control with no technology named at all."},
+
+    {"id": "sd-087", "category": "job_title", "markers": ["researched"], "construction": "negative", "defect_class": "none",
+     "text": "Machine Learning Research Engineer, Autonomous Systems",
+     "expected_non_doing": false,
+     "rationale": "\"Research\" is not the exact marker \"researched\", and \"Machine Learning\" is a protected field name; a control confirming both protections hold together."},
+
+    {"id": "sd-088", "category": "noun_collision", "markers": ["abandoned"], "construction": "negative", "defect_class": "clause_context",
+     "text": "Abandoned ship metaphors aside, the team fully delivered the Kubernetes migration on schedule.",
+     "expected_non_doing": false,
+     "rationale": "\"Abandoned\" is inside a throwaway idiom about metaphors, not a claim about Kubernetes, which the sentence says was fully delivered on schedule."},
+
+    {"id": "sd-089", "category": "noun_collision", "markers": ["shelved"], "construction": "negative", "defect_class": "clause_context",
+     "text": "Shelved the idea of a rewrite entirely, choosing instead to keep extending the existing Django application that has served customers for a decade.",
+     "expected_non_doing": false,
+     "rationale": "It is the rewrite idea that was shelved, not Django, which the same sentence describes as a decade-old application still being extended."},
+
+    {"id": "sd-090", "category": "noun_collision", "markers": ["rejected"], "construction": "negative", "defect_class": "clause_context",
+     "text": "Rejected three vendor proposals before settling on the in-house Elasticsearch cluster that has indexed every support ticket since 2019.",
+     "expected_non_doing": false,
+     "rationale": "The vendor proposals were rejected, not Elasticsearch, which the sentence describes as indexing every ticket since 2019."},
+
+    {"id": "sd-091", "category": "completed_work_with_marker", "markers": ["considered"], "construction": "negative", "defect_class": "clause_context",
+     "text": "Considered candidates for a new observability stack and ultimately expanded the team's existing Grafana dashboards, now viewed daily by every on-call engineer.",
+     "expected_non_doing": false,
+     "rationale": "The consideration concluded in expanding Grafana, which is described as viewed daily by every on-call engineer."},
+
+    {"id": "sd-092", "category": "completed_work_with_marker", "markers": ["explored"], "construction": "negative", "defect_class": "clause_context",
+     "text": "Explored candidate frameworks during onboarding week and then spent the next three years building the company's core API in Express.",
+     "expected_non_doing": false,
+     "rationale": "The exploration was a one-week onboarding activity; three years of building the core API in Express is squarely affirmative."},
+
+    {"id": "sd-093", "category": "completed_work_with_marker", "markers": ["studying"], "construction": "negative", "defect_class": "clause_context",
+     "text": "Studying the codebase's existing patterns before shipping the new Kafka consumer that now processes every order.",
+     "expected_non_doing": false,
+     "rationale": "The studying was preparatory reading; the Kafka consumer is described as shipped and processing every order now."},
+
+    {"id": "sd-094", "category": "noun_collision", "markers": ["learn"], "construction": "negative", "defect_class": "vocabulary",
+     "text": "Learn once, deploy anywhere - that was the pitch when we replaced the ad-hoc scripts with a fully automated Ansible playbook now running every release.",
+     "expected_non_doing": false,
+     "rationale": "\"Learn once, deploy anywhere\" is a quoted slogan, not the author's own claim of incomplete learning; the Ansible playbook is described as running every release now."},
+
+    {"id": "sd-095", "category": "noun_collision", "markers": ["familiar"], "construction": "negative", "defect_class": "none",
+     "text": "Familiarized the on-call rotation with the new runbooks for the Prometheus alerting stack that has paged the team correctly for three years.",
+     "expected_non_doing": false,
+     "rationale": "\"Familiarized\" is a different word from the marker \"familiar\"; a word-boundary control, and the Prometheus stack is described as working correctly for three years."},
+
+    {"id": "sd-096", "category": "noun_collision", "markers": ["studying"], "construction": "negative", "defect_class": "none",
+     "text": "Studies show that most outages trace back to configuration drift, a lesson the team applied while operating its Terraform-managed infrastructure for six years.",
+     "expected_non_doing": false,
+     "rationale": "\"Studies\" is a different token from the marker \"studying\"; a word-boundary control, and the sentence affirms six years of real Terraform operation."},
+
+    {"id": "sd-097", "category": "noun_collision", "markers": ["keen"], "construction": "negative", "defect_class": "none",
+     "text": "Keenly aware of technical debt, the team nonetheless kept the ten-year-old Perl billing scripts running without incident.",
+     "expected_non_doing": false,
+     "rationale": "\"Keenly\" is a different token from the marker \"keen\"; a word-boundary control, and the sentence affirms the scripts have run for ten years."},
+
+    {"id": "sd-098", "category": "noun_collision", "markers": ["interested"], "construction": "negative", "defect_class": "none",
+     "text": "Interestingly, the team's own internal survey found the Django admin panel was the most-used tool company-wide, built and maintained over six years.",
+     "expected_non_doing": false,
+     "rationale": "\"Interestingly\" is a different token from the marker \"interested\"; a word-boundary control, and the sentence affirms six years of maintained real usage."},
+
+    {"id": "sd-099", "category": "genuine_non_doing", "markers": ["evaluated"], "construction": "positive", "defect_class": "tokenizer",
+     "text": "We eval—uated Kafka and dropped it before shipping.",
+     "expected_non_doing": true,
+     "rationale": "A human reading this recognizes \"eval—uated\" as \"evaluated\" split by a PDF line-wrap that used an em dash instead of a soft hyphen; the marker still applies to the word it interrupts. Unlike the soft-hyphen case the separator fold already handles (which removes the character and rejoins the word), an em dash mid-word folds to a literal hyphen, and the hyphenated-compound path then treats \"eval-uated\" as a compound that is not the technology name \"kafka\" and keeps its split parts \"eval\" and \"uated\", neither of which is the marker \"evaluated\"."}
+  ],
+  "pipeline_cases": [
+    {"id": "pl-001", "category": "technology_attribution", "markers": ["deprecated"], "defect_class": "attribution",
+     "note": "PHP and Go share one clause; deprecated correctly weakens PHP but should not touch Go, which the same clause says now serves all production traffic.",
+     "skills": [],
+     "experiences": [{"job_title": "Backend Engineer", "start": "2019-01-01", "end": null,
+       "description": "Deprecated the legacy PHP monolith while building its replacement in Go, which now serves all production traffic."}],
+     "requirement": {"kind": "duration", "name": "3+ years of professional Go experience", "minimum_years": 3, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [
+         {"token": "php", "attributed_employment": false, "tier": "mentioned"},
+         {"token": "go", "attributed_employment": true, "tier": "employment_described"}
+       ],
+       "resolved_subject": "go",
+       "duration": {"measurable": true, "years": 7.0},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-002", "category": "technology_attribution", "markers": ["investigated"], "defect_class": "attribution",
+     "note": "MongoDB and PostgreSQL share one clause; investigated correctly weakens MongoDB but PostgreSQL is the one kept and used for every nightly report.",
+     "skills": [],
+     "experiences": [{"job_title": "Data Platform Engineer", "start": "2018-01-01", "end": null,
+       "description": "Investigated MongoDB as a replacement for the reporting store but kept PostgreSQL, which continues to serve every nightly report."}],
+     "requirement": {"kind": "duration", "name": "4+ years of professional PostgreSQL experience", "minimum_years": 4, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [
+         {"token": "mongodb", "attributed_employment": false, "tier": "mentioned"},
+         {"token": "postgresql", "attributed_employment": true, "tier": "employment_described"}
+       ],
+       "resolved_subject": "postgresql",
+       "duration": {"measurable": true, "years": 8.0},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-003", "category": "technology_attribution", "markers": ["explored"], "defect_class": "attribution",
+     "note": "Vue and React share one clause; explored correctly weakens Vue but React is the one that now powers the entire customer dashboard.",
+     "skills": [],
+     "experiences": [{"job_title": "Frontend Engineer", "start": "2020-01-01", "end": null,
+       "description": "Explored Vue for the admin panel, but the team standardized on the existing React codebase, which now powers the entire customer dashboard."}],
+     "requirement": {"kind": "skill", "name": "React", "minimum_years": null, "quotes": ["React, with production experience"]},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [
+         {"token": "vue", "attributed_employment": false, "tier": "mentioned"},
+         {"token": "react", "attributed_employment": true, "tier": "employment_described"}
+       ],
+       "resolved_subject": null,
+       "duration": {"measurable": false},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-004", "category": "technology_attribution", "markers": ["piloted"], "defect_class": "attribution",
+     "note": "Svelte and Angular share one clause; piloted correctly weakens Svelte but Angular is the one the team has maintained in production for six years.",
+     "skills": [],
+     "experiences": [{"job_title": "Frontend Engineer", "start": "2018-01-01", "end": null,
+       "description": "Piloted a Svelte rewrite of the settings page that was never finished, while the rest of the app remained on Angular, which the team has maintained in production for six years."}],
+     "requirement": {"kind": "skill", "name": "Angular", "minimum_years": null, "quotes": ["must have hands-on Angular experience in a live production application"]},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [
+         {"token": "svelte", "attributed_employment": false, "tier": "mentioned"},
+         {"token": "angular", "attributed_employment": true, "tier": "employment_described"}
+       ],
+       "resolved_subject": null,
+       "duration": {"measurable": false},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-005", "category": "technology_attribution", "markers": ["prototyped"], "defect_class": "attribution",
+     "note": "GraphQL and gRPC share one clause; prototyped correctly weakens GraphQL but gRPC has handled every internal call in production since 2017.",
+     "skills": [],
+     "experiences": [{"job_title": "Platform Engineer", "start": "2017-01-01", "end": null,
+       "description": "Prototyped a GraphQL layer on top of the existing gRPC services, which have handled every internal call in production since 2017."}],
+     "requirement": {"kind": "duration", "name": "5+ years of professional gRPC experience", "minimum_years": 5, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [
+         {"token": "graphql", "attributed_employment": false, "tier": "mentioned"},
+         {"token": "grpc", "attributed_employment": true, "tier": "employment_described"}
+       ],
+       "resolved_subject": "grpc",
+       "duration": {"measurable": true, "years": 9.0},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-006", "category": "technology_attribution", "markers": ["migrating away"], "defect_class": "attribution",
+     "note": "Heroku and AWS share one clause; migrating away correctly weakens Heroku but AWS has hosted production traffic for five years.",
+     "skills": [],
+     "experiences": [{"job_title": "Platform Engineer", "start": "2021-01-01", "end": null,
+       "description": "Migrating away from Heroku, the platform team now runs everything on AWS, which has hosted production traffic for the past five years."}],
+     "requirement": {"kind": "duration", "name": "5+ years of professional AWS experience", "minimum_years": 5, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [
+         {"token": "heroku", "attributed_employment": false, "tier": "mentioned"},
+         {"token": "aws", "attributed_employment": true, "tier": "employment_described"}
+       ],
+       "resolved_subject": "aws",
+       "duration": {"measurable": true, "years": 5.0},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-007", "category": "technology_attribution", "markers": ["considering", "replacing"], "defect_class": "none",
+     "note": "Redis appears in two properly punctuated clauses of the same role: one clean, one a genuine non-doing mention about Memcached. The clean clause should rescue Redis's tier regardless of the second clause.",
+     "skills": [],
+     "experiences": [{"job_title": "Platform Engineer", "start": "2020-01-01", "end": null,
+       "description": "Ran the platform team's caching layer built on Redis for four years. Considered replacing Redis with Memcached but decided the migration wasn't worth it."}],
+     "requirement": {"kind": "skill", "name": "Redis", "minimum_years": null, "quotes": ["Redis, with production experience"]},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [
+         {"token": "redis", "attributed_employment": true, "tier": "employment_described"},
+         {"token": "memcached", "attributed_employment": false, "tier": "mentioned"}
+       ],
+       "resolved_subject": null,
+       "duration": {"measurable": false},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-008", "category": "away_construction_pipeline", "markers": ["migrating away", "decommissioned"], "defect_class": "none",
+     "note": "A single technology being wound down, with nothing else in the profile corroborating it. Should read as genuinely ambiguous mention-only evidence, not a defect.",
+     "skills": [],
+     "experiences": [{"job_title": "Infrastructure Engineer", "start": "2015-01-01", "end": "2022-01-01",
+       "description": "The infrastructure group is migrating away from self-managed Elasticsearch, decommissioning nodes as usage winds down."}],
+     "requirement": {"kind": "duration", "name": "3+ years of Elasticsearch experience", "minimum_years": 3, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "elasticsearch", "attributed_employment": false, "tier": "mentioned"}],
+       "resolved_subject": "elasticsearch",
+       "duration": {"measurable": false},
+       "verdict": "uncertain"
+     }},
+
+    {"id": "pl-009", "category": "duration_consequence", "markers": ["retired"], "defect_class": "clause_context",
+     "note": "\"Retired\" grammatically modifies the homegrown scheduler, not Airflow, which the same clause says has orchestrated every nightly pipeline for six years.",
+     "skills": [],
+     "experiences": [{"job_title": "Data Engineer", "start": "2019-06-01", "end": null,
+       "description": "Retired the team's homegrown job scheduler in favor of Airflow, which has orchestrated every nightly pipeline in production for the past six years."}],
+     "requirement": {"kind": "duration", "name": "5+ years of professional Airflow experience", "minimum_years": 5, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "airflow", "attributed_employment": true, "tier": "employment_described"}],
+       "resolved_subject": "airflow",
+       "duration": {"measurable": true, "years": 6.6},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-010", "category": "duration_consequence", "markers": ["considering"], "defect_class": "none",
+     "note": "Two properly punctuated clauses: Airflow's own clause is clean and dated; a separate, genuinely non-doing clause about Dagster should not touch it.",
+     "skills": [],
+     "experiences": [{"job_title": "Data Engineer", "start": "2020-01-01", "end": null,
+       "description": "Used Airflow to orchestrate nightly ETL jobs for six years. Considering a move to Dagster next year but no decision has been made."}],
+     "requirement": {"kind": "duration", "name": "5+ years of professional Airflow experience", "minimum_years": 5, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [
+         {"token": "airflow", "attributed_employment": true, "tier": "employment_described"},
+         {"token": "dagster", "attributed_employment": false, "tier": "mentioned"}
+       ],
+       "resolved_subject": "airflow",
+       "duration": {"measurable": true, "years": 6.0},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-011", "category": "duration_consequence", "markers": ["planning"], "defect_class": "clause_context",
+     "note": "\"Planning and delivering\" is a completed-work collocation, not a caveat; the clause says the migration now streams every order event in production.",
+     "skills": [],
+     "experiences": [{"job_title": "Staff Engineer", "start": "2021-06-01", "end": null,
+       "description": "Planning and delivering the migration of order processing to Kafka, which now streams every order event in production."}],
+     "requirement": {"kind": "duration", "name": "4+ years of professional Kafka experience", "minimum_years": 4, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "kafka", "attributed_employment": true, "tier": "employment_described"}],
+       "resolved_subject": "kafka",
+       "duration": {"measurable": true, "years": 4.6},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-012", "category": "duration_consequence", "markers": ["familiar"], "defect_class": "vocabulary",
+     "note": "\"Familiar with X through hands-on work over N years\" intensifies rather than weakens the claim; the marker's weak-familiarity sense does not fit this sentence.",
+     "skills": [],
+     "experiences": [{"job_title": "Analytics Engineer", "start": "2023-01-01", "end": null,
+       "description": "Familiar with Snowflake through hands-on work modeling the company's entire finance data warehouse over the last three years."}],
+     "requirement": {"kind": "duration", "name": "3+ years of professional Snowflake experience", "minimum_years": 3, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "snowflake", "attributed_employment": true, "tier": "employment_described"}],
+       "resolved_subject": "snowflake",
+       "duration": {"measurable": true, "years": 3.0},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-013", "category": "duration_consequence", "markers": [], "defect_class": "none",
+     "note": "A clean baseline with no marker at all: a genuinely short, clearly-attributed internship should fail a 4-year bar outright.",
+     "skills": [],
+     "experiences": [{"job_title": "Backend Engineer Intern", "start": "2024-06-01", "end": "2025-01-01",
+       "description": "Built internal tooling in Elixir for the billing team."}],
+     "requirement": {"kind": "duration", "name": "4+ years of professional Elixir experience", "minimum_years": 4, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "elixir", "attributed_employment": true, "tier": "employment_described"}],
+       "resolved_subject": "elixir",
+       "duration": {"measurable": true, "years": 0.6},
+       "verdict": "missing"
+     }},
+
+    {"id": "pl-014", "category": "evidence_tier_consequence", "markers": ["exposure"], "defect_class": "evidence_model",
+     "note": "The mention explicitly denies production work, which a careful reviewer reads as an admission of zero — a computable, clearly-insufficient duration a human can read straight out of the prose, even though the tier model has no dated span to compute it from and can only report UNCERTAIN.",
+     "skills": [],
+     "experiences": [{"job_title": "Data Analyst", "start": "2015-01-01", "end": "2023-01-01",
+       "description": "Some exposure to Databricks from a two-day training, no production work with it."}],
+     "requirement": {"kind": "duration", "name": "2+ years of Databricks experience", "minimum_years": 2, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "databricks", "attributed_employment": false, "tier": "mentioned"}],
+       "resolved_subject": "databricks",
+       "duration": {"measurable": false},
+       "verdict": "missing"
+     }},
+
+    {"id": "pl-015", "category": "evidence_tier_consequence", "markers": [], "defect_class": "none",
+     "note": "A declared-only skill against a requirement that asks for nothing more than the skill itself.",
+     "skills": [{"name": "Kubernetes", "years": null}],
+     "experiences": [{"job_title": "Software Engineer", "start": "2021-01-01", "end": null,
+       "description": "Built internal tooling for the finance team."}],
+     "requirement": {"kind": "skill", "name": "Kubernetes", "minimum_years": null, "quotes": ["Nice to have: Kubernetes"]},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "kubernetes", "attributed_employment": false, "tier": "declared_only"}],
+       "resolved_subject": null,
+       "duration": {"measurable": false},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-016", "category": "evidence_tier_consequence", "markers": [], "defect_class": "none",
+     "note": "The same declared-only Kubernetes, against a requirement that explicitly demands production use rather than a course.",
+     "skills": [{"name": "Kubernetes", "years": null}],
+     "experiences": [{"job_title": "Software Engineer", "start": "2021-01-01", "end": null,
+       "description": "Built internal tooling for the finance team."}],
+     "requirement": {"kind": "skill", "name": "Kubernetes", "minimum_years": null, "quotes": ["Kubernetes in production, not just in a course"]},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "kubernetes", "attributed_employment": false, "tier": "declared_only"}],
+       "resolved_subject": null,
+       "duration": {"measurable": false},
+       "verdict": "uncertain"
+     }},
+
+    {"id": "pl-017", "category": "evidence_tier_consequence", "markers": ["familiar"], "defect_class": "vocabulary",
+     "note": "Terraform is declared as a skill and the description states daily production use across three accounts for four years; \"familiar\" should not pull that back down to a bare declaration.",
+     "skills": [{"name": "Terraform", "years": null}],
+     "experiences": [{"job_title": "Infrastructure Engineer", "start": "2022-01-01", "end": null,
+       "description": "Familiar with Terraform, having used it daily for infrastructure provisioning across three production AWS accounts for the past four years."}],
+     "requirement": {"kind": "skill", "name": "Terraform", "minimum_years": null, "quotes": ["Terraform, with hands-on production experience"]},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "terraform", "attributed_employment": true, "tier": "declared_corroborated"}],
+       "resolved_subject": null,
+       "duration": {"measurable": false},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-018", "category": "evidence_tier_consequence", "markers": ["considered"], "defect_class": "none",
+     "note": "Two properly punctuated clauses in one role: Rails is demonstrated cleanly; a separate genuinely-non-doing clause about Elixir should not touch it.",
+     "skills": [],
+     "experiences": [{"job_title": "Backend Engineer", "start": "2019-01-01", "end": null,
+       "description": "Built and shipped the billing service in Rails, serving all customer invoices since 2019. Considered rewriting parts of it in Elixir, but the rewrite never started."}],
+     "requirement": {"kind": "skill", "name": "Rails", "minimum_years": null, "quotes": ["Rails, in a live production environment"]},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [
+         {"token": "rails", "attributed_employment": true, "tier": "employment_described"},
+         {"token": "elixir", "attributed_employment": false, "tier": "mentioned"}
+       ],
+       "resolved_subject": null,
+       "duration": {"measurable": false},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-019", "category": "evidence_tier_consequence", "markers": ["familiar"], "defect_class": "clause_context",
+     "note": "\"Familiar\" modifies the onboarding docs, not Kubernetes, which the same clause says has run production workloads for five years.",
+     "skills": [],
+     "experiences": [{"job_title": "Platform Engineer", "start": "2021-01-01", "end": null,
+       "description": "Kept the onboarding docs familiar and well-organized for new engineers joining the Kubernetes platform team, which has run production workloads for five years."}],
+     "requirement": {"kind": "skill", "name": "Kubernetes", "minimum_years": null, "quotes": ["Kubernetes in production, not just in a course"]},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "kubernetes", "attributed_employment": true, "tier": "employment_described"}],
+       "resolved_subject": null,
+       "duration": {"measurable": false},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-020", "category": "evidence_tier_consequence", "markers": ["explored"], "defect_class": "none",
+     "note": "A genuinely weak, workshop-only mention that explicitly denies professional deployment. UNCERTAIN, not a defect: present but not experience.",
+     "skills": [],
+     "experiences": [{"job_title": "Platform Engineer", "start": "2023-01-01", "end": null,
+       "description": "Explored Kubernetes through a weekend workshop; have not deployed it professionally."}],
+     "requirement": {"kind": "skill", "name": "Kubernetes", "minimum_years": null, "quotes": ["Kubernetes in production, not just in a course"]},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "kubernetes", "attributed_employment": false, "tier": "mentioned"}],
+       "resolved_subject": null,
+       "duration": {"measurable": false},
+       "verdict": "uncertain"
+     }},
+
+    {"id": "pl-021", "category": "evidence_tier_consequence", "markers": [], "defect_class": "none",
+     "note": "A clean, marker-free declared-and-corroborated baseline.",
+     "skills": [{"name": "PostgreSQL", "years": 6}],
+     "experiences": [{"job_title": "Database Administrator", "start": "2018-01-01", "end": null,
+       "description": "Administered PostgreSQL clusters for six years, handling all production database operations."}],
+     "requirement": {"kind": "skill", "name": "PostgreSQL", "minimum_years": null, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "postgresql", "attributed_employment": true, "tier": "declared_corroborated"}],
+       "resolved_subject": null,
+       "duration": {"measurable": false},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-022", "category": "evidence_tier_consequence", "markers": ["evaluated", "cancelled"], "defect_class": "none",
+     "note": "The flagship evaluated-and-cancelled case, with the skill also declared: still only declared_only, and still UNCERTAIN against a production bar. Confirms the original fix still holds.",
+     "skills": [{"name": "React Native", "years": null}],
+     "experiences": [{"job_title": "Junior Web Developer", "start": "2021-01-01", "end": "2023-01-01",
+       "description": "jQuery and vanilla JavaScript for a booking site. Evaluated React Native for a mobile app, but the project was cancelled before any code shipped."}],
+     "requirement": {"kind": "skill", "name": "React Native", "minimum_years": null, "quotes": ["React Native in production"]},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "react native", "attributed_employment": false, "tier": "declared_only"}],
+       "resolved_subject": null,
+       "duration": {"measurable": false},
+       "verdict": "uncertain"
+     }},
+
+    {"id": "pl-023", "category": "job_title_path", "markers": ["planning"], "defect_class": "clause_context",
+     "note": "Kubernetes is named only in the job title, never repeated in the description. The title itself, read as \"Delivery Lead\" for a named migration, is strong evidence, but the title clause also carries \"planning\" and no other clause exists to rescue it.",
+     "skills": [],
+     "experiences": [{"job_title": "Kubernetes Migration - Planning & Delivery Lead", "start": "2020-01-01", "end": null,
+       "description": "Led a cross-functional team through a major infrastructure modernization initiative that touched every backend service."}],
+     "requirement": {"kind": "duration", "name": "3+ years of professional Kubernetes experience", "minimum_years": 3, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "kubernetes", "attributed_employment": true, "tier": "employment_described"}],
+       "resolved_subject": "kubernetes",
+       "duration": {"measurable": true, "years": 6.0},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-024", "category": "job_title_path", "markers": ["learning"], "defect_class": "none",
+     "note": "\"Learning\" sits in the title but names no technology there; Python, named only in the description, should be unaffected.",
+     "skills": [],
+     "experiences": [{"job_title": "Learning & Development Program Manager", "start": "2019-01-01", "end": null,
+       "description": "Automated onboarding workflows for new hires using Python and internal tooling, still running today."}],
+     "requirement": {"kind": "duration", "name": "5+ years of professional Python experience", "minimum_years": 5, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "python", "attributed_employment": true, "tier": "employment_described"}],
+       "resolved_subject": "python",
+       "duration": {"measurable": true, "years": 7.0},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-025", "category": "job_title_path", "markers": ["learning"], "defect_class": "none",
+     "note": "PyTorch is named only in a title also containing \"Machine Learning\"; the protected-name neutralization should extend to the title clause exactly as it does to prose.",
+     "skills": [],
+     "experiences": [{"job_title": "Senior PyTorch and Machine Learning Engineer", "start": "2021-01-01", "end": null,
+       "description": "Owns the company's recommendation and ranking models, serving all traffic since 2021."}],
+     "requirement": {"kind": "skill", "name": "PyTorch", "minimum_years": null, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "pytorch", "attributed_employment": true, "tier": "employment_described"}],
+       "resolved_subject": null,
+       "duration": {"measurable": false},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-026", "category": "job_title_path", "markers": ["retired"], "defect_class": "vocabulary",
+     "note": "Java is named only in the title, which itself states 15 years of distributed Java work; \"Retired\" describes employment status, not the technology's history.",
+     "skills": [],
+     "experiences": [{"job_title": "Retired Principal Engineer - 15 Years in Distributed Java Systems", "start": "2009-01-01", "end": "2024-01-01",
+       "description": "Designed and operated large-scale trading systems."}],
+     "requirement": {"kind": "duration", "name": "10+ years of professional Java experience", "minimum_years": 10, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "java", "attributed_employment": true, "tier": "employment_described"}],
+       "resolved_subject": "java",
+       "duration": {"measurable": true, "years": 15.0},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-027", "category": "job_title_path", "markers": [], "defect_class": "none",
+     "note": "A clean, marker-free title and description baseline.",
+     "skills": [],
+     "experiences": [{"job_title": "Senior Backend Engineer", "start": "2020-01-01", "end": null,
+       "description": "Built and maintained Django REST services for six years."}],
+     "requirement": {"kind": "duration", "name": "5+ years of professional Django experience", "minimum_years": 5, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "django", "attributed_employment": true, "tier": "employment_described"}],
+       "resolved_subject": "django",
+       "duration": {"measurable": true, "years": 6.0},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-028", "category": "evidence_tier_consequence", "markers": ["studying"], "defect_class": "clause_context",
+     "note": "\"Studying...patterns\" and \"leading the rollout...in production\" are two different claims sharing one clause; the delivered gateway should not be demoted by the study.",
+     "skills": [],
+     "experiences": [{"job_title": "Staff Engineer", "start": "2021-01-01", "end": null,
+       "description": "Studying GraphQL federation patterns while leading the rollout of a federated GraphQL gateway that now serves every mobile client in production."}],
+     "requirement": {"kind": "skill", "name": "GraphQL", "minimum_years": null, "quotes": ["GraphQL, with production experience"]},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "graphql", "attributed_employment": true, "tier": "employment_described"}],
+       "resolved_subject": null,
+       "duration": {"measurable": false},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-029", "category": "duration_consequence", "markers": ["intend"], "defect_class": "none",
+     "note": "A genuine future intention with no code shipped; correctly unmeasurable and unresolved.",
+     "skills": [],
+     "experiences": [{"job_title": "Backend Engineer", "start": "2022-01-01", "end": null,
+       "description": "Intend to introduce Rust for performance-critical services once the team completes onboarding; no Rust code has shipped yet."}],
+     "requirement": {"kind": "duration", "name": "2+ years of Rust experience", "minimum_years": 2, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "rust", "attributed_employment": false, "tier": "mentioned"}],
+       "resolved_subject": "rust",
+       "duration": {"measurable": false},
+       "verdict": "uncertain"
+     }},
+
+    {"id": "pl-030", "category": "evidence_tier_consequence", "markers": ["piloted"], "defect_class": "evidence_model",
+     "note": "\"Three weeks... not continued\" is an explicit, clearly-insufficient duration a human reads straight from the prose, but the tier model has no dated span for a pilot embedded in a role's description and can only report UNCERTAIN.",
+     "skills": [],
+     "experiences": [{"job_title": "QA Engineer", "start": "2023-01-01", "end": "2024-01-01",
+       "description": "Piloted Vitest as a replacement for Jest across two sample repositories for three weeks; the rollout was not continued."}],
+     "requirement": {"kind": "duration", "name": "2+ years of professional Vitest experience", "minimum_years": 2, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "vitest", "attributed_employment": false, "tier": "mentioned"}],
+       "resolved_subject": "vitest",
+       "duration": {"measurable": false},
+       "verdict": "missing"
+     }},
+
+    {"id": "pl-031", "category": "composite", "markers": ["explored"], "defect_class": "none",
+     "note": "Two roles: one where MySQL shares a clause with an explored technology (Cassandra), one where MySQL is demonstrated cleanly. The clean role should rescue MySQL's tier regardless of the first role's misfire.",
+     "skills": [],
+     "experiences": [
+       {"job_title": "Data Platform Engineer", "start": "2015-01-01", "end": "2019-01-01",
+        "description": "Explored NoSQL options including Cassandra for the metrics store, but the team stayed on MySQL."},
+       {"job_title": "Database Engineer", "start": "2019-01-01", "end": null,
+        "description": "Owns the MySQL cluster powering all billing data, now in its seventh year of continuous production use."}
+     ],
+     "requirement": {"kind": "skill", "name": "MySQL", "minimum_years": null, "quotes": ["MySQL in production"]},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [
+         {"token": "mysql", "attributed_employment": true, "tier": "employment_described"},
+         {"token": "cassandra", "attributed_employment": false, "tier": "mentioned"}
+       ],
+       "resolved_subject": null,
+       "duration": {"measurable": false},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-032", "category": "composite", "markers": ["considered", "shelved", "replacing"], "defect_class": "vocabulary",
+     "note": "Two roles, both compromised: role one is a genuine non-doing mention; role two says Kafka replaced the old batch jobs and now streams every order in real time, but \"replacing\" fires on that clause too even though Kafka is the technology being adopted, not the one being replaced away.",
+     "skills": [],
+     "experiences": [
+       {"job_title": "Data Engineer", "start": "2016-01-01", "end": "2019-01-01",
+        "description": "Considered adopting Kafka for event streaming; the proof of concept was shelved."},
+       {"job_title": "Data Engineer", "start": "2019-01-01", "end": null,
+        "description": "Migrated the checkout pipeline to Kafka, replacing the polling-based batch jobs, now streaming every order in real time."}
+     ],
+     "requirement": {"kind": "duration", "name": "4+ years of professional Kafka experience", "minimum_years": 4, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "kafka", "attributed_employment": true, "tier": "employment_described"}],
+       "resolved_subject": "kafka",
+       "duration": {"measurable": true, "years": 7.0},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-033", "category": "composite", "markers": [], "defect_class": "none",
+     "note": "A clean, marker-free multi-skill baseline: declared and demonstrated together.",
+     "skills": [{"name": "Python", "years": 8}, {"name": "Django", "years": 5}],
+     "experiences": [{"job_title": "Backend Engineer", "start": "2020-01-01", "end": null,
+       "description": "Built and maintained Django REST APIs in Python for eight years, powering the core product."}],
+     "requirement": {"kind": "duration", "name": "5+ years of professional Django experience", "minimum_years": 5, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [
+         {"token": "python", "attributed_employment": true, "tier": "declared_corroborated"},
+         {"token": "django", "attributed_employment": true, "tier": "declared_corroborated"}
+       ],
+       "resolved_subject": "django",
+       "duration": {"measurable": true, "years": 6.0},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-034", "category": "technology_attribution", "markers": ["abandoned"], "defect_class": "attribution",
+     "note": "Elixir and Rails share one clause; abandoned correctly weakens the Elixir rewrite plan, but Rails is the service the team has run for five years and continued.",
+     "skills": [],
+     "experiences": [{"job_title": "Backend Engineer", "start": "2021-01-01", "end": null,
+       "description": "Abandoned a plan to rewrite the notifications service in Elixir; the existing Rails service the team has run for five years continued handling all notifications."}],
+     "requirement": {"kind": "duration", "name": "5+ years of professional Rails experience", "minimum_years": 5, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [
+         {"token": "elixir", "attributed_employment": false, "tier": "mentioned"},
+         {"token": "rails", "attributed_employment": true, "tier": "employment_described"}
+       ],
+       "resolved_subject": "rails",
+       "duration": {"measurable": true, "years": 5.0},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-035", "category": "evidence_tier_consequence", "markers": ["curious"], "defect_class": "vocabulary",
+     "note": "Tableau is declared and the description states ownership of the primary reporting layer for four years; \"curious\" should not pull that down to a bare declaration.",
+     "skills": [{"name": "Tableau", "years": null}],
+     "experiences": [{"job_title": "BI Engineer", "start": "2022-01-01", "end": null,
+       "description": "Curious about Tableau best practices while owning the company's primary Tableau reporting layer, relied on by every regional sales team for four years."}],
+     "requirement": {"kind": "skill", "name": "Tableau", "minimum_years": null, "quotes": ["Tableau, with demonstrated production use"]},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "tableau", "attributed_employment": true, "tier": "declared_corroborated"}],
+       "resolved_subject": null,
+       "duration": {"measurable": false},
+       "verdict": "matched"
+     }},
+
+    {"id": "pl-036", "category": "evidence_tier_consequence", "markers": ["abandoned"], "defect_class": "evidence_model",
+     "note": "\"Two weeks\" is an explicit, clearly-insufficient duration a human reads straight from the prose; the tier model has no dated span for it and can only report UNCERTAIN.",
+     "skills": [],
+     "experiences": [{"job_title": "Backend Engineer", "start": "2023-01-01", "end": "2024-01-01",
+       "description": "Abandoned a proof-of-concept built with Neo4j after two weeks when the query patterns did not fit a graph model."}],
+     "requirement": {"kind": "duration", "name": "2+ years of professional Neo4j experience", "minimum_years": 2, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "neo4j", "attributed_employment": false, "tier": "mentioned"}],
+       "resolved_subject": "neo4j",
+       "duration": {"measurable": false},
+       "verdict": "missing"
+     }},
+
+    {"id": "pl-037", "category": "evidence_tier_consequence", "markers": ["piloted", "canceled"], "defect_class": "none",
+     "note": "A declared skill with a genuinely non-doing, canceled pilot as its only other evidence: correctly stays declared_only.",
+     "skills": [{"name": "Elm", "years": null}],
+     "experiences": [{"job_title": "Frontend Engineer", "start": "2022-01-01", "end": "2022-06-01",
+       "description": "Piloted an Elm rewrite of the settings UI; the pilot was canceled after two sprints when the team decided to stay on the existing stack."}],
+     "requirement": {"kind": "skill", "name": "Elm", "minimum_years": null, "quotes": ["Elm, with hands-on production experience"]},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "elm", "attributed_employment": false, "tier": "declared_only"}],
+       "resolved_subject": null,
+       "duration": {"measurable": false},
+       "verdict": "uncertain"
+     }},
+
+    {"id": "pl-038", "category": "job_title_path", "markers": ["planning"], "defect_class": "none",
+     "note": "Kubernetes is named in a title that also carries \"planning\", but the description independently and cleanly repeats it; the clean description clause should rescue the tier regardless of the title's own misfire.",
+     "skills": [],
+     "experiences": [{"job_title": "Kubernetes Planning & Delivery Lead", "start": "2019-01-01", "end": null,
+       "description": "Delivered the migration of every production workload to Kubernetes, which has run the platform since 2019."}],
+     "requirement": {"kind": "duration", "name": "3+ years of professional Kubernetes experience", "minimum_years": 3, "quotes": []},
+     "as_of": "2026-01-01",
+     "expected": {
+       "tokens": [{"token": "kubernetes", "attributed_employment": true, "tier": "employment_described"}],
+       "resolved_subject": "kubernetes",
+       "duration": {"measurable": true, "years": 7.0},
+       "verdict": "matched"
+     }}
+  ]
+}
