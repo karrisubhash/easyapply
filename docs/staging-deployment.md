@@ -4,21 +4,22 @@ A public HTTPS environment for external user testing. **It is staging, not
 production**: it runs entirely on free resources, and §14 lists what that costs.
 Nothing here is a claim of production readiness.
 
-> **Status 2026-09-26: provisioned, NOT live — blocked on Entra.** The repo,
-> database and web service exist and the image builds and migrates on Render,
-> but the service refuses to start without Entra configuration (by design,
-> §6), so the public URL serves nothing yet. Microsoft has withdrawn the
-> no-card External ID trial; a tenant now needs an Azure account, and the owner
-> chose to stop here for now. §15 is the exact list of what remains.
+> **Status 2026-09-26 (evening, UTC): LIVE.** Real Microsoft Entra sign-in,
+> the web app and the staging extension were exercised end to end against the
+> public URL from a browser on the internet (§13) — including two accounts
+> isolated from each other and the failure cases. Identity is the owner's
+> **Microsoft Entra ID (workforce) directory**, not External ID: Microsoft
+> withdrew the no-card External ID trial and the owner has no card (§6). What a
+> real tester still needs is in §15.
 
 | | |
 |---|---|
 | Public URL | **https://easyapply-staging.onrender.com** |
 | Platform | Render (free web service + free Postgres), region `virginia` (US East) |
 | Source | private GitHub repo `karrisubhash/easyapply`, branch `main` |
-| Render service | `easyapply-staging` — `srv-dartamojo6nc739brjl0` |
+| Render service | `easyapply-staging` — `srv-das0srfpn0mc73eclbc0` (re-created with Entra settings; the first, `srv-dartamojo6nc739brjl0`, was deleted) |
 | Render database | `easyapply-staging-db` — `dpg-dart3s3ncjis73f0hb3g-a`, PostgreSQL 18, **expires 2026-10-26** |
-| Identity | Microsoft Entra External ID (`AUTH_MODE=entra`) — tenant in §6 |
+| Identity | Microsoft Entra ID, tenant `3c8c5c0f-14d5-4f04-bec5-18052a32d8c5` ("Default Directory"), app `EasyApply Staging` `d9d86fc1-bd56-4923-8eb7-6579b35c2931` (`AUTH_MODE=entra`) — §6 |
 | Extension | unpacked staging build, id `jjhciekcmhmngciccfgignmmlgjknakk` (§7) |
 | Blueprint | [`render.yaml`](../render.yaml) (validated with `render blueprints validate`) |
 
@@ -66,8 +67,8 @@ extension workflow, the auth architecture, profile and job models — is unchang
                         application tables + stored_objects (documents)
 ```
 
-Entra External ID (Microsoft-hosted) is reached by the browser for sign-in and
-by Next.js server-side for discovery, JWKS and token redemption.
+Microsoft Entra ID (`login.microsoftonline.com`) is reached by the browser for
+sign-in and by Next.js server-side for discovery, JWKS and token redemption.
 
 Files: [`Dockerfile`](../Dockerfile) (repo root; two stages — build the web app
 on `node:22.17.0`, run on `python:3.13-slim` with node copied in),
@@ -129,7 +130,7 @@ Render; they are not in git, this document, or any file.
 | `AUTH_MODE` | `entra` | web + API |
 | `IDENTITY_ASSERTION_SECRET` | secret (generated) | web + API (same value by design) |
 | `OPERATOR_API_TOKEN` | secret (generated) | web + API |
-| `ENTRA_TENANT_ID`, `ENTRA_ISSUER` | from the tenant (§6) | web + API |
+| `ENTRA_TENANT_ID`, `ENTRA_ISSUER` | `3c8c5c0f-14d5-4f04-bec5-18052a32d8c5`, `https://login.microsoftonline.com/3c8c5c0f-14d5-4f04-bec5-18052a32d8c5/v2.0` (checked against the tenant's discovery document) | web + API |
 | `ENVIRONMENT` | `production` (development identity refused, operator API closed without token) | API |
 | `DATABASE_URL` | Render **internal** connection string (rewritten to `postgresql+psycopg://` and given `connect_timeout=10` by the entrypoint) | API |
 | `STORAGE_BACKEND` | `database` | API |
@@ -140,7 +141,7 @@ Render; they are not in git, this document, or any file.
 | `API_BASE_URL` | `http://127.0.0.1:8000` (same container) | web |
 | `APP_ORIGIN` | `https://easyapply-staging.onrender.com` | web |
 | `PROXY_ALLOWED_HOSTS` | `easyapply-staging.onrender.com` | web |
-| `ENTRA_AUTHORITY`, `ENTRA_CLIENT_ID`, `ENTRA_CLIENT_SECRET` | from the tenant (§6); the secret is server-side only | web |
+| `ENTRA_AUTHORITY`, `ENTRA_CLIENT_ID`, `ENTRA_CLIENT_SECRET` | `https://login.microsoftonline.com/3c8c5c0f-14d5-4f04-bec5-18052a32d8c5/v2.0`, `d9d86fc1-bd56-4923-8eb7-6579b35c2931`, secret (created by `az ad app credential reset`, **expires 2027-09-26**; server-side only) | web |
 | `PROXY_ALLOWED_EXTENSION_IDS` | `jjhciekcmhmngciccfgignmmlgjknakk` | web |
 | `NEXT_TELEMETRY_DISABLED` | `1` | web |
 
@@ -149,41 +150,51 @@ made by re-creating the service (it is stateless — everything is in the
 database) with [`deploy/staging/render_create_service.py`](../deploy/staging/render_create_service.py),
 or in the dashboard (Service → Environment).
 
-## 6. Entra External ID
+## 6. Identity (Microsoft Entra)
 
-**No tenant exists.** What was tried, in order:
+**What is configured (2026-09-26):**
 
-1. `az login` as the owner's personal Microsoft account succeeded, but the
-   account belongs to **no Azure directory** (`az account list --all` empty with
-   `--allow-no-subscriptions`), so there is nowhere to create a tenant.
-2. `https://aka.ms/ciam-free-trial` (the documented no-subscription trial) now
-   redirects to the Azure free-account sign-up page.
-3. The Microsoft Entra External ID VS Code extension (`ms-azuretools.ms-entra`
-   1.0.10) "Set up a free trial": its log shows
+| | |
+|---|---|
+| Tenant | `3c8c5c0f-14d5-4f04-bec5-18052a32d8c5` — "Default Directory", `karrisubhash643gmail.onmicrosoft.com`, a **workforce** Microsoft Entra ID tenant (Entra ID Free; no Azure subscription). The owner's account is its Global Administrator. |
+| App registration | `EasyApply Staging`, client id `d9d86fc1-bd56-4923-8eb7-6579b35c2931`, single tenant (`AzureADMyOrg`) |
+| Redirect URIs (Web) | `https://easyapply-staging.onrender.com/api/auth/callback`, `https://easyapply-staging.onrender.com/signed-out` |
+| Permissions | Microsoft Graph delegated `openid`, `profile`, `email`; **admin consent granted** |
+| Token configuration | `email` optional claim on the ID token |
+| App role | `EasyApply.Operator` (assigned to nobody) |
+| Client secret | `render-staging`, expires **2027-09-26** — rotate before (create, re-create the service, delete the old one) |
+| Test users | `staging-tester-a@…` and `staging-tester-b@…` (member accounts; passwords kept outside the repo) |
+
+No application code changed for this: the web app's OIDC client takes the
+authority and issuer from configuration and validates `iss` (pinned), `aud`,
+`tid`, `oid`, `nonce` — all present in workforce v2.0 ID tokens. The discovery
+document's `issuer` equals `ENTRA_ISSUER` exactly. The account key stays
+`entra:<tid>` + `oid`.
+
+**How it came to be a workforce tenant, not External ID** (the code was built
+and locally verified for External ID):
+
+1. The owner's personal Microsoft account first had **no Azure directory at all**.
+2. `https://aka.ms/ciam-free-trial` now redirects to the Azure free-account page.
+3. The External ID VS Code extension's "Set up a free trial" called
    `PUT https://main.b2cadmin.ext.azure.com/api/tenants/CreateCIAMTrialDirectoryAsync/easyapplystaging.onmicrosoft.com`
-   → **HTTP 404 "The resource you are looking for has been removed"**
-   (2026-09-26 17:12 UTC).
+   → **HTTP 404 "The resource you are looking for has been removed"** (17:12 UTC).
+4. The Azure free account needs a card; the owner has none. The owner signed up
+   for **Azure for Students**; that created the Default Directory, but **no
+   subscription appeared** (`az account list --all` empty), so an External ID
+   tenant (which must link to a subscription) still could not be created.
+5. A workforce tenant needs no subscription, and it is real Microsoft sign-in.
 
-So an External ID tenant now requires an Azure subscription. The Azure free
-account asks for a card and phone number for verification; External ID's core
-offer is free for the first 50,000 monthly active users, and nothing else in
-Azure is needed. Using another identity provider, or `dev-session` for the
-tester, was ruled out: the brief forbids changing the authentication
-architecture and forbids dev-session for external testers.
+Differences that matter for testers: **no self-service sign-up** — every tester
+is an account in this directory (a member created for them, or a guest invited
+by email, §15); the sign-in page is Microsoft's standard one, not External ID's
+branded flow. If a subscription appears later, an External ID tenant can replace
+this by configuration alone (authentication.md §10), at the cost of new accounts.
 
-Until Entra is configured the deployment **fails closed**, verified on Render:
-the API's startup check (`identity_configuration_problems`,
-`services/api/app/core/config.py`) raised *"Identity is misconfigured:
-ENTRA_TENANT_ID must be the tenant's GUID; ENTRA_ISSUER must be the tenant's
-https token issuer"*, `start.sh` stopped the container, and Render marked the
-deploy `update_failed` — nothing was ever served.
-
-Required configuration once a tenant exists (from [authentication.md](authentication.md) §10):
-redirect URIs (platform **Web**) `https://easyapply-staging.onrender.com/api/auth/callback`
-and `https://easyapply-staging.onrender.com/signed-out`; a client secret; Graph
-delegated `openid profile email` with admin consent; the `email` optional claim;
-app role `EasyApply.Operator`; a sign-up/sign-in user flow (email + password,
-collect Display Name) associated with the app.
+Before Entra was configured the deployment **failed closed**, verified on Render:
+the API's startup check raised *"Identity is misconfigured: ENTRA_TENANT_ID must
+be the tenant's GUID; ENTRA_ISSUER must be the tenant's https token issuer"*,
+`start.sh` stopped the container, and Render marked the deploy `update_failed`.
 
 ## 7. Chrome extension (staging build)
 
@@ -228,13 +239,13 @@ Render retains free-tier logs briefly; there is no external log shipping.
 ```
 # deploy the current main (auto-deploy is off on purpose)
 git push origin main
-render deploys create srv-dartamojo6nc739brjl0 --wait
+render deploys create srv-das0srfpn0mc73eclbc0 --wait
 
 # restart without a build
-render restart srv-dartamojo6nc739brjl0
+render restart srv-das0srfpn0mc73eclbc0
 
 # rollback: redeploy an earlier commit
-render deploys create srv-dartamojo6nc739brjl0 --commit <sha> --wait
+render deploys create srv-das0srfpn0mc73eclbc0 --commit <sha> --wait
 ```
 
 Migrations run at start and are additive in this revision; a rollback past a
@@ -244,12 +255,15 @@ would be lost — f1a9d3c5b7e2, a7c3e5f19b20).
 ## 11. Teardown
 
 ```
-render services delete srv-dartamojo6nc739brjl0 --confirm
+render services delete srv-das0srfpn0mc73eclbc0 --confirm
 render postgres delete easyapply-staging-db --confirm      # deletes all staging data
+az ad app delete --id d9d86fc1-bd56-4923-8eb7-6579b35c2931
+az ad user delete --id staging-tester-a@karrisubhash643gmail.onmicrosoft.com
+az ad user delete --id staging-tester-b@karrisubhash643gmail.onmicrosoft.com
 ```
 
-Then delete the Entra trial tenant (Entra admin center → Manage tenants) and,
-if wanted, the GitHub repo. Nothing else was created.
+Keep the Default Directory itself — it is the owner's account directory, not
+something this deployment created. Delete the GitHub repo only if wanted.
 
 ## 12. Custom domain (later, optional)
 
@@ -260,17 +274,44 @@ new origin in the Entra app registration.
 
 ## 13. Test results (2026-09-26)
 
-**On Render (real):**
+**Live, against https://easyapply-staging.onrender.com** (headless Chromium with
+the staging extension loaded, from the development machine over the public
+internet; real Microsoft sign-in; `deploy/staging/live_check.mjs`):
 
-| Check | Result |
-|---|---|
-| Database created | `easyapply-staging-db`: free, PostgreSQL 18, virginia, `ipAllowList: []`, status available, expires 2026-10-26 |
-| Service created from the private repo | `easyapply-staging` → `https://easyapply-staging.onrender.com` (the configured `APP_ORIGIN`) |
-| Image build on Render | succeeded (commit `5426685`) |
-| Migrations on Render Postgres, over the internal URL | all 16 revisions through `a7c3e5f19b20` applied |
-| Startup without Entra configuration | **refused** — `Identity is misconfigured: ENTRA_TENANT_ID …; ENTRA_ISSUER …`; container stopped; deploy `update_failed`; nothing served |
-| Public URL | TLS connects to Render's edge; the request is held with no response (no live deploy) |
-| Entra sign-in, browser workflow, extension, second user, failure tests **on staging** | **not run** — blocked on the tenant (§6, §15) |
+| Area | Check | Result |
+|---|---|---|
+| Platform | Database | free, PG 18, virginia, `ipAllowList: []`, expires 2026-10-26; all 16 migrations applied over the internal URL |
+| | Deploy | image built on Render; `live` 150 s after creation; real cold start ~14 s (restart logs: migrate 18:51:59 → API 18:52:05 → Next ready 18:52:13 UTC) |
+| | Health | `/api/health` 200; `/api/health/ready` 200, `auth_mode: entra`, all checks `ok` |
+| | Edge | `http://` → 301 `https://`; API `/docs`, `/openapi.json` → 404 (the API is not public); proxy without a session → 401 |
+| Sign-in | A and B | real `login.microsoftonline.com` sign-in (email, password, "Stay signed in? No"); no MFA prompt; session `mode=entra` |
+| | Cookie | `__Host-easyapply_session`: Secure, HttpOnly, SameSite=Lax, host-only |
+| | Sign-out | Entra end-session → `/signed-out`; session `authenticated: false` |
+| Web | Resume | upload (golden resume) → processed → draft version 1 → **confirmed** |
+| Extension — Greenhouse `anthropic/jobs/5191226008` | Capture | content script ran; review showed "Saving as Staging Tester A"; saved; full description captured (6,948 chars) |
+| | Requirements | **0 structured requirements** — the rule-based reader found only 5 responsibilities (§14; identical with the local code, not a deployment defect) |
+| | Match / tailor | match created (0 requirement results, as above); tailored resume → **DOCX 37,955 bytes**, valid zip, `Anthropic-Software-Engineer-Research-Data-Platform-v1.docx` |
+| | Application form | detected (26 fields) → 6 answers proposed, 7 sensitive questions left to the person → **filled 6 fields** → report "EasyApply hasn't submitted anything"; page stayed on the posting; **nothing submitted** |
+| Extension — Greenhouse `twilio/jobs/8015771` | Requirements, match, evidence | 24 required / 10 preferred → match with 34 requirement results → evidence page fully rendered (coverage bars, per-requirement verdicts, cited profile items) |
+| Extension — Lever `palantir/ab7e3425…` | Capture, requirements | saved (10,397 chars); 0 structured requirements (same reader limitation) |
+| | `/apply` form | 7 answers proposed → **filled 7 fields** → "hasn't submitted anything"; stayed on `/apply`; nothing submitted |
+| Isolation (B vs A) | Direct reads | B → **404** for A's job, job requirements, job matches, match, tailored resume, tailored DOCX, resume document, resume result, profile version, Lever job, Twilio job, Twilio match (12/12) |
+| | Lists | B's jobs, resumes and tailored-resume lists: 200, empty — none of A's |
+| | Extension | B's popup on the same posting: "Saving as Staging Tester B", nothing of A |
+| | Account switch, one browser | A signed in → sign out → popup "Sign in to EasyApply to save this job." → B signs in → popup "Saving as Staging Tester B", nothing of A |
+| Failures | Signed out | proxy 401 `session_required`; popup asks for sign-in |
+| | Tampered session | modified cookie → 401 `session_required` (a truly expired one takes the same path; lifetime 8 h) |
+| | Unsupported site | Wikipedia page → popup "Not a supported job page." |
+| | Invalid job page | Greenhouse board page → "No single job here."; no save |
+| | Resume processing failure | corrupt PDF → "Processing failed while reading the text. The PDF could not be read. It may be damaged. Reference: malformed_pdf. Another attempt would fail the same way." |
+| | Tailoring refused | without a confirmed profile → 409 "This profile has no confirmed version yet. Confirm a version before tailoring." |
+| | Database unavailable | `render postgres suspend`: `/api/health` 200, `/api/health/ready` **503** `database: unavailable`; signed-in API calls 500 "Internal Server Error" (no internals); dashboard "Your profile could not be loaded."; after `resume`, ready 200 with no restart |
+| | API / worker unavailable | not separable here (one container): if either process exits, `start.sh` stops the container and Render restarts it — seen on the first, Entra-less deploy |
+| Persistence | Restart | `render restart` → a new container (logs) → A's 3 jobs and 1 tailored run intact; DOCX re-downloaded **byte-identical** (SHA-256 `aa23af27f783ab71…`) |
+
+Not yet a test from *outside* the development environment: the browser ran on
+the development machine (reaching Render over the internet, no local service
+involved). The first external tester's session is that test.
 
 **The same image, locally, under the free instance's limits** (`docker run
 --memory 512m --cpus 0.1`, PostgreSQL 18.6):
@@ -300,19 +341,28 @@ web type-check and lint of the changed files clean; web Playwright e2e **27/27**
 (including the Entra flows against the local provider); extension browser suite
 **15/15** (stub) and **15/15** (real stack).
 
-Cross-user isolation (404 for another user's jobs, profiles, resumes, matches,
-tailored resumes and artifacts) is covered by the backend and browser suites;
-it has **not** been exercised on the staging deployment itself.
+Cross-user isolation is covered by the suites and was also exercised on the
+staging deployment itself (table above).
 
 ## 14. Known limitations (free tier)
 
 - **Database deleted 2026-10-26** (30 days after creation), with no backups and
   no point-in-time restore. Everything — accounts, profiles, jobs, documents —
   goes with it. Upgrading the database plan before then keeps it.
-- **Entra trial tenant: 30 days**, then it needs an Azure subscription.
-- **Sleeps after 15 minutes idle**; the next request waits for a cold start
-  (~75 s measured under the same limits locally). Open the web app first to wake
-  it before using the extension.
+- **Identity is a workforce Entra ID tenant, not External ID** (§6): no
+  self-service sign-up; each tester needs an account made or invited for them.
+- **Real postings the job reader does not parse.** On the Anthropic (Greenhouse)
+  and Palantir (Lever) postings the deterministic job structurer found **no
+  structured requirements** (their headings — "What We Require", "You may be a
+  good fit if you" — are not ones it recognises), so their match is empty and
+  tailoring has nothing to aim at. The local code gives the identical result; 18
+  of 20 other live Greenhouse postings scanned did yield requirements. A product
+  finding, deliberately not changed in this deployment task.
+- **A database outage** reaches a signed-in user as a generic 500 and "could not
+  be loaded" messages — honest, but it does not say "try again shortly".
+- **Sleeps after 15 minutes idle**; the next request waits for the instance to
+  start again (~14 s of container start measured on Render, plus Render's own
+  wake-up). Open the web app first to wake it before using the extension.
 - **512 MB RAM / 0.1 CPU, one instance**: measured ~185 MB idle, ~230 MB during a
   resume + tailoring run. OCR of image-only PDFs is slow at 0.1 CPU. One worker
   thread per queue.
@@ -330,39 +380,28 @@ it has **not** been exercised on the staging deployment itself.
   extension built with that key has the same id. The Web Store listing (later)
   fixes this.
 - The operator screen needs the `EasyApply.Operator` app role; nobody holds it.
+- **The Entra client secret expires 2027-09-26.**
 
-## 15. What remains before an external tester can use it
+## 15. Giving it to an external tester
 
-In order. Steps 2-6 are CLI work once step 1 is done; nothing in the
-application changes.
+1. **An account for them** in the tenant (§6), one of:
+   - *Member account (the tested path):*
+     `az ad user create --display-name "<Name>" --user-principal-name <name>@karrisubhash643gmail.onmicrosoft.com --password <temporary> --force-change-password-next-sign-in true`,
+     then send the username and temporary password privately; they choose their
+     own password at first sign-in.
+   - *Guest with their own email (not yet exercised):* a Microsoft Graph
+     invitation (`POST /v1.0/invitations`, redirect
+     `https://easyapply-staging.onrender.com`); they accept by email and sign in
+     with a one-time passcode or their own Microsoft/Google account.
+2. **Send them:** the URL; `apps/extension/.artifacts/easyapply-extension-staging.zip`
+   with §7's install steps; and three notes — open the web app first (it may take
+   a few seconds to wake), sign in there before using the extension, and
+   EasyApply never submits an application (they review and submit themselves).
+3. **Their first session, from their own computer,** is the one check not yet
+   done: a browser outside the development environment.
 
-1. **Owner:** sign up for an Azure free account with the same Microsoft account
-   (card + phone for verification; nothing billable is created).
-2. `az login`; register `Microsoft.AzureActiveDirectory`; create a resource group
-   and an External ID tenant (`Microsoft.AzureActiveDirectory/ciamDirectories`,
-   location United States) — or Entra admin center → Manage tenants → Create →
-   External. Then `az login --tenant <tenant>.onmicrosoft.com --allow-no-subscriptions`.
-3. In the tenant (§6 list): app registration (single tenant, Web redirect URIs
-   `https://easyapply-staging.onrender.com/api/auth/callback` and `/signed-out`),
-   service principal, client secret with a recorded expiry, Graph `openid profile
-   email` + admin consent, `email` optional claim, app role `EasyApply.Operator`;
-   user flow (email + password, collect Display Name) associated with the app;
-   two test users (A, B).
-4. Confirm `ENTRA_ISSUER` against the tenant's discovery document, write the five
-   values to a JSON file **outside the repo**, then
-   `render services delete easyapply-staging --confirm` and
-   `python deploy/staging/render_create_service.py --entra <file>`; wait for the
-   deploy to be `live`; `GET /api/health/ready` must answer 200 with every check `ok`.
-5. Real test on staging: sign in as A; `deploy/staging/smoke_flow.py` with A's
-   session cookie; the browser + staging-extension workflow on a real
-   Greenhouse and Lever posting (save → requirements → match → evidence →
-   tailor → DOCX → application form → review → fill approved fields → **stop,
-   never submit**); B cannot see A's jobs, profiles, resumes, matches, tailored
-   resumes or artifacts (404), and the extension shows B's state after an
-   account switch; failure cases (signed out, expired session, unsupported site,
-   invalid job page, a corrupt resume, the database suspended with
-   `render postgres suspend`).
-6. Send the tester: the URL, `easyapply-extension-staging.zip` and §7's install
-   steps, and a note that the first visit after 15 idle minutes takes about a
-   minute. Only their first session, from their own computer, is a test from
-   outside the development environment.
+Before production (not in scope for staging): a database plan with backups, an
+object store instead of documents in Postgres, the API as its own private
+service, rate limiting, error tracking and log shipping, a Chrome Web Store
+listing, and a decision between External ID and this workforce tenant — see
+[production-infrastructure-2026-09-26.md](production-infrastructure-2026-09-26.md).
