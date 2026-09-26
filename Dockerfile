@@ -9,6 +9,7 @@
 # Resume processing and tailoring run in the API process's own queues, and
 # documents are kept in PostgreSQL (STORAGE_BACKEND=database) because the
 # container filesystem does not survive a restart. Build context: the repo root.
+# At the root because that is where the Render CLI and dashboard look for it.
 
 # --- the web app, built -------------------------------------------------------
 FROM node:22.17.0-bookworm-slim AS web

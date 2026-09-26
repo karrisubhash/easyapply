@@ -1,4 +1,4 @@
-# Build context for deploy/staging/Dockerfile (the repository root).
+# Build context for ./Dockerfile (the repository root).
 # Above all never in an image: a developer's .env files (real keys) and
 # services/api/var/ (uploaded resumes, generated documents, evaluation captures).
 **/.env

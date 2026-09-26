@@ -35,7 +35,7 @@ services:
     runtime: docker
     plan: free
     region: virginia
-    dockerfilePath: ./deploy/staging/Dockerfile
+    dockerfilePath: ./Dockerfile
     dockerContext: .
     # Liveness of the web process only (the API is checked before it starts —
     # deploy/staging/start.sh). Readiness is /api/health/ready.

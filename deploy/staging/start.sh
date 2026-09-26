@@ -1,5 +1,5 @@
 #!/bin/bash
-# Free-tier staging: both processes in one container (deploy/staging/Dockerfile).
+# Free-tier staging: both processes in one container (./Dockerfile).
 #
 #   1+2. Migrate, then serve the API on loopback, in one interpreter
 #      (services/api/deploy/migrate_and_serve.py). The free tier has no
