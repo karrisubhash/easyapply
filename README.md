@@ -129,9 +129,6 @@ npm run test --workspace @easyapply/extension             # extension unit + flo
 npm run test:browser --workspace @easyapply/extension     # built extension in Chromium
 ```
 
-## Screenshots
-
-<!-- TODO(Subhash): add 3 screenshots (dashboard, match explanation, extension popup) -->
 
 ## Roadmap
 
